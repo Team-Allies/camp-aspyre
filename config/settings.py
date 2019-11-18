@@ -40,9 +40,15 @@ INSTALLED_APPS = [
 
     # Django Project
     'core',
+
+    # Third-Party
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
+    # Third-Party
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # Django Project 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -121,3 +127,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# MANUALLY ADDED
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
