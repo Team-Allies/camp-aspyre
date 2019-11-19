@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     # Third-Party
     'debug_toolbar',
+
 ]
 
 MIDDLEWARE = [
