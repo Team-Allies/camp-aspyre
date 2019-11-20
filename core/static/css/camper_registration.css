@@ -1,0 +1,92 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.main_content_wrapper {
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-bottom: 1rem;
+}
+
+.camper_registration_form {
+    font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    background-color: white;
+    margin-top: 0.5rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    margin-bottom: 0.5rem;
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-bottom: 1rem;
+    border-top: 10px solid rgb(128, 165, 246);
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.camper_registration_header {
+    border-bottom: .5px solid gray;
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.camper_registration_info {
+    font-size: .7rem;
+    margin-top: 0rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.text_field {
+    margin-top: 2rem;
+    margin-left: 1rem;
+}
+
+.boolean_field {
+    margin-top: 2rem;
+    margin-left: 1rem;
+}
+
+.field_title {
+    font-size: 1rem;
+    margin-top: 2rem;
+}
+
+.hint_text {
+    margin-top: 0.2rem;
+    font-size: 0.7rem;
+}
+
+.input_field {
+    width: 95%;
+    margin-top: 1rem;
+    padding-top: 0.3rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-bottom: 0.3rem;
+}
+
+.boolean {
+    width: 25px;
+}
+
+.submit_button {
+    margin-top: 2rem;
+    margin-left: 1rem;
+    padding-top: 0.2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-bottom: 0.2rem;
+}

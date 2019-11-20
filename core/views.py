@@ -1,4 +1,4 @@
 from django.shortcuts import render
 
-def base(request):
-    return render(request, 'base.html')
+def camper_registration(request):
+    return render(request, 'core/camper_registration.html')
