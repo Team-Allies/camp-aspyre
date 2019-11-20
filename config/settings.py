@@ -143,3 +143,5 @@ INTERNAL_IPS = [
 # Configure Django App for Heroku.
 import django_heroku
 django_heroku.settings(locals())
+
+AUTH_USER_MODEL = 'core.User'
