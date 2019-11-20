@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/camper_registration.css' %}">
+    <div class="main_content_wrapper">
+        <form class="camper_registration_form">
+            <div class="camper_registration_header">
+                <h1>[camp_year] ASPYRE Registration</h1>
+            </div>
+            <div class="camper_registration_info">
+                <p class="camper_registration_info"> Thank you for your interest in attending the [camp_year] ASPYRE Leadership Camp located at Camp Weaver in Greensboro, NC on [start_day], [start_month] [start_date_int], [start_year] at [start_time] [AM_PM] through [end_day], [end_month] [end_date_int], [end_year] at [end_time] [AM_PM]. The camp is a leadership retreat for LGBTQ youth and allies ages 13-17, or 18 and still in high school. You will be creating an action plan for a change you want to see in your community and learning the skills you need to jump start your effort. You will also have the opportunity to network with other LGBTQ youth from across the state, make new friendships, and get inspired.</p>
+
+                <p class="camper_registration_info"> Before you register, please note, the camp will cover many sensitive topics that can potentially be triggering. We will attempt to sufficiently warn you, however the camp is designed to prepare you to lead a movement in your community where you may have to face these topics. Parental permission for all attendees under 18 will be required for this overnight event.  If you have questions, please contact <a href=''>athomas@lgbtcenterofraleigh.com.</a>  We look forward to having you join us for this great event sponsored by the LGBT Center of Raleigh.</p>
+
+                <p class="camper_registration_info"> Please note that transportation must be provided to and from the camp as we are not able to provide that service this year. Once registered, you will be invited to the Facebook group specific to camp attendees. You are welcome to coordinate carpooling if desired. However, please keep in mind that the LGBT Center of Raleigh and the ASPYRE Leaders (youth or adult) are not responsible for coordinating, follow through of transportation or incidents occurring while carpooling.</p>
+            </div>
+            <div class="boolean_field">
+                <h3 class="field_title">Have you previously attended ASPYRE?</h3>
+                <p class="hint_text">Note: We are limiting attendance to 50 and first time attendees will be given priority</p>
+                <input class="input_field boolean" type="radio" name="true_false" value="Yes">Yes<br>
+                <input class="input_field boolean" type="radio" name="true_false" value="No">No<br>
+            </div>
+            <div class="text_field">
+                <h3 class="field_title">Legal Full Name</h3>
+                <input class="input_field" type="text" name="legal_first_name">
+            </div>
+            <div class="text_field">
+                <h3 class="field_title">Preferred Name</h3>
+                <p class="hint_text">What you want us to call you.</p>
+                <input class="input_field" type="text" name="preferred_name">
+            </div>
+            <div class="text_field">
+                <h3 class="field_title">Preferred Pronouns</h3>
+                <p class="hint_text">(he/his, she/hers, they/theirs, etc.)</p>
+                <input class="input_field" type="text" name="preferred_pronouns">
+            </div>
+            <div class="text_field">
+                <h3 class="field_title">Date of Birth</h3>
+                <p class="hint_text">Must be 13 to 17, or 18 and still in highschool at time of event</p>
+                <input class="input_field" type="date">
+            </div>
+            <div class="text_field">
+                <h3 class="field_title">Street Address</h3>
+                <input class="input_field" type="text" name="street_address">
+            </div>
+            <div class="text_field">
+                <h3 class="field_title">City</h3>
+                <input class="input_field" type="text" name="city">
+            </div>
+            <div class="text_field">
+                <h3 class="field_title">State</h3>
+                <p class="hint_text">(Example: NC)</p>
+                <input class="input_field" type="text" name="state">
+            </div>
+            <div class="text_field">
+                <h3 class="field_title">Zip Code</h3>
+                <p class="hint_text">(Example: 27601)</p>
+                <input class="input_field" type="text" name="zip_code">
+            </div>
+            <div class="text_field">
+                <h3 class="field_title">Phone Number</h3>
+                <p class="hint_text">Must include area code (Example: 012-345-6789)</p>
+                <input class="input_field" type="text" name="phone_number">
+            </div>
+            <div class="text_field">
+                <h3 class="field_title">Email</h3>
+                <input class="input_field" type="text" name="email">
+            </div>
+            <div class="text_field">
+                <h3 class="field_title">Name of School</h3>
+                <input class="input_field" type="text" name="name_of_school">
+            </div>
+            <div class="text_field">
+                <h3 class="field_title">How did you hear about the camp?</h3>
+                <p class="hint_text">(LGBT Center Website, GSA, Invite from Volunteer, Teacher, Counselor, etc.)</p>
+                <input class="input_field" type="text" name="how_did_you_hear_about_us">
+            </div>
+            <div class="text_field">
+                <h3 class="field_title">Are you on Facebook? If so, would you like to be added to the ASPYRE group?</h3>
+                <p class="hint_text">Please write in if you use a different name on Facebook. A Youth Leader will be sending you a friend request to add you to the group.</p>
+                <input class="input_field" type="text" name="facebook">
+            </div>
+            <div class="text_field">
+                <h3 class="field_title">What do you hope to gain from your experience at ASPYRE?</h3>
+                <input class="input_field" type="text" name="hope_to_gain">
+            </div>
+            <div class="text_field">
+                <h3 class="field_title">Dietary Restrictions</h3>
+                <p class="hint_text">(None, Vegetarian, Vegan, Allergies, etc.)</p>
+                <input class="input_field" type="text" name="dietary_restrictions">
+            </div>
+            <div class="text_field">
+                <h3 class="field_title">T-Shirt Size</h3>
+                <input class="input_field" type="text" name="tshirt_size">
+            </div>
+            <div class="boolean_field">
+                <h3 class="field_title">Please verify that you understand that potentially sensitive topics will be covered at this camp.</h3>
+                <input class="input_field boolean" type="checkbox" name="verify_understanding" value="yes">Yes, I Understand
+            </div>
+            <div class="text_field">
+                <h3 class="field_title">Please describe any addition accomodations that you may need while at the camp.</h3>
+                <input class="input_field" type="text" name="additional_accomodations">
+            </div>
+            <button  class="submit_button" onclick="" value="Submit">Submit</button>
+        </form>
+    </div>
+
+{% endblock %}
