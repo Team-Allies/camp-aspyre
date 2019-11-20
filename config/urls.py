@@ -21,7 +21,7 @@ from core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.base),
+    path('', views.camper_registration),
 ]
 
 if settings.DEBUG:
