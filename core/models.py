@@ -4,18 +4,35 @@ from django.urls import reverse
 
 # Create your models here.
 
+
 class User(AbstractUser):
+    roles = models.ManyToManyField(to='Role')
+
+
+class Role(models.Model):
+
+    PARENT = 1
+    NURSE = 2
+    GENERAL_STAFF = 3
+    ADMIN = 4
+    ROLE_CHOICES = (
+        (PARENT,  'Parent'),
+        (NURSE, 'Nurse'),
+        (GENERAL_STAFF, 'General Staff'),
+        (ADMIN, 'Admin Staff'),
+    )
+
+    id = models.PositiveIntegerField(choices=ROLE_CHOICES, primary_key=True)
+
+    def __str__(self):
+        return self.get_id_display()
+
+
+class Registration (models.Model):
+    user = models.ForeignKey(to='User', on_delete=models.CASCADE)
+    camper = models.ForeignKey(to='Camper', on_delete=models.CASCADE)
     camp = models.ForeignKey(to='Camp', on_delete=models.CASCADE)
 
-    is_admin_staff = models.BooleanField(default=False)
-
-    is_parent = models.BooleanField(default=False)
-
-    is_nurse = models.BooleanField(default=False)
-
-    is_volunteer = models.BooleanField(default=False)
-
-    is_general_staff = models.BooleanField(default=False)
 
 class Camper(models.Model):
     user = models.ForeignKey(to='User', on_delete=models.CASCADE)
@@ -50,8 +67,9 @@ class Camper(models.Model):
     accomodations = models.CharField(max_length=255, blank=True)
     sponsor_org = models.CharField(max_length=255, blank=True)
 
+
 class Camp (models.Model):
-    camper = models.ManyToManyField(to='Camper')
+    campers = models.ManyToManyField(to='Camper', through='Registration')
 
     name_of_camp = models.CharField(max_length=255)
     # dates =
@@ -61,6 +79,11 @@ class Camp (models.Model):
     time_of_arrival = models.CharField(max_length=255)
     time_of_departure = models.CharField(max_length=255)
     meeting_place_for_carpool = models.CharField(max_length=255)
+
+
+
+
+
 
 
 
