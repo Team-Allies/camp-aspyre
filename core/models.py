@@ -53,7 +53,7 @@ class Camper(models.Model):
     facebook = models.CharField(max_length=255)
     gain_from_camp = models.CharField(max_length=255)
     dietary_restrictions = models.CharField(max_length=255)
-    tshirt_size_choices = [
+    TSHIRT_SIZE_CHOICES = [
         ('XS', 'XS'),
         ('S', 'S'),
         ('M', 'M'),
@@ -62,7 +62,7 @@ class Camper(models.Model):
         ('XXL', '2XL'),
         ('XXXL', '3XL'),
     ]
-    tshirt_size = models.CharField(max_length=5, choices=tshirt_size_choices)
+    tshirt_size = models.CharField(max_length=5, choices=TSHIRT_SIZE_CHOICES)
     verify_sensitive_topics = models.BooleanField()
     accomodations = models.CharField(max_length=255, blank=True)
     sponsor_org = models.CharField(max_length=255, blank=True)
