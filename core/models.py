@@ -32,6 +32,7 @@ class Registration (models.Model):
     user = models.ForeignKey(to='User', on_delete=models.CASCADE)
     camper = models.ForeignKey(to='Camper', on_delete=models.CASCADE)
     camp = models.ForeignKey(to='Camp', on_delete=models.CASCADE)
+    created_at = models.DateField(auto_now_add=True)
 
 
 class Camper(models.Model):
@@ -72,12 +73,12 @@ class Camp (models.Model):
     campers = models.ManyToManyField(to='Camper', through='Registration')
 
     name_of_camp = models.CharField(max_length=255)
-    # dates =
+    start_date = models.DateField(null=True)
+    end_date = models.DateField(null=True)
     street_address_location = models.CharField(max_length=255)
     city_location = models.CharField(max_length=255)
-    # look this up later
-    time_of_arrival = models.CharField(max_length=255)
-    time_of_departure = models.CharField(max_length=255)
+    time_of_arrival = models.TimeField()
+    time_of_departure = models.TimeField()
     meeting_place_for_carpool = models.CharField(max_length=255)
 
 
