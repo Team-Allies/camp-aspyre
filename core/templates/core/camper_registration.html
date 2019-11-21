@@ -19,89 +19,89 @@
             <div class="boolean_field">
                 <h3 class="field_title">Have you previously attended ASPYRE?</h3>
                 <p class="hint_text">Note: We are limiting attendance to 50 and first time attendees will be given priority</p>
-                <input class="input_field boolean" type="radio" name="true_false" value="Yes">Yes<br>
-                <input class="input_field boolean" type="radio" name="true_false" value="No">No<br>
+                {{ form.previously_attended }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">Legal Full Name</h3>
-                <input class="input_field" type="text" name="legal_first_name">
+                {% csrf_token %}
+                {{ form.legal_full_name }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">Preferred Name</h3>
                 <p class="hint_text">What you want us to call you.</p>
-                <input class="input_field" type="text" name="preferred_name">
+                {{ form.preferred_name }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">Preferred Pronouns</h3>
                 <p class="hint_text">(he/his, she/hers, they/theirs, etc.)</p>
-                <input class="input_field" type="text" name="preferred_pronouns">
+                {{ form.preferred_pronouns }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">Date of Birth</h3>
                 <p class="hint_text">Must be 13 to 17, or 18 and still in highschool at time of event</p>
-                <input class="input_field" type="date">
+                {{ form.date_of_birth }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">Street Address</h3>
-                <input class="input_field" type="text" name="street_address">
+                {{ form.street_address }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">City</h3>
-                <input class="input_field" type="text" name="city">
+                {{ form.city }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">State</h3>
                 <p class="hint_text">(Example: NC)</p>
-                <input class="input_field" type="text" name="state">
+                {{ form.state }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">Zip Code</h3>
                 <p class="hint_text">(Example: 27601)</p>
-                <input class="input_field" type="text" name="zip_code">
+                {{ form.zip_code }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">Phone Number</h3>
                 <p class="hint_text">Must include area code (Example: 012-345-6789)</p>
-                <input class="input_field" type="text" name="phone_number">
+                {{ form.phone_number }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">Email</h3>
-                <input class="input_field" type="text" name="email">
+                {{ form.email }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">Name of School</h3>
-                <input class="input_field" type="text" name="name_of_school">
+                {{ form.name_of_school }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">How did you hear about the camp?</h3>
                 <p class="hint_text">(LGBT Center Website, GSA, Invite from Volunteer, Teacher, Counselor, etc.)</p>
-                <input class="input_field" type="text" name="how_did_you_hear_about_us">
+                {{ form.how_heard_about }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">Are you on Facebook? If so, would you like to be added to the ASPYRE group?</h3>
                 <p class="hint_text">Please write in if you use a different name on Facebook. A Youth Leader will be sending you a friend request to add you to the group.</p>
-                <input class="input_field" type="text" name="facebook">
+                {{ form.facebook }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">What do you hope to gain from your experience at ASPYRE?</h3>
-                <input class="input_field" type="text" name="hope_to_gain">
+                {{ form.gain_from_camp }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">Dietary Restrictions</h3>
                 <p class="hint_text">(None, Vegetarian, Vegan, Allergies, etc.)</p>
-                <input class="input_field" type="text" name="dietary_restrictions">
+                {{ form.dietary_restrictions }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">T-Shirt Size</h3>
-                <input class="input_field" type="text" name="tshirt_size">
+                {{ form.tshirt_size }}
             </div>
             <div class="boolean_field">
                 <h3 class="field_title">Please verify that you understand that potentially sensitive topics will be covered at this camp.</h3>
-                <input class="input_field boolean" type="checkbox" name="verify_understanding" value="yes">Yes, I Understand
+                {{ form.verify_sensitive_topics }} <p>Yes, I understand</p>
             </div>
             <div class="text_field">
                 <h3 class="field_title">Please describe any addition accomodations that you may need while at the camp.</h3>
-                <input class="input_field" type="text" name="additional_accomodations">
+                {{ form.accomodations }}
             </div>
             <button  class="submit_button" onclick="" value="Submit">Submit</button>
         </form>
