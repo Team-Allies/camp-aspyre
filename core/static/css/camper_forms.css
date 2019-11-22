@@ -4,6 +4,40 @@
     margin: 0;
 }
 
+* ul {
+    list-style: none;
+}
+
+
+/*======================*/
+
+.toDelete {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.toDelete .medicalForm {
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+.toDelete .index {
+    margin-left: 1rem;
+    margin-right: auto;
+}
+
+.toDelete button {
+    font-size: 1.5rem;
+    padding-top: 0.2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-bottom: 0.2rem;
+}
+
+
+/*======================*/
+
 .main_content_wrapper {
     background-color: lightgray;
     display: flex;
@@ -34,6 +68,17 @@
 
 .camper_registration_header {
     border-bottom: .5px solid gray;
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.camper_medical_form {
+    border-bottom: .5px solid gray;
+    font-size: 0.7rem;
+    text-align: center;
     padding-top: 1rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;

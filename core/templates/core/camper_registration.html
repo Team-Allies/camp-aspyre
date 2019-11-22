@@ -3,12 +3,17 @@
 
 
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/camper_registration.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/camper_forms.css' %}">
     <div class="main_content_wrapper">
+        <div class="toDelete">
+            <a href="{% url 'camper_medical_form' %}"><button class="index">‹ TO INDEX</button></a>
+            <a href="{% url 'camper_medical_form' %}"><button class="medicalForm">TO MEDICAL FORM ›</button></a>
+        </div>
         <form class="camper_registration_form">
             <div class="camper_registration_header">
                 <h1>[camp_year] ASPYRE Registration</h1>
             </div>
+            
             <div class="camper_registration_info">
                 <p class="camper_registration_info"> Thank you for your interest in attending the [camp_year] ASPYRE Leadership Camp located at Camp Weaver in Greensboro, NC on [start_day], [start_month] [start_date_int], [start_year] at [start_time] [AM_PM] through [end_day], [end_month] [end_date_int], [end_year] at [end_time] [AM_PM]. The camp is a leadership retreat for LGBTQ youth and allies ages 13-17, or 18 and still in high school. You will be creating an action plan for a change you want to see in your community and learning the skills you need to jump start your effort. You will also have the opportunity to network with other LGBTQ youth from across the state, make new friendships, and get inspired.</p>
 
