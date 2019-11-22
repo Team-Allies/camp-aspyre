@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/camper_forms.css' %}">
+
+    <div class="main_content_wrapper">
+        <div class="toDelete">
+            <a href="{% url 'camper_registration' %}"><button class="index">‹ TO REGISTRATION FORM</button></a>
+        </div>
+        <form class="camper_registration_form">
+        {% csrf_token %}
+            <div class="camper_medical_form">
+                <h1>MEDICAL QUESTIONNAIRE AND EMERGENCY MEDICAL TREATMENT AUTHORIZATION FORM</h1>
+            </div>
+            <div class="camper_registration_info">
+                <p>Please type or print. This form is required for everyone under the age of 18 and suggested for all others attending ASPYRE 2019. For all attendees under the age of 18, this form must be notorized unless parent or guardian will be droppping you off directly to the camp. The original copy is to be turned in to the event coordinators.</p>
+            </div>
+            <div class="text_field">
+                <h3 class="field_title">Participant's Full Legal Name:</h3>{{ form.legal_full_name }}
+            </div>
+            <div class="text_field">
+                <h3 class="field_title">Height:</h3>{{ form.height }}
+            </div>
+            <button  class="submit_button" onclick="" value="Submit">Submit</button>
+        </form>
+    </div>
+
+{% endblock %}
