@@ -2,12 +2,13 @@ from django import forms
 from core.models import User, Camper, Camp, MedicalInformation
 from django.forms import ModelForm
 
+
 class CamperRegistrationForm(forms.Form):
   ATTENDED_CHOICES = (
     ('Yes', 'Yes'),
     ('No', 'No'),
   )
-  previously_attended = forms.ChoiceField(choices=ATTENDED_CHOICES, widget=forms.RadioSelect())
+  previously_attended = forms.ChoiceField(choices=ATTENDED_CHOICES)
   legal_full_name = forms.CharField(max_length=100)
   preferred_name = forms.CharField(max_length=255)
   preferred_pronouns = forms.CharField(max_length=255)
@@ -34,8 +35,10 @@ class CamperRegistrationForm(forms.Form):
   )
   tshirt_size = forms.ChoiceField(choices=TSHIRT_SIZE_CHOICES)
   verify_sensitive_topics = forms.BooleanField()
-  accomodations = forms.CharField(max_length=255)
-  sponsor_org = forms.CharField(max_length=255)
+  accommodations = forms.CharField(max_length=255)
+  sponsor_org = forms.CharField(max_length=255, required=False)
+  other_companies_paying = forms.CharField(max_length=255, required=False)
+
 
 # class CamperMedicalForm(forms.Form):
 #     height = models.CharField(max_length=255)
