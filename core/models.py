@@ -1,3 +1,4 @@
+import datetime
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.urls import reverse 
@@ -33,15 +34,21 @@ class Registration(models.Model):
     camper = models.ForeignKey(to='Camper', on_delete=models.CASCADE)
     camp = models.ForeignKey(to='Camp', on_delete=models.CASCADE)
     created_at = models.DateField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.camper.legal_full_name
 
 class Camper(models.Model):
     user = models.ForeignKey(to='User', on_delete=models.CASCADE)
-    
-    previously_attended = models.BooleanField()
+    ATTENDED_CHOICES = (
+        ('Yes', 'Yes'),
+        ('No', 'No'),
+    )
+    previously_attended = models.CharField(choices=ATTENDED_CHOICES, max_length=10)
     legal_full_name = models.CharField(max_length=255)
     preferred_name = models.CharField(max_length=255)
     preferred_pronouns = models.CharField(max_length=255)
-    date_of_birth = models.IntegerField
+    date_of_birth = models.DateField(default=datetime.date.today)
     street_address = models.CharField(max_length=255) 
     city = models.CharField(max_length=255)
     state = models.CharField(max_length=255)
@@ -64,7 +71,7 @@ class Camper(models.Model):
     ]
     tshirt_size = models.CharField(max_length=5, choices=TSHIRT_SIZE_CHOICES)
     verify_sensitive_topics = models.BooleanField()
-    accomodations = models.CharField(max_length=255, blank=True)
+    accommodations = models.CharField(max_length=255, blank=True)
     sponsor_org = models.CharField(max_length=255, blank=True)
     other_companies_paying = models.CharField(max_length=255, blank=True)
 
