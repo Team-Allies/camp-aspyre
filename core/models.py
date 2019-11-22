@@ -67,6 +67,7 @@ class Camper(models.Model):
     verify_sensitive_topics = models.BooleanField()
     accomodations = models.CharField(max_length=255, blank=True)
     sponsor_org = models.CharField(max_length=255, blank=True)
+    other_companies_paying = models.CharField(max_length=255, blank=True)
 
 class MedicalInformation(models.Model):
     registration = models.ForeignKey(to='Registration', on_delete=models.CASCADE)
