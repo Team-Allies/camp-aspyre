@@ -4,6 +4,10 @@
     margin: 0;
 }
 
+* ul {
+    list-style: none;
+}
+
 .main_content_wrapper {
     background-color: lightgray;
     display: flex;
