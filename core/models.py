@@ -34,7 +34,6 @@ class Registration(models.Model):
     camp = models.ForeignKey(to='Camp', on_delete=models.CASCADE)
     created_at = models.DateField(auto_now_add=True)
 
-
 class Camper(models.Model):
     user = models.ForeignKey(to='User', on_delete=models.CASCADE)
     
@@ -67,6 +66,10 @@ class Camper(models.Model):
     verify_sensitive_topics = models.BooleanField()
     accomodations = models.CharField(max_length=255, blank=True)
     sponsor_org = models.CharField(max_length=255, blank=True)
+
+    def __str__(self):
+        return self.legal_full_name
+
 
 class MedicalInformation(models.Model):
     registration = models.ForeignKey(to='Registration', on_delete=models.CASCADE)
@@ -104,8 +107,7 @@ class MedicalInformation(models.Model):
     other_allergies_illnesses = models.BooleanField()
     physical_limitations = models.CharField(max_length=255)
     details_answers = models.CharField(max_length=255)
-
-
+    
 class Camp(models.Model):
     campers = models.ManyToManyField(to='Camper', through='Registration')
 
@@ -117,6 +119,12 @@ class Camp(models.Model):
     time_of_arrival = models.TimeField()
     time_of_departure = models.TimeField()
     meeting_place_for_carpool = models.CharField(max_length=255)
+    
+    def number_of_campers(self):
+        return self.campers.count()
+    
+    def __str__(self):
+        return self.name_of_camp
 
 
 
