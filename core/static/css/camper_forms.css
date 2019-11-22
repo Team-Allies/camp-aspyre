@@ -60,7 +60,7 @@
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     padding-bottom: 1rem;
-    border-top: 10px solid rgb(128, 165, 246);
+    border-top: 10px solid #3974e9;
     border-left: 1px solid black;
     border-right: 1px solid black;
     border-bottom: 1px solid black;
@@ -68,6 +68,7 @@
 
 .camper_registration_header {
     border-bottom: .5px solid gray;
+    font-size: 1.2rem;
     padding-top: 1rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -135,11 +136,10 @@
 }
 
 .submit_button {
-    background-color: #80a6f0;
+    background-color: #3974e9;
     color: white;
-    border: 2px solid #425885;
+    border: 2px solid #0d204b;
     font-size: 1rem;
-    text-shadow: -3px 1px #425885;
     margin-top: 2rem;
     margin-left: 1rem;
     padding-top: 0.2rem;
@@ -150,11 +150,10 @@
 }
 
 .save_button {
-    background-color: #80a6f0;
+    background-color: #3974e9;
     color: white;
-    border: 2px solid #425885;
+    border: 2px solid #0d204b;
     font-size: 1rem;
-    text-shadow: -3px 1px #425885;
     margin-top: 2rem;
     margin-left: 1rem;
     padding-top: 0.2rem;
