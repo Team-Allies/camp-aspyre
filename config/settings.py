@@ -24,7 +24,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'tac%fxds*4km*xp168c*y)$^r*73z=2y26@$2_o2$9
 
 # SECURITY WARNING: don't run with debug turned on in production!
 in_production = bool(os.getenv('PRODUCTION'))
-DEBUG = True
+DEBUG = not in_production
 
 
 ALLOWED_HOSTS = ['*']
