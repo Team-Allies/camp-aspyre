@@ -48,7 +48,7 @@ class Camper(models.Model):
     legal_full_name = models.CharField(max_length=255)
     preferred_name = models.CharField(max_length=255)
     preferred_pronouns = models.CharField(max_length=255)
-    date_of_birth = models.DateField(default=datetime.date.today)
+    date_of_birth = models.DateField()
     street_address = models.CharField(max_length=255) 
     city = models.CharField(max_length=255)
     state = models.CharField(max_length=255)
