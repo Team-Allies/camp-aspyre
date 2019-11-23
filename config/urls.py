@@ -21,7 +21,7 @@ from core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('/', views.index, name="index"),
+    path('', views.index, name="index"),
     path('accounts/', include('registration.backends.simple.urls')),
     path('ASPYRE-registration/', views.camper_registration, name="camper_registration"),
     path('ASPYRE-registration-submitted', views.camper_registration_submitted, name="camper_registration_submitted"),

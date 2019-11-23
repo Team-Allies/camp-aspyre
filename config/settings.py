@@ -27,7 +27,7 @@ in_production = bool(os.getenv('PRODUCTION'))
 DEBUG = not in_production
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
