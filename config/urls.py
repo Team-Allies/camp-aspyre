@@ -22,9 +22,10 @@ from core import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
-    path('camper_registration/', views.camper_registration, name="camper_registration"),
-    path('camper_registration_submitted', views.camper_registration_submitted, name="camper_registration_submitted"),
-    path('camper_medical_form/', views.camper_medical_form, name="camper_medical_form"),
+    path('accounts/', include('registration.backends.simple.urls')),
+    path('ASPYRE-registration/', views.camper_registration, name="camper_registration"),
+    path('ASPYRE-registration-submitted', views.camper_registration_submitted, name="camper_registration_submitted"),
+    path('ASPYRE-Medical-Form/', views.camper_medical_form, name="camper_medical_form"),
 ]
 
 if settings.DEBUG:
