@@ -33,6 +33,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+
+    # django-registration-redux
+    'registration',
+
+    # Django Defaults
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,14 +48,16 @@ INSTALLED_APPS = [
     # Django Project
     'core',
 
-    # Third-Party
+    # django-debug-toolbar
     'debug_toolbar',
 
 ]
 
 MIDDLEWARE = [
-    # Third-Party
+
+    # django-debug-toolbar
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+
     # Django Project 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -145,3 +152,15 @@ import django_heroku
 django_heroku.settings(locals())
 
 AUTH_USER_MODEL = 'core.User'
+
+# django-registration-redux:
+
+# This is the number of days users will have to activate their accounts after registering. 
+# If a user does not activate within that period, the account will remain permanently inactive 
+# and may be deleted by maintenance scripts provided in django-registration-redux.
+ACCOUNT_ACTIVATION_DAYS = 7
+
+# (Optional) If this is True, your users will automatically 
+# log in when they click on the activation link in their email.
+REGISTRATION_AUTO_LOGIN = True
+
