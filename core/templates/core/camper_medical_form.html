@@ -3,28 +3,821 @@
 
 {% block content %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'css/camper_forms.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/camper_medical_form.css' %}">
 
     <div class="main_content_wrapper">
+
         <div class="toDelete">
             <a href="{% url 'camper_registration' %}"><button class="index">‹ TO REGISTRATION FORM</button></a>
         </div>
-        <form class="camper_registration_form">
+
+        <form class="camper_medical_form">
         {% csrf_token %}
-            <div class="camper_medical_form">
-                <h1>MEDICAL QUESTIONNAIRE AND EMERGENCY MEDICAL TREATMENT AUTHORIZATION FORM</h1>
+
+            <div id="top_of_page" class="camper_medical_form_logo_container">
+                <img class="camper_medical_form_logo" src="{% static 'assets/ASPYRE_main_logo.png' %}">
             </div>
-            <div class="camper_registration_info">
-                <p>Please type or print. This form is required for everyone under the age of 18 and suggested for all others attending ASPYRE 2019. For all attendees under the age of 18, this form must be notorized unless parent or guardian will be droppping you off directly to the camp. The original copy is to be turned in to the event coordinators.</p>
+
+            <div class="camper_medical_form_title_container">
+                <h1>A Safer Place for Youth to Reach for Excellence</h1>
+                <h2>{{ camp.start_date.year }} Leadership Camp Confirmation Packet</h2>
             </div>
-            <div class="text_field">
-                <h3 class="field_title">Participant's Full Legal Name:</h3>{{ form.legal_full_name }}
+
+            <ol class="table_of_contents">
+                <li><a href="#section1">BASIC CONTACT INFO</a></li>
+                <li><a href="#section2">MEDICATIONS</a></li>
+                <li><a href="#section3">DIETARY PREFERRENCES/ALLERGIES</a></li>
+                <li><a href="#section4">PHYSICAL HEALTH HISTORY/IMMUNIZATIONS</a></li>
+                <li><a href="#section5">MENTAL HEALTH HISTORY</a></li>
+                <li><a href="#section6">AUTHORIZATIONS</a></li>
+                <li><a href="#section7">COMMUNITY VALUES AGREEMENT</a></li>
+                <li><a href="#section8">PARENT/GUARDIAN AND PARTICIPANT RELEASE</a></li>
+                <li><a href="#section9">ITEMS TO BRING</a></li>
+                    <ul class="ul">
+                        <li>Keep as a checklist of what to bring with you</li>
+                    </ul>
+                <li><a href="#section10">EMERGENCY CONTACTS AND DIRECTIONS</a></li>
+                    <ul class="ul">
+                        <li>Leave with Parent</li>
+                    </ul>
+                <li><a href="#section11">DIRECTIONS TO THE CAMP</a></li>
+                    <ul class="ul">
+                        <li>Bring along as back-up to your GPS</li>
+                    </ul>
+            </ol>
+
+            <div class="divider"></div>
+
+            <section id="section1" class="section">
+                <div class="section_header">
+                    <h3>SECTION 1 - Basic Contact Info</h3>
+                    <p><a href="#top_of_page">Jump to Top</a></p>
+                </div>
+                <div class="section_content">
+                    <div class="text_field">
+                        <h5 class="field_title">Name of Youth Attending:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Youth's Legal Name:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Date of Birth:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Age:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Youth's Pronouns:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Home Address:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Parent/Guardian Name:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Phone #:</h5>
+                    </div>
+                    <div class="boolean_field">
+                        <h5 class="field_title">[] Home [] Work [] Cell</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Parent/Guardian Name:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Phone #:</h5>
+                    </div>
+                    <div class="boolean_field">
+                        <h5 class="field_title">[] Home [] Work [] Cell</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Parent/Guardian Name:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Phone #:</h5>
+                    </div>
+                    <div class="boolean_field">
+                        <h5 class="field_title">[] Home [] Work [] Cell</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Emergency Contact Name:</h5>
+                        <p class="hint_text">(If parent/guardian cannot be reached)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Phone #:</h5>
+                    </div>
+                    <div class="boolean_field">
+                        <h5 class="field_title">[] Home [] Work [] Cell</h5>
+                    </div>
+                    <div class="boolean_field">
+                        <h5 class="field_title">My child can be picked up by either guardian and/or emergency contact:</h5>
+                    </div>
+                    <div class="boolean_field">
+                        <h5 class="field_title">[] YES [] NO</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">If no, please list the name of the person NOT authorized to pick up your child:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">List the full name and phone number of any other adult you are authorizing to pick up/drop off your child:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Family Physician/NP/PA Name:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Phone Number:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Youth’s Mental Healthcare Provider Name:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Phone Number:</h5>
+                    </div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="section2" class="section">
+                <div class="section_header">
+                    <h3>SECTION 2 - Medications</h3>
+                    <p><a href="#top_of_page">Jump to Top</a></p>
+                </div>
+                <div class="section_content">
+                    <div class="text_field">
+                        <h5 class="field_title">Will the youth be taking medications while at camp?</h5>
+                    </div>
+                    <div class="boolean_field">
+                        <h5 class="field_title">[] YES [] NO</h5>
+                    </div>
+                    <div class="text_field">
+                    <p class="hint_text">Please list all (prescription and non-prescription) medications or provide a copy of the youth’s medication list. When you check-in at camp, please provide all medications in their original packaging that identifies the prescribing physician (if prescription drug), the name of the medication, the dosage, and frequency of administration. Please have medication in a ziplock bag labeled with your child’s first and last name along with birth date. Medications will be turned over to our volunteer Nurse onsite during registration.</p>
+                        <h5 class="field_title">Medication:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Dose:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Take at what times:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Reasons for Taking:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Prescriber:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Phone Number:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Medication:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Dose:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Take at what times:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Reasons for Taking:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Prescriber:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Phone Number:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Medication:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Dose:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Take at what times:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Reasons for Taking:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Prescriber:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Phone Number:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Medication:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Dose:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Take at what times:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Reasons for Taking:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Prescriber:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Phone Number:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Medication:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Dose:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Take at what times:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Reasons for Taking:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Prescriber:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Phone Number:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Medication:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Dose:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Take at what times:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Reasons for Taking:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Prescriber:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Phone Number:</h5>
+                    </div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="section3" class="section">
+                <div class="section_header">
+                    <h3>SECTION 3 - Dietary Preferrences/Allergies</h3>
+                    <p><a href="#top_of_page">Jump to Top</a></p>
+                </div>
+                <div class="section_content">
+                    <div class="text_field">
+                        <h5 class="field_title">Dietary Preference:</h5>
+                    </div>
+                    <div class="text_field">
+                                <h5 class="field_title">[] Vegetarian</h5>
+                            </div>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Vegan</h5>
+                            </div>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Dairy-Free</h5>
+                            </div>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Nut-Free</h5>
+                            </div>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Gluten-Free</h5>
+                            </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Food Allergies:</h5>
+                        <p class="hint_text">(Please specify and list reactions)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Known Drug Allergies/Other Allergies:</h5>
+                        <p class="hint_text">(Please specify and list reactions)</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="section4" class="section">
+                <div class="section_header">
+                    <h3>SECTION 4 - Physical Health History/Immunizations</h3>
+                    <p><a href="#top_of_page">Jump to Top</a></p>
+                </div>
+                <div class="section_content">
+                    <div class="text_field">
+                        <p class="hint_text">Does the camper have a history of or is prone to any of the following (Please check all that apply)</p>
+                    </div>
+                    <ol class="health_immunizations_list">
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Recent injury, illness or infectious disease</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Chronic or recurring illness</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Asthma</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Dysmenorrhea</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Frequent Ear Infections</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Seizure Disorder or Convulsions</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Dizziness during or after exercise</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Chest pain during or after exercise</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Heart Defect/Disease</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Hypertension</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Bleeding/Clotting Disorders</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Diabetes</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Mononucleosis</h5>
+                                <p class="hint_text">(in last 12 months)</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Chicken Pox</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Measles</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] German Measles</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Mumps</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Tuberculosis</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Joint problems</h5>
+                                <p class="hint_text">(knees, ankles, etc.)</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Fractures</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Frequent Headaches</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Head Injury</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Eating Disorder</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Diarrhea or constipation</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Frequent Stomach Aches</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Wears glasses or contacts</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Been Hospitalized/Surgery</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Wears a Medic Alert ID</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title">[] Other</h5>
+                                <p class="hint_text">(Please Explain Below)</p>
+                            </div>
+                        </li>
+                    </ol>
+                    <div class="text_field">
+                        <h5 class="field_title">Please list the number and provide explanation for any checked items:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Physical Activities to be Limited/Restricted while at Camp:</h5>
+                    </div>
+                    <div class="text_field">
+                        <p class="hint_text">Please record the month and year of immunizations or email a copy of the youth’s immunization records.</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Diphtheria, tetanus, pertussis:</h5>
+                        <p class="hint_text">(DTaP or TdaP)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Tetanus booster:</h5>
+                        <p class="hint_text">(dT or TdaP)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Polio:</h5>
+                        <p class="hint_text">(IPV)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Rotavirus:</h5>
+                        <p class="hint_text">(RV)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Mumps, Measles, Rubella:</h5>
+                        <p class="hint_text">(MMR)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Hepatitis A:</h5>
+                        <p class="hint_text">(Hep. A)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Hepatitis B:</h5>
+                        <p class="hint_text">(Hep. B)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Varicella:</h5>
+                        <p class="hint_text">(Chicken pox)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Had chicken pox & date:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Haemophilus Influenzae B:</h5>
+                        <p class="hint_text">(Hib)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Seasonal Flu Vaccine:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Pneumococcal Vaccine:</h5>
+                        <p class="hint_text">(PCV13)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Human Papillomavirus:</h5>
+                        <p class="hint_text">(HPV)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Meningococcal meningitis:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Tuberculin test given:</h5>
+                        <p class="hint_text">(Most Recent)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Other:</h5>
+                    </div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="section5" class="section">
+                <div class="section_header">
+                    <h3>SECTION 5 - Mental Health History</h3>
+                    <p><a href="#top_of_page">Jump to Top</a></p>
+                </div>
+                <div class="section_content">
+                    <div class="text_field">
+                        <h5 class="field_title">Has the camper have a history of any of the following:</h5>
+                        <p class="hint_text">(Please check all that apply)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] Eating Disorders</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] ADD/ADHD</h5>
+                        <p class="hint_text">(Attention Deficit Disorder/Attention Deficit Hyperactivity Disorder)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] Experience audio and/or visual hallucinations</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] PTSD</h5>
+                        <p class="hint_text">(Post Traumatic Stress Disorder)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] Gender Dysphoria</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] Significant life event that continues to affect the camper</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] Sexual assault/Sexual violence</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] Depression</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] Obsessive Compulsive Disorder</h5>
+                        <p class="hint_text">(OCD)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] Panic Attacks</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] Anxiety</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] Mental/Verbal abuse</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] Physical abuse</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] Trouble sleeping/sleep disorders/nightmares</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] Other</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Please list the number and provide explanation for any checked items:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Please list any triggers we should be aware of:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Please list any good coping skills the youth likes to use:</h5>
+                    </div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="section6" class="section">
+                <div class="section_header">
+                    <h3>SECTION 6 - Authorizations</h3>
+                    <p><a href="#top_of_page">Jump to Top</a></p>
+                </div>
+                <div class="section_content">
+                    <div class="text_field">
+                        <h5 class="field_title bold underline text-center">Consent for Medication Administration and to Give Over-The-Counter Medication</h5>
+                        <p class="hint_text">I request the authorized ASPYRE staff members to administer medication or supervise the camper in self-administration as prescribed by the camper’s physician. I certify that I have the legal authority to consent to medical treatment for the camper named above, including the administration of medication at the facility. Additionally, I authorize ASPYRE staff members to administer the following over the counter medications listed below to the camper at the request of the camper.</p>
+                        <p class="hint_text">I understand that the end of the authorized period I will be responsible for picking up any remaining medications, otherwise it will be discarded. I authorize camp personnel to communicate with the prescriber as allowed by HIPAA.</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] Acetaminophen - fever, pain</h5>
+                        <p class="hint_text">(Tylenol)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] Ibuprofen - fever, pain</h5>
+                        <p class="hint_text">(advil)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] Diphenhydramine - antihistamine</h5>
+                        <p class="hint_text">(benadryl)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] Bismuth subsalicylate - heartburn, indigestion, nausea</h5>
+                        <p class="hint_text">(pepto bismol)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] Calcium carbonate - heartburn, indigestion</h5>
+                        <p class="hint_text">(tums)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] Polyethylene glycol - laxative</h5>
+                        <p class="hint_text">(miralax)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] Bacitracin - antibiotic ointment for cuts, scrapes, minor burns</h5>
+                        <p class="hint_text">(neosporin)</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] 'All of the above over the counter medications mentioned.'</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">[] 'I do not want my child to receive over the counter medication.'</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Parent/Guardian Signature:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Date:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title bold underline margin-specific text-center">Consent to Use Health Information and Consent for Treatment at ASPYRE</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="hint_text margin-specific">To the best of my knowledge, the health information stated in the “ASPYRE Leadership Camp Health Form” is correct for my child. I give permission for the staff to treat my child for any minor medical injuries including but not limited to cuts, scrapes, insect bites, etc. In case of medical and/or mental health emergency, the camp will try to contact the person designated as the emergency contact on this form but in the event that the person cannot be contacted, I give permission to the physician selected by a ASPYRE Staff to hospitalize, secure proper treatment, order injection, anesthesia and/or surgery for the individual.</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Parent/Guardian Signature:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Date:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title bold underline text-center">Freedom of Expression Consent</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="hint_text">I understand that my adolescent may be exposed to concepts or language in discussions at ASPYRE camp that our family does not personally endorse. I understand that the APRYRE staff will make every attempt to keep all camp materials age-appropriate, while recognizing that different cultures, families, and individuals may define this differently. I recognize that some written pieces, songs, or videos that demonstrate the lives of strong LGBTQI leaders in history may contain some strong language and that the staff may determine that there is benefit in introducing the material to campers. I agree to discuss with my child after camp any concepts or language in songs, etc. in terms of the values of our own family/culture.</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Parent/Guardian Signature:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Date:</h5>
+                    </div>
+                    <div class="boolean_field">
+                        <h5 class="field_title">AGREED Participant over 18 years old or Parent/Guardian of youth under 18 years old:</h5>
+                        <p class="hint_text">[] Yes [] No</p>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Signature:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Date:</h5>
+                    </div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="section7" class="section">
+                <div class="section_header">
+                    <h3>SECTION 7 - Community Agreement Values</h3>
+                    <p><a href="#top_of_page">Jump to Top</a></p>
+                </div>
+                <div class="section_content">
+                    <div class="text_field">
+                        <h5 class="field_title bold underline text-center">COMMUNITY VALUES AGREEMENT</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="hint_text">The ASPYRE Leadership Camp participants, adult advisors, and invited guests are expected to demonstrate behavior consistent with the high ideals of the ASPYRE Leadership program and should abide by the provisions of this agreement while in attendance at any ASPYRE event. Every member will respect the authority of the facilitators, counselors and volunteers in attendance and the rules and regulations of the Camp and LGBT Center of Raleigh.</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title bold underline text-center">Responsible Behavior</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="hint_text">Participants may not possess or consume any alcoholic beverages. Participants may not possess or use any drugs or other controlled substances, with the exception of prescribed medication for the attendee and disclosed to the facilitator prior to the event commencing. Participants may not possess or use any tobacco products, and the facilitator and advisors may not use any tobacco products in the presence of participants. Participants are expected to abstain from any activity of a sexual nature. Participants may not possess weapons, fireworks, or anything else of a dangerous nature or act in any way unbecoming of an aspiring Leader.</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title bold underline text-center">Lodging</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="hint_text">Participants staying in the camp or conference center must sleep in their assigned room or cabin. All participants are expected to abide by a in bunk/lights out curfew of midnight to 6 a.m. unless otherwise specified by the facilitator or the conference center/camp.</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title bold underline text-center">Dress Code</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="hint_text">All participants are expected to wear “camp casual” clothing. This includes shorts, T-shirts, jeans, sweatshirts, and closed-toe shoes. At no time will any clothing with inappropriate language or graphics be allowed. Any shirts, shorts or skirts deemed to be on inappropriate length or size will not be allowed. Flip-flops or open-toed shoes are not appropriate for the ASPYRE Leadership camp because of the nature of the activities in which students will participate. All participants will be required to wear their provided lanyard with name badge for the weekend.</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title bold underline text-center">Enforcement</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="hint_text">Violations of this agreement will result in notification to the respective nominator and sponsor. Violations involving destruction of property, or possession, consumption or use of alcoholic beverages or controlled substances or tobacco products will result in dismissal from the event. Further, it is in the discretion of the Volunteer Staff to notify the appropriate authorities of any criminal violations. These values are effective as of the time the participant arrives at this event until the time the participant departs.</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Participant Signature:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Printed Name:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Date:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Participant Parent/Guardian Signature:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Printed Name:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Date:</h5>
+                    </div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="section8" class="section">
+                <div class="section_header">
+                    <h3>SECTION 8 - Parent/Guardian and Participant Release</h3>
+                    <p><a href="#top_of_page">Jump to Top</a></p>
+                </div>
+                <div class="section_content">
+                    <div class="text_field">
+                        <h5 class="field_title">TEST</h5>
+                    </div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="section9" class="section">
+                <div class="section_header">
+                    <h3>SECTION 9 - Items To Bring</h3>
+                    <p><a href="#top_of_page">Jump to Top</a></p>
+                </div>
+                <div class="section_content">
+                    <div class="text_field">
+                        <h5 class="field_title">TEST</h5>
+                    </div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="section10" class="section">
+                <div class="section_header">
+                    <h3>SECTION 10 - Emergency Contacts and Directions</h3>
+                    <p><a href="#top_of_page">Jump to Top</a></p>
+                </div>
+                <div class="section_content">
+                    <div class="text_field">
+                        <h5 class="field_title">TEST</h5>
+                    </div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="section11" class="section">
+                <div class="section_header">
+                    <h3>SECTION 11 - Directions To The Camp</h3>
+                    <p><a href="#top_of_page">Jump to Top</a></p>
+                </div>
+                <div class="section_content">
+                    <div class="text_field">
+                        <h5 class="field_title">TEST</h5>
+                    </div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <div class="save_submit_button_container">
+                <button class="save_button" onclick="" value="Save">Save/Continue Later</button>
+                <button class="submit_button" type="submit">SUBMIT</button>
             </div>
-            <div class="text_field">
-                <h3 class="field_title">Height:</h3>{{ form.height }}
-            </div>
-            <button  class="submit_button" onclick="" value="Submit">Submit</button>
+
         </form>
+
     </div>
 
 {% endblock %}
