@@ -10,7 +10,7 @@
         <div class="toDelete">
             <a href="{% url 'camper_registration' %}"><button class="index">‹ TO REGISTRATION FORM</button></a>
         </div>
-
+        <div class="rainbow"></div>
         <form class="camper_medical_form">
         {% csrf_token %}
 
@@ -51,7 +51,7 @@
             <section id="section1" class="section">
                 <div class="section_header">
                     <h3>SECTION 1 - Basic Contact Info</h3>
-                    <p><a href="#top_of_page">Jump to Top</a></p>
+                    <p><a class="form_nav" href="#top_of_page">Jump to Top</a></p>
                 </div>
                 <div class="section_content">
                     <div class="text_field">
@@ -119,7 +119,19 @@
                         <h5 class="field_title">If no, please list the name of the person NOT authorized to pick up your child: [CharField]</h5>
                     </div>
                     <div class="text_field">
-                        <h5 class="field_title">List the full name and phone number of any other adult you are authorizing to pick up/drop off your child: [CharField]</h5>
+                        <h5 class="field_title">Please list the full name and phone number of any other adult you are authorizing to pick up/drop off your child:</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Adult 1 Full Name: [CharField]</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Adult 1 Phone Number: [CharField]</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Adult 2 Full Name: [CharField]</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Adult 2 Phone Number: [CharField]</h5>
                     </div>
                     <div class="text_field">
                         <h5 class="field_title">Family Physician/NP/PA Name: [CharField]</h5>
@@ -141,7 +153,7 @@
             <section id="section2" class="section">
                 <div class="section_header">
                     <h3>SECTION 2 - Medications</h3>
-                    <p><a href="#top_of_page">Jump to Top</a></p>
+                    <p><a class="form_nav" href="#top_of_page">Jump to Top</a></p>
                 </div>
                 <div class="section_content">
                     <div class="text_field">
@@ -267,7 +279,7 @@
             <section id="section3" class="section">
                 <div class="section_header">
                     <h3>SECTION 3 - Dietary Preferrences/Allergies</h3>
-                    <p><a href="#top_of_page">Jump to Top</a></p>
+                    <p><a class="form_nav" href="#top_of_page">Jump to Top</a></p>
                 </div>
                 <div class="section_content">
                     <div class="text_field">
@@ -304,7 +316,7 @@
             <section id="section4" class="section">
                 <div class="section_header">
                     <h3>SECTION 4 - Physical Health History/Immunizations</h3>
-                    <p><a href="#top_of_page">Jump to Top</a></p>
+                    <p><a class="form_nav" href="#top_of_page">Jump to Top</a></p>
                 </div>
                 <div class="section_content">
                     <div class="text_field">
@@ -537,7 +549,7 @@
             <section id="section5" class="section">
                 <div class="section_header">
                     <h3>SECTION 5 - Mental Health History</h3>
-                    <p><a href="#top_of_page">Jump to Top</a></p>
+                    <p><a class="form_nav" href="#top_of_page">Jump to Top</a></p>
                 </div>
                 <div class="section_content">
                     <div class="text_field">
@@ -609,7 +621,7 @@
             <section id="section6" class="section">
                 <div class="section_header">
                     <h3>SECTION 6 - Authorizations</h3>
-                    <p><a href="#top_of_page">Jump to Top</a></p>
+                    <p><a class="form_nav" href="#top_of_page">Jump to Top</a></p>
                 </div>
                 <div class="section_content">
                     <div class="text_field">
@@ -699,7 +711,7 @@
             <section id="section7" class="section">
                 <div class="section_header">
                     <h3>SECTION 7 - Community Agreement Values</h3>
-                    <p><a href="#top_of_page">Jump to Top</a></p>
+                    <p><a class="form_nav" href="#top_of_page">Jump to Top</a></p>
                 </div>
                 <div class="section_content">
                     <div class="text_field">
@@ -758,14 +770,57 @@
             <section id="section8" class="section">
                 <div class="section_header">
                     <h3>SECTION 8 - Parent/Guardian and Participant Release</h3>
-                    <p><a href="#top_of_page">Jump to Top</a></p>
+                    <p><a class="form_nav" href="#top_of_page">Jump to Top</a></p>
                 </div>
                 <div class="section_content">
                     <div class="text_field">
                         <h5 class="field_title">Youth/Parent Waiver to Participate</h5>
                     </div>
                     <div class="text_field">
-                        <p class="hint_text"></p>
+                        <ol>
+                            <li>
+                                <p class="hint_text">I wish to participate in ASPYRE Leadership Camp. I understand that my execution of this Waiver and Release is a prerequisite for participation in the Program. I further understand that there are risks and dangers inherent in participating in this Program.</p>
+                            </li>
+                            <li>
+                                <p class="hint_text">I understand that in order to be allowed to participate in the Program, I agree to assume all risks and to release and hold harmless LGBT Center of Raleigh, ASPYRE Leadership Camp, and their officers, agents, employees, assigns, successors in interest, contractors, vendors (and their agents), agencies, sponsors, officials and volunteers, including host families, camp facilitators, participating communities and clubs and all governmental and public entities including, but not limited to, the State, County and local municipalities where the program takes place (collectively the “Released Parties”).</p>
+                            </li>
+                            <li>
+                                <p class="hint_text">I intend by this Waiver and Release to release, in advance, and to waive my rights and to indemnify, defend, and hold harmless the Released Parties with respect to any cost, expense, liability or damage, including reasonable attorneys’ fees and expenses related to the investigation or defense of any claims (collectively, “Damages”) incurred if and to the extent that such Damages result from claims resulting from the activities or on account of any actions, negligent or otherwise, of the Released Parties. I understand and agree that this Waiver and Release is binding on my heirs, assigns, and legal representatives.</p>
+                            </li>
+                            <li>
+                                <p class="hint_text">I understand that I am solely responsible to verify and show proof that I have adequate personal property and liability insurance to cover any and all contingencies during the entire duration of the Program, including all travel time. I may also be required to subscribe, at my own expense, to medical, life, personal property, liability, or other type of insurance, as deemed appropriate by LGBT Center of Raleigh, to cover the duration of the Program, regardless of whether said participant is already insured under a policy issued in the participant’s home country.</p>
+                            </li>
+                            <li>
+                                <p class="hint_text">I understand that I am solely responsible for my health and safety, and I acknowledge that I am physically capable of participating in and completing this Program.</p>
+                            </li>
+                            <li>
+                                <p class="hint_text">I agree to allow LGBT Center of Raleigh, and their contractors, agencies and sponsors, the use of my name and likeness in connection with the , for any purpose related to advertising or promotion of the event worldwide in perpetuity in all forms of media now and forever known.</p>
+                            </li>
+                            <li>
+                                <p class="hint_text">Should any portion of this Waiver and Release be judicially determined invalid, voidable, or unenforceable for any reason, such portion of this Waiver and Release shall be severable from the remaining portions herein and the invalidity, voidability, or unenforceability thereof shall not affect the validity, effect, enforceability, or interpretation of the remaining provisions of this Waiver and Release.</p>
+                            </li>
+                            <li>
+                                <p class="hint_text">I have carefully read this Waiver and Release and fully understand its contents. My parent or legal guardian has completely reviewed this Waiver and Release, understands and consents to its terms, and authorizes my participation by his/her signature below. I am aware that this is a RELEASE OF LIABILITY and a contract between me and the persons and entities mentioned above and I sign of my own free will.</p>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Participant Signature: [CharField]</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Print Name: [CharField]</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Date: [CharField]</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Parent/Guardian Signature: [CharField]</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Print Name: [CharField]</h5>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title">Date: [CharField]</h5>
                     </div>
                 </div>
             </section>
@@ -775,11 +830,116 @@
             <section id="section9" class="section">
                 <div class="section_header">
                     <h3>SECTION 9 - Items To Bring</h3>
-                    <p><a href="#top_of_page">Jump to Top</a></p>
+                    <p><a class="form_nav" href="#top_of_page">Jump to Top</a></p>
                 </div>
                 <div class="section_content">
                     <div class="text_field">
-                        <h5 class="field_title">TEST</h5>
+                        <h5 class="field_title text-center bold underline">Required Items</h5>
+                    </div>
+                    <ul class="ul">
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title li">Sleeping Bag or Sheets and Blanket as bunks will not have linen Pillow(s)</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title li">Toothbrush and Toothpaste</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title li">Deodorant</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title li">Soap and Shampoo</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title li">All other personal toiletries (conditioner, combs, brushes contact cases, glasses, solutions, lotions, etc.)</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title li">Towel(s) and cloth(s)</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title li">Water Bottle</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title li">2-3 Changes of comfortable casual warm clothing</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title li">Appropriate Sleeping Clothes for shared sleeping space</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title li">Closed Toed Shoes</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title li">Flip flops for showers</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title li">Hoodie or sweater (to have throughout the day)</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title li">Warm Jacket</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title li">Warm Jacket</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title li">Any prescribed Medication</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title li">Confirmation Forms (If not already submitted)</h5>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="text_field">
+                        <h5 class="field_title text-center bold underline">OPTIONAL/RECOMMENDED ITEMS</h5>
+                    </div>
+                    <ul>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title li">Flashlight</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title li">Personal Item for free time (i.e. musical instruments, sketchbooks)</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title li">There will be an open mic, so bring something to share if you would like</h5>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="text_field">
+                        <h5 class="field_title text-center bold italics">** Note the LGBT Center of Raleigh is not responsible for any lost damaged or stolen items during the camp.</h5>
                     </div>
                 </div>
             </section>
@@ -789,11 +949,42 @@
             <section id="section10" class="section">
                 <div class="section_header">
                     <h3>SECTION 10 - Emergency Contacts and Directions</h3>
-                    <p><a href="#top_of_page">Jump to Top</a></p>
+                    <p><a class="form_nav" href="#top_of_page">Jump to Top</a></p>
                 </div>
                 <div class="section_content">
-                    <div class="text_field">
-                        <h5 class="field_title">TEST</h5>
+                    <div class="text_field text-center">
+                        <h5 class="field_title bold">ASPYRE {{camp.start_date.year}} EMERGENCY CONTACTS:</h5>
+                        <p class="hint_text">(Leave this page with Parent or Guardian)</p>
+                    </div>
+                    <div class="text_field text-center">
+                        <h5 class="field_title underline">Lora Pilcher</h5>
+                        <p class="hint_text">Youth and Family Initiative Coordinator</p>
+                        <p class="hint_text">Email: lpilcher@lgbtcenterofraleigh.com</p>
+                        <p class="hint_text">Cell: 217-520-3109</p>
+                    </div>
+                    <div class="text_field text-center">
+                        <h5 class="field_title underline">Alex Thomas</h5>
+                        <p class="hint_text">Key Volunteer and ASPYRE Logistics Coordinator</p>
+                        <p class="hint_text">Email: athomas@lgbtcenterofraleigh.com</p>
+                        <p class="hint_text">Cell: 336-419-7784</p>
+                    </div>
+                    <div class="text_field text-center">
+                        <h5 class="field_title underline">Elizabeth Harles</h5>
+                        <p class="hint_text">Lead Facilitator and Key Volunteer Advisor to the Youth Leadership Team of the LGBT Center of Raleigh</p>
+                        <p class="hint_text">Email: eharles@lgbtcenterofraleigh.com</p>
+                        <p class="hint_text">Cell: 919-601-4207</p>
+                    </div>
+                    <div class="text_field text-center">
+                        <h5 class="field_title underline">Kori Hennessey</h5>
+                        <p class="hint_text">Director of Education and Programs at LGBT Center of Raleigh</p>
+                        <p class="hint_text">Email: Kori@lgbtcenterofraleigh.com</p>
+                        <p class="hint_text">Cell: 919-480-1246</p>
+                    </div>
+                    <div class="text_field text-center">
+                        <h5 class="field_title underline">Lindsey Lughes</h5>
+                        <p class="hint_text">Executive Director of the LGBT Center of Raleigh</p>
+                        <p class="hint_text">Email: llughes@lgbtcenterofraleigh.com</p>
+                        <p class="hint_text">Cell: 919-696-2971</p>
                     </div>
                 </div>
             </section>
@@ -803,11 +994,49 @@
             <section id="section11" class="section">
                 <div class="section_header">
                     <h3>SECTION 11 - Directions To The Camp</h3>
-                    <p><a href="#top_of_page">Jump to Top</a></p>
+                    <p><a class="form_nav" href="#top_of_page">Jump to Top</a></p>
                 </div>
                 <div class="section_content">
                     <div class="text_field">
-                        <h5 class="field_title">TEST</h5>
+                        <h5 class="field_title text-center">DIRECTIONS TO THE CAMP:</h5>
+                    </div>
+                    <div class="pic_container">
+                        <div class="pic_wrapper">
+                            <img class="campWeaverSign" src="{% static 'assets/campWeaverSign.jpeg' %}">
+                            <p class="hint_text text-center">ENTRY SIGNS OFF OF MILL POINT ROAD</p>
+                        </div>
+                        <div class="pic_wrapper">
+                            <img class="campBuilding" src="{% static 'assets/campBuilding.png' %}">
+                            <p class="hint_text text-center">CASPER HALL</p>
+                        </div>
+                    </div>
+                    <div class="text_field">
+                        <h5 class="field_title text-center">TO THE CAMP SITE:</h5>
+                    </div>
+                    <ul class="ul">
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title text-center">Follow GPS Directions to 4924 Tapawingo Trail, Greensboro, NC 27406</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title text-center">From I-40 W/I-85 S: Exit #129, Make a Left onto Young’s Mill Road. (From I-40 E/I-85 N make a right)</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title text-center">Follow Young’s Mill Road until it dead ends and make a left onto Mill Point Road.</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="text_field">
+                                <h5 class="field_title text-center">Travel on Mill Point Road for ¾ of a mile and turn onto Tapawingo Trail. Once inside the camp go ¾ around the traffic circle and make a right toward Casper Hall</h5>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="text_field">
+                        <h5 class="field_title text-center">We will have signage to assist in finding your way to registration. Please call if you need any assistance.</h5>
                     </div>
                 </div>
             </section>
@@ -815,7 +1044,7 @@
             <div class="divider"></div>
 
             <div class="save_submit_button_container">
-                <button class="save_button" onclick="" value="Save">Save/Continue Later</button>
+                <button class="save_button" value="Save">Save/Continue Later</button>
                 <button class="submit_button" type="submit">SUBMIT</button>
             </div>
 
