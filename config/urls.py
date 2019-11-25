@@ -23,9 +23,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
     path('accounts/', include('registration.backends.simple.urls')),
-    path('ASPYRE-registration/', views.camper_registration, name="camper_registration"),
-    path('ASPYRE-registration-submitted', views.camper_registration_submitted, name="camper_registration_submitted"),
-    path('ASPYRE-Medical-Form/', views.camper_medical_form, name="camper_medical_form"),
+    path('ASPYRE-Registration/', views.camper_registration, name="camper_registration"),
+    path('ASPYRE-Registration-submitted', views.camper_registration_submitted, name="camper_registration_submitted"),
+    path('ASPYRE-MedicalForm/', views.camper_medical_form, name="camper_medical_form"),
+    path('ASPYRE-MedicalForm-submitted', views.camper_medical_form_submitted, name="camper_medical_form_submitted"),
+
 ]
 
 if settings.DEBUG:
