@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
-from core.forms import CamperRegistrationForm
+from core.forms import CamperRegistrationForm, CamperScholarshipForm
 from core.models import User, Camper, Camp, MedicalInformation, Registration
 
 @login_required
@@ -20,7 +20,7 @@ def camper_registration(request):
       preferred_name = form_data.get("preferred_name")
       preferred_pronouns = form_data.get("preferred_pronouns")
       date_of_birth = form_data.get("date_of_birth")
-      street_address =  form_data.get("street_address")
+      street_address = form_data.get("street_address")
       city = form_data.get("city")
       state = form_data.get("state")
       zip_code = form_data.get("zip_code")
@@ -77,5 +77,24 @@ def camper_registration_submitted(request):
 @login_required
 def camper_medical_form(request):
   return render(request, 'camper_medical_form', {'form': form})
+
+@login_required
+def camper_scholarship_form(request):
+  user = request.user
+  if request.method == 'POST':
+    form = CamperScholarshipForm(request.POST)
+    if form.is_valid:
+      form_data = form.cleaned_data
+      legal_full_name = form_data.get("legal_full_name")
+      preferred_name = form_data.get("preferred_name")
+      email = form_data.get("email")
+      like_to_change = form_data.get("like_to_change")
+      currently_involved_activities = form_data.get("currently_involved_activities")
+      no_scholarship = form_data.get("no_scholarship")
+      definite_transportation = form_data.get("definite_transportation")
+      scholarship_granted = form_data.get("scholarship_granted")
+  else:
+    form = CamperScholarshipForm()
+  return render(request, 'core/camper_scholarship.html', {'form': form})
 
 # django-registration-redux:
