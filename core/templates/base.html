@@ -13,6 +13,28 @@
 </head>
 
 <body>
+    {% if not user.is_authenticated %}
+        <header>
+            <nav>
+                <ul>
+                    <h1>Please login</h1>
+                    <a href="{% url 'index' %}">Home</a>
+                    <a href="{% url 'auth_login' %}">Login/Register</a>
+                </ul>
+            </nav>
+        </header>
+    {% else %}
+        <header>
+            <nav>
+                <ul>
+                    <h1>Welcome {{ request.user.username }}!</h1>
+                    <a href="{% url 'index' %}">Home</a>
+                    <a href="{% url 'index' %}"></a>
+                    <a href="{% url 'auth_logout' %}">Logout</a>
+                </ul>
+            </nav>
+        </header>
+    {% endif %}
     {% block content %}
     {% endblock %}
 </body>
