@@ -75,6 +75,20 @@ class Camper(models.Model):
     accommodations = models.CharField(max_length=255, blank=True)
     sponsor_org = models.CharField(max_length=255, blank=True)
     other_companies_paying = models.CharField(max_length=255, blank=True)
+    like_to_change = models.CharField(max_length=255)
+    currently_involved_activities = models.CharField(max_length=100, default="")
+    no_scholarship = models.CharField(max_length=50)
+    DEFINITE_TRANSPORTATION = (
+    ('Yes', 'Yes'),
+    ('No', 'No'),
+    ('Carpool', 'Carpool would be necessary')
+    )
+    definite_transportation = models.CharField(choices=DEFINITE_TRANSPORTATION, max_length=50)
+    SCHOLARSHIP_GRANTED = (
+    ('Same info as registration form', 'Same information as registration form'),
+    ('Other', 'Other')
+    )
+    scholarship_granted = models.CharField(choices=SCHOLARSHIP_GRANTED, max_length=50)
 
     def __str__(self):
         return self.legal_full_name
