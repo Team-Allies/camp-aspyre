@@ -71,6 +71,7 @@ class Camper(models.Model):
     ]
     tshirt_size = models.CharField(max_length=5, choices=TSHIRT_SIZE_CHOICES)
     verify_sensitive_topics = models.BooleanField()
+    have_disability = models.BooleanField()
     accommodations = models.CharField(max_length=255, blank=True)
     sponsor_org = models.CharField(max_length=255, blank=True)
     other_companies_paying = models.CharField(max_length=255, blank=True)
@@ -82,6 +83,46 @@ class Camper(models.Model):
 class MedicalInformation(models.Model):
     registration = models.ForeignKey(to='Registration', on_delete=models.CASCADE)
     camper = models.ForeignKey(to='Camper', on_delete=models.CASCADE)
+
+    # camper_age =
+    # parent/guardian_name = 
+    # parent/guardian_phone_number =
+    # home/work/cell =
+    # parent/guardian_name_second =
+    # parent/guardian_phone_number_second =
+    # home/work/cell_second = 
+    # parent/guardian_name_third =
+    # parent/guardian_phone_number_third = 
+    # home/work/cell_third = 
+    # emergency_contact_name =
+    # emergency_contact_phone_number = 
+    # home/work/cell_emergency_contact =
+    # picked_up_by_guardian_or_emergency_contact =
+    # unauthorized_to_pick_up = 
+    # authorizing_pick_up_name = 
+    # authorizing_pick_up_phone =
+    # authorizing_pick_up_name_second = 
+    # authorizing_pick_up_phone_second = 
+    # mental_health_provider_name = 
+    # mental_health_provider_phone_number =
+    
+    # medication_name =
+    # medication_dose = 
+    # medication_times = 
+    # medication_reason = 
+    # medication_prescriber_name = 
+    # medication_prescriber_phone_number =
+
+
+    
+
+
+    
+
+
+
+
+
 
     height = models.CharField(max_length=255)
     weight = models.IntegerField()
