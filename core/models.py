@@ -78,7 +78,7 @@ class Camper(models.Model):
     other_companies_paying = models.CharField(max_length=255, blank=True)
     like_to_change = models.CharField(max_length=255)
     currently_involved_activities = models.CharField(max_length=100, blank=True, null=True)
-    if_scholarship_not_granted = models.CharField(max_length=50, blank=True, null=True)
+    if_scholarship_not_granted = models.CharField(max_length=50, default='N/A')
     DEFINITE_TRANSPORTATION = (
     ('Yes', 'Yes'),
     ('No', 'No'),

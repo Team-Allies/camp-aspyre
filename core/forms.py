@@ -37,6 +37,7 @@ class CamperRegistrationForm(forms.Form):
   )
   tshirt_size = forms.ChoiceField(choices=TSHIRT_SIZE_CHOICES)
   verify_sensitive_topics = forms.BooleanField()
+  have_disability = forms.BooleanField()
   accommodations = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   sponsor_org = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   other_companies_paying = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class':'text_field_input'}))
