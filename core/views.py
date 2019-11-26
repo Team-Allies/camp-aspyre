@@ -31,6 +31,7 @@ def camper_registration(request):
       dietary_restrictions = form_data.get("dietary_restrictions")
       tshirt_size = form_data.get("tshirt_size")
       verify_sensitive_topics = form_data.get("verify_sensitive_topics")
+      have_disability = form_data.get("have_disability")
       accommodations = form_data.get("accommodations")
       sponsor_org = form_data.get("sponsor_org")
       other_companies_paying = form_data.get("other_companies_paying")
@@ -53,6 +54,7 @@ def camper_registration(request):
         dietary_restrictions=dietary_restrictions,
         tshirt_size=tshirt_size,
         verify_sensitive_topics=verify_sensitive_topics,
+        have_disability=have_disability,
         accommodations=accommodations,
         sponsor_org=sponsor_org,
         other_companies_paying=other_companies_paying,
