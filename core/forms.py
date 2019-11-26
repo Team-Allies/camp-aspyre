@@ -14,7 +14,7 @@ class CamperRegistrationForm(forms.Form):
   legal_full_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   preferred_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   preferred_pronouns = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  date_of_birth = forms.DateField(widget=forms.SelectDateWidget)
+  date_of_birth = forms.DateField(widget = forms.DateInput(attrs={'type':'date'}))
   street_address = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'})) 
   city = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   state = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
@@ -37,6 +37,11 @@ class CamperRegistrationForm(forms.Form):
   )
   tshirt_size = forms.ChoiceField(choices=TSHIRT_SIZE_CHOICES)
   verify_sensitive_topics = forms.BooleanField()
+  HAVE_DISABILITY = (
+        ('Yes', 'Yes'),
+        ('No', 'No'),
+    )
+  have_disability = forms.ChoiceField(choices=HAVE_DISABILITY)
   accommodations = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   sponsor_org = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   other_companies_paying = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class':'text_field_input'}))

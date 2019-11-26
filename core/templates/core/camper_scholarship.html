@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/camper_forms.css' %}">
+
+<div class="main_content_wrapper">
+  <form class="camper_registration_form" method="POST">
+    {% csrf_token %}
+    <div class="camper_registration_header">
+      <h1>ASPYRE [camp_year] Scholarship Request Form</h1>
+    </div>
+
+    <div>
+      <p class="camper_scholarship_info">Please complete all the questions on the form and submit by March 5, 2019. You will be notified by March 10, 2019 if you have been granted the Scholarship. We will grant as many requests as possible based on available funding, need and desire to take full advantage of the program. Please note that a lack of current LGBT Community involvement will not disqualify you.</p>
+    </div>
+    <div class="text_field">
+      <h3 class="field_title">Camper</h3>
+      {{ form.camper }}
+    </div>
+    <div class="text_field">
+      <h3 class="field_title">What would you like to be able to change in your school or community?</h3>
+      <p class="hint_text">How do you think you will use the skills you gain from the camp....</p>
+      {{ form.like_to_change }}
+    </div>
+    <div class="text_field">
+      <h3 class="field_title">Are you currently involved in any community service or LGBT related activities in your school or community?</h3>
+      <p class="hint_text">If yes, explain. If not yet involved put no.</p>
+      {{ form.currently_involved_activities }}
+    </div>
+    <div class="text_field">
+      <h3 class="field_title">If you do not receive a scholarship, will you be able to pay for the costs of camp?</h3>
+      <p class="hint_text">Please answer honestly based on your family's economic status.</p>
+      {{ form.if_scholarship_not_granted }}
+    </div>
+    <div class="boolean_field">
+      <h3 class="field_title">Do you have definite transportation to the event if the scholarship is granted?</h3>
+      {{ form.definite_transportation }}
+    </div>
+    <div class="save_submit_button_container">
+      <button class="submit_button" type="submit">SUBMIT</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
