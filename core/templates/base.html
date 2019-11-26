@@ -27,8 +27,8 @@
         <header>
             <nav>
                 <ul>
-                    <h1>Welcome {{ request.user.username }}!</h1>
-                    <a href="{% url 'index' %}">Home</a>
+                    <h1>Welcome {{ request.user.first_name }}!</h1>
+                    <a href="{% url 'camper_registration' %}">Home</a>
                     <a href="{% url 'index' %}"></a>
                     <a href="{% url 'auth_logout' %}">Logout</a>
                 </ul>
