@@ -72,7 +72,11 @@ class Camper(models.Model):
     ]
     tshirt_size = models.CharField(max_length=5, choices=TSHIRT_SIZE_CHOICES)
     verify_sensitive_topics = models.BooleanField()
-    have_disability = models.BooleanField(default=None)
+    DISABILITY_CHOICES = (
+        ('Yes', 'Yes'),
+        ('No', 'No'),
+    )
+    have_disability = models.CharField(choices=DISABILITY_CHOICES, max_length=255)
     accommodations = models.CharField(max_length=255, blank=True)
     sponsor_org = models.CharField(max_length=255, blank=True)
     other_companies_paying = models.CharField(max_length=255, blank=True)

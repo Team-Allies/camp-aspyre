@@ -59,7 +59,6 @@ class CamperScholarshipForm(forms.Form):
   scholarship_granted = forms.ChoiceField(choices=SCHOLARSHIP_GRANTED, widget=forms.RadioSelect())
 
 
-
 class CamperMedicalForm(forms.Form):
   date_of_birth = forms.DateField(widget=forms.SelectDateWidget)
   height = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
