@@ -48,7 +48,7 @@ class Camper(models.Model):
     legal_full_name = models.CharField(max_length=255)
     preferred_name = models.CharField(max_length=255)
     preferred_pronouns = models.CharField(max_length=255)
-    date_of_birth = models.DateField(default=datetime.date.today)
+    date_of_birth = models.DateField()
     street_address = models.CharField(max_length=255) 
     city = models.CharField(max_length=255)
     state = models.CharField(max_length=255)
@@ -75,22 +75,17 @@ class Camper(models.Model):
     sponsor_org = models.CharField(max_length=255, blank=True)
     other_companies_paying = models.CharField(max_length=255, blank=True)
     like_to_change = models.CharField(max_length=255)
-    currently_involved_activities = models.CharField(max_length=100, default="")
-    no_scholarship = models.CharField(max_length=50)
+    currently_involved_activities = models.CharField(max_length=100, blank=True, null=True)
+    if_scholarship_not_granted = models.CharField(max_length=50, blank=True, null=True)
     DEFINITE_TRANSPORTATION = (
     ('Yes', 'Yes'),
     ('No', 'No'),
     ('Carpool', 'Carpool would be necessary')
     )
-    definite_transportation = models.CharField(choices=DEFINITE_TRANSPORTATION, max_length=50)
-    SCHOLARSHIP_GRANTED = (
-    ('Same info as registration form', 'Same information as registration form'),
-    ('Other', 'Other')
-    )
-    scholarship_granted = models.CharField(choices=SCHOLARSHIP_GRANTED, max_length=50)
+    definite_transportation = models.CharField(choices=DEFINITE_TRANSPORTATION, max_length=50, blank=True, null=True)
 
     def __str__(self):
-        return self.legal_full_name
+        return f"{self.legal_full_name} ({self.preferred_name})"
 
 
 class MedicalInformation(models.Model):
