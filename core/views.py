@@ -81,20 +81,24 @@ def camper_medical_form(request):
 @login_required
 def camper_scholarship_form(request):
   user = request.user
+  camp=Camp.objects.get(pk=1)
   if request.method == 'POST':
-    form = CamperScholarshipForm(request.POST)
-    if form.is_valid:
+    form = CamperScholarshipForm(request.user, request.POST)
+    if form.is_valid():
       form_data = form.cleaned_data
-      legal_full_name = form_data.get("legal_full_name")
-      preferred_name = form_data.get("preferred_name")
-      email = form_data.get("email")
-      like_to_change = form_data.get("like_to_change")
-      currently_involved_activities = form_data.get("currently_involved_activities")
-      no_scholarship = form_data.get("no_scholarship")
-      definite_transportation = form_data.get("definite_transportation")
-      scholarship_granted = form_data.get("scholarship_granted")
+      camper = form_data.get("camper")
+      camper.like_to_change = form_data.get("like_to_change")
+      camper.currently_involved_activities = form_data.get("currently_involved_activities")
+      camper.if_scholarship_not_granted = form_data.get("if_scholarship_not_granted")
+      camper.definite_transportation = form_data.get("definite_transportation")
+      camper.save()
+      return redirect(to='camper_scholarship_submitted')
   else:
-    form = CamperScholarshipForm()
-  return render(request, 'core/camper_scholarship.html', {'form': form})
+    form = CamperScholarshipForm(request.user)
+  return render(request, 'core/camper_scholarship.html', {'form': form, 'camp': camp})
+
+@login_required
+def camper_scholarship_submitted(request):
+  return render(request, 'core/scholarship_form_submitted.html')
 
 # django-registration-redux:
