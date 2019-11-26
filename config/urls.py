@@ -29,6 +29,7 @@ urlpatterns = [
     path('ASPYRE-scholarship-form/', views.camper_scholarship_form, name="camper_scholarship_form"),
     path('ASPYRE-scholarship-submitted/', views.camper_scholarship_submitted, name="camper_scholarship_submitted"),
     path('ASPYRE-Medical-Form/', views.camper_medical_form, name="camper_medical_form"),
+    path('ASPYRE-MedicalForm-submitted', views.camper_medical_form_submitted, name="camper_medical_form_submitted"),
 ]
 
 if settings.DEBUG:
