@@ -25,6 +25,10 @@ h6 {
     text-align: center;
 }
 
+.italics {
+    font-style: oblique;
+}
+
 
 /*======================*/
 
@@ -35,6 +39,8 @@ h6 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    position: relative;
+    z-index: 2;
 }
 
 .toDelete .medicalForm {
@@ -63,16 +69,21 @@ h6 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 1rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    padding-bottom: 1rem;
+    height: 100%;
+}
+
+.rainbow {
+    background: linear-gradient(to right, orange, yellow, green, cyan, blue, violet);
+    margin-top: 1rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    height: 1rem;
 }
 
 .camper_medical_form {
     font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
     background-color: white;
-    margin-top: 0.5rem;
+    /* margin-top: 0.5rem; */
     margin-left: 10rem;
     margin-right: 10rem;
     margin-bottom: 0.5rem;
@@ -80,7 +91,6 @@ h6 {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     padding-bottom: 1rem;
-    border-top: 10px solid #3974e9;
     border-left: 1px solid black;
     border-right: 1px solid black;
     border-bottom: 1px solid black;
@@ -145,7 +155,7 @@ h6 {
 }
 
 .field_title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-top: 2rem;
 }
 
@@ -224,6 +234,10 @@ h6 {
     margin-left: 1.5rem;
 }
 
+.li {
+    margin-left: -1rem;
+}
+
 .divider {
     border: 1px solid rgb(177, 177, 177);
     margin-top: 1rem;
@@ -236,6 +250,17 @@ h6 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    background-color: #ffba3f;
+    color: black;
+    border-top: 5px solid #ff7d2c;
+    border-left: 25px solid #ff7d2c;
+    border-right: 25px solid #ff7d2c;
+    border-bottom: 5px solid #ff7d2c;
+    padding-top: 0.3rem;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    padding-bottom: 0.3rem;
+    border-radius: 0.2rem;
 }
 
 .section {
@@ -250,4 +275,32 @@ h6 {
 
 .health_immunizations_list {
     margin-left: 1rem;
+}
+
+.pic_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.pic_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 2px solid black;
+    padding-bottom: 0.5rem;
+    width: 45%;
+}
+
+.campWeaverSign {
+    width: 100%;
+    border-bottom: 2px solid black;
+}
+
+.campBuilding {
+    width: 100%;
+    flex-grow: 1;
+    border-bottom: 2px solid black;
 }
