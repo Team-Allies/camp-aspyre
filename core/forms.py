@@ -1,6 +1,8 @@
 from django import forms
 from core.models import User, Camper, Camp, MedicalInformation
 from django.forms import ModelForm
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit
 
 
 class CamperRegistrationForm(forms.Form):
@@ -12,7 +14,7 @@ class CamperRegistrationForm(forms.Form):
   legal_full_name = forms.CharField(max_length=100)
   preferred_name = forms.CharField(max_length=255)
   preferred_pronouns = forms.CharField(max_length=255)
-  date_of_birth = forms.DateField(widget=forms.SelectDateWidget)
+  date_of_birth = forms.DateField(widget = forms.DateInput(attrs={'type':'date'}))
   street_address = forms.CharField(max_length=255) 
   city = forms.CharField(max_length=255)
   state = forms.CharField(max_length=255)
@@ -40,23 +42,20 @@ class CamperRegistrationForm(forms.Form):
   other_companies_paying = forms.CharField(max_length=255, required=False)
 
 class CamperScholarshipForm(forms.Form):
-  legal_full_name = forms.CharField(max_length=100)
-  preferred_name = forms.CharField(max_length=255)
-  email = forms.CharField(max_length=255)
-  like_to_change = forms.CharField(max_length=255)
+  camper = forms.ModelChoiceField(queryset=Camper.objects.all())
+  like_to_change = forms.CharField(widget=forms.Textarea, max_length=255)
   currently_involved_activities = forms.CharField(max_length=100)
-  no_scholarship = forms.CharField(max_length=50)
+  if_scholarship_not_granted = forms.CharField(max_length=50)
   DEFINITE_TRANSPORTATION = (
   ('Yes', 'Yes'),
   ('No', 'No'),
   ('Carpool', 'Carpool would be necessary')
   )
   definite_transportation = forms.ChoiceField(choices=DEFINITE_TRANSPORTATION, widget=forms.RadioSelect())
-  SCHOLARSHIP_GRANTED = (
-  ('Same info as registration form', 'Same information as registration form'),
-  ('Other', 'Other')
-  )
-  scholarship_granted = forms.ChoiceField(choices=SCHOLARSHIP_GRANTED, widget=forms.RadioSelect())
+
+  def __init__(self, user, *args, **kwargs):
+    super(CamperScholarshipForm, self).__init__(*args, **kwargs)
+    self.fields['camper'].queryset=Camper.objects.filter(user=user)
 
 
 
