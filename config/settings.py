@@ -164,7 +164,7 @@ ACCOUNT_ACTIVATION_DAYS = 7
 # log in when they click on the activation link in their email.
 REGISTRATION_AUTO_LOGIN = True
 
-# LOGIN_REDIRECT_URL = "/"
-# LOGOUT_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "camper_registration" 
+LOGOUT_REDIRECT_URL = "index"
 
 
