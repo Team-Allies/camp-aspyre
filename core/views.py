@@ -32,6 +32,7 @@ def camper_registration(request):
       dietary_restrictions = form_data.get("dietary_restrictions")
       tshirt_size = form_data.get("tshirt_size")
       verify_sensitive_topics = form_data.get("verify_sensitive_topics")
+      have_disability = form_data.get("have_disability")
       accommodations = form_data.get("accommodations")
       sponsor_org = form_data.get("sponsor_org")
       other_companies_paying = form_data.get("other_companies_paying")
@@ -54,6 +55,7 @@ def camper_registration(request):
         dietary_restrictions=dietary_restrictions,
         tshirt_size=tshirt_size,
         verify_sensitive_topics=verify_sensitive_topics,
+        have_disability=have_disability,
         accommodations=accommodations,
         sponsor_org=sponsor_org,
         other_companies_paying=other_companies_paying,
@@ -163,21 +165,25 @@ def camper_medical_form(request):
 @login_required
 def camper_scholarship_form(request):
   user = request.user
+  camp=Camp.objects.get(pk=1)
   if request.method == 'POST':
-    form = CamperScholarshipForm(request.POST)
-    if form.is_valid:
+    form = CamperScholarshipForm(request.user, request.POST)
+    if form.is_valid():
       form_data = form.cleaned_data
-      legal_full_name = form_data.get("legal_full_name")
-      preferred_name = form_data.get("preferred_name")
-      email = form_data.get("email")
-      like_to_change = form_data.get("like_to_change")
-      currently_involved_activities = form_data.get("currently_involved_activities")
-      no_scholarship = form_data.get("no_scholarship")
-      definite_transportation = form_data.get("definite_transportation")
-      scholarship_granted = form_data.get("scholarship_granted")
+      camper = form_data.get("camper")
+      camper.like_to_change = form_data.get("like_to_change")
+      camper.currently_involved_activities = form_data.get("currently_involved_activities")
+      camper.if_scholarship_not_granted = form_data.get("if_scholarship_not_granted")
+      camper.definite_transportation = form_data.get("definite_transportation")
+      camper.save()
+      return redirect(to='camper_scholarship_submitted')
   else:
-    form = CamperScholarshipForm()
-  return render(request, 'core/camper_scholarship.html', {'form': form})
+    form = CamperScholarshipForm(request.user)
+  return render(request, 'core/camper_scholarship.html', {'form': form, 'camp': camp})
+
+@login_required
+def camper_scholarship_submitted(request):
+  return render(request, 'core/scholarship_form_submitted.html')
 
 
 @login_required
