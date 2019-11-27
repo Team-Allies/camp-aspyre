@@ -14,7 +14,7 @@ class CamperRegistrationForm(forms.Form):
   legal_full_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   preferred_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   preferred_pronouns = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  date_of_birth = forms.DateField(widget=forms.SelectDateWidget(attrs={'class':'date_field_input'}))
+  date_of_birth = forms.DateField(widget = forms.DateInput(attrs={'type':'date', 'class':'text_field_input'}))
   street_address = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'})) 
   city = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   state = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
