@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/camper_forms.css' %}">
-
+<link rel="stylesheet" type="text/css" href="{% static 'css/camper_form.css' %}">
 <div class="main_content_wrapper">
+  <div class="rainbow"></div>
   <form class="camper_registration_form" method="POST">
     {% csrf_token %}
-    <div class="camper_registration_header">
-      <h1>ASPYRE [camp_year] Scholarship Request Form</h1>
+    <div class="divider"></div>
+    <div class="camper_form_title_container">
+      <h1>ASPYRE {{camp.start_date.year}} Scholarship Request Form</h1>
     </div>
-
+    <div class="divider"></div>
     <div>
-      <p class="camper_scholarship_info">Please complete all the questions on the form and submit by March 5, 2019. You will be notified by March 10, 2019 if you have been granted the Scholarship. We will grant as many requests as possible based on available funding, need and desire to take full advantage of the program. Please note that a lack of current LGBT Community involvement will not disqualify you.</p>
+      <p class="hint_text">Please complete all the questions on the form and submit by March 5, 2019. You will be notified by March 10, 2019 if you have been granted the Scholarship. We will grant as many requests as possible based on available funding, need and desire to take full advantage of the program. Please note that a lack of current LGBT Community involvement will not disqualify you.</p>
     </div>
     <div class="text_field">
       <h3 class="field_title">Camper</h3>
@@ -33,7 +33,7 @@
       <p class="hint_text">Please answer honestly based on your family's economic status.</p>
       {{ form.if_scholarship_not_granted }}
     </div>
-    <div class="boolean_field">
+    <div class="text_field">
       <h3 class="field_title">Do you have definite transportation to the event if the scholarship is granted?</h3>
       {{ form.definite_transportation }}
     </div>
@@ -41,6 +41,9 @@
       <button class="submit_button" type="submit">SUBMIT</button>
     </div>
   </form>
+  <div class="toDelete">
+      <a href="{% url 'camper_registration form' %}"><button class="leftButton">‹ TO REGISTRATION</button></a>
+      <a href="{% url 'camper_medical_form' %}"><button class="rightButton">TO MEDICAL FORM ›</button></a>
+  </div>
 </div>
-
-{% endblock %}
+{% endblock %} 

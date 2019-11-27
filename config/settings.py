@@ -47,14 +47,12 @@ INSTALLED_APPS = [
 
     # Django Project
     'core',
-    'crispy_forms',
 
     # django-debug-toolbar
     'debug_toolbar',
 
 ]
 
-CRISPY_TEMPLATE_PACK = 'uni_form'
 
 MIDDLEWARE = [
 
