@@ -2,7 +2,6 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from core.models import User, Camper, Camp, Registration, Role, MedicalInformation
 
-
 class CampAdmin(admin.ModelAdmin):
     list_display = (
     'name_of_camp',
@@ -11,7 +10,6 @@ class CampAdmin(admin.ModelAdmin):
     'city_location',
     'number_of_campers',
     )
-
 
 admin.site.register(User, UserAdmin)
 admin.site.register(Camper)

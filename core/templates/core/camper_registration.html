@@ -3,24 +3,26 @@
 
 
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/camper_forms.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/camper_form.css' %}">
+    
     <div class="main_content_wrapper">
-        <div class="toDelete">
-            <a href="{% url 'index' %}"><button class="index">‹ TO INDEX</button></a>
-            <a href="{% url 'camper_medical_form' %}"><button class="medicalForm">TO MEDICAL FORM ›</button></a>
-        </div>
-        <form class="camper_registration_form" method="POST">
+        <div class="rainbow"></div>
+        <form class="camper_form" method="POST">
         {% csrf_token %}
-            <div class="camper_registration_header">
+            <div class="camper_form_title_container">
                 <h1>{{ camp.start_date.year }} ASPYRE Registration</h1>
             </div>
+
+            <div class="divider"></div>
             
-            <div class="camper_registration_info">
-                <p class="camper_registration_info"> Thank you for your interest in attending the [camp_year] ASPYRE Leadership Camp located at Camp Weaver in Greensboro, NC on [start_day], [start_month] [start_date_int], [start_year] at [start_time] [AM_PM] through [end_day], [end_month] [end_date_int], [end_year] at [end_time] [AM_PM]. The camp is a leadership retreat for LGBTQ youth and allies ages 13-17, or 18 and still in high school. You will be creating an action plan for a change you want to see in your community and learning the skills you need to jump start your effort. You will also have the opportunity to network with other LGBTQ youth from across the state, make new friendships, and get inspired.</p>
-                <p class="camper_registration_info"> Before you register, please note, the camp will cover many sensitive topics that can potentially be triggering. We will attempt to sufficiently warn you, however the camp is designed to prepare you to lead a movement in your community where you may have to face these topics. Parental permission for all attendees under 18 will be required for this overnight event.  If you have questions, please contact <a href=''>athomas@lgbtcenterofraleigh.com.</a>  We look forward to having you join us for this great event sponsored by the LGBT Center of Raleigh.</p>
-                <p class="camper_registration_info"> Please note that transportation must be provided to and from the camp as we are not able to provide that service this year. Once registered, you will be invited to the Facebook group specific to camp attendees. You are welcome to coordinate carpooling if desired. However, please keep in mind that the LGBT Center of Raleigh and the ASPYRE Leaders (youth or adult) are not responsible for coordinating, follow through of transportation or incidents occurring while carpooling.</p>
+            <div class="text_field">
+                <p class="hint_text"> Thank you for your interest in attending the {{camp.start_date|date:"Y"}} ASPYRE Leadership Camp located at Camp Weaver in Greensboro, NC on {{camp.start_date|date:"l"}}, {{camp.start_date|date:"F"}} {{camp.start_date|date:"dS"}}, {{camp.start_date|date:"Y"}} at [start_time] [AM_PM] through {{camp.end_date|date:"l"}}, {{camp.end_date|date:"F"}} {{camp.end_date|date:"dS"}}, {{camp.end_date|date:"Y"}} at [end_time] [AM_PM]. The camp is a leadership retreat for LGBTQ youth and allies ages 13-17, or 18 and still in high school. You will be creating an action plan for a change you want to see in your community and learning the skills you need to jump start your effort. You will also have the opportunity to network with other LGBTQ youth from across the state, make new friendships, and get inspired.</p>
+
+                <p class="hint_text"> Before you register, please note, the camp will cover many sensitive topics that can potentially be triggering. We will attempt to sufficiently warn you, however the camp is designed to prepare you to lead a movement in your community where you may have to face these topics. Parental permission for all attendees under 18 will be required for this overnight event.  If you have questions, please contact <a href=''>athomas@lgbtcenterofraleigh.com.</a>  We look forward to having you join us for this great event sponsored by the LGBT Center of Raleigh.</p>
+
+                <p class="hint_text"> Please note that transportation must be provided to and from the camp as we are not able to provide that service this year. Once registered, you will be invited to the Facebook group specific to camp attendees. You are welcome to coordinate carpooling if desired. However, please keep in mind that the LGBT Center of Raleigh and the ASPYRE Leaders (youth or adult) are not responsible for coordinating, follow through of transportation or incidents occurring while carpooling.</p>
             </div>
-            <div class="boolean_field">
+            <div class="text_field">
                 <h3 class="field_title">Have you previously attended ASPYRE?</h3>
                 <p class="hint_text">Note: We are limiting attendance to 50 and first time attendees will be given priority</p>
                 {{ form.previously_attended }}
@@ -98,7 +100,7 @@
                 <h3 class="field_title">T-Shirt Size:</h3>
                 {{ form.tshirt_size }}
             </div>
-            <div class="boolean_field">
+            <div class="text_field">
                 <h3 class="field_title">Please verify that you understand that potentially sensitive topics will be covered at this camp.</h3>
                 <p>{{ form.verify_sensitive_topics }} Yes, I understand</p>
             </div>
@@ -120,6 +122,11 @@
                 <button class="submit_button" type="submit">SUBMIT</button>
             </div>
         </form>
+
+        <div class="toDelete">
+            <a href="{% url 'index' %}"><button class="index">‹ TO INDEX</button></a>
+            <a href="{% url 'camper_medical_form' %}"><button class="medicalForm">TO MEDICAL FORM ›</button></a>
+        </div>
     </div>
 
 {% endblock %}

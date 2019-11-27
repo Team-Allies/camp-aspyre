@@ -6,6 +6,7 @@ from core.models import User, Camper, Camp, MedicalInformation, Registration
 def index(request):
   return render(request, 'core/index.html')
 
+@login_required
 def camper_registration(request):
   user = request.user
   camp=Camp.objects.get(pk=1)
@@ -70,9 +71,11 @@ def camper_registration(request):
     form = CamperRegistrationForm()
   return render(request, 'core/camper_registration.html', {'form': form, 'camp': camp})
 
+@login_required
 def camper_registration_submitted(request):
   return render(request, 'core/camper_registration_submitted.html')
 
+@login_required
 def camper_medical_form(request):
   user = request.user
   camp=Camp.objects.get(pk=1)
@@ -182,8 +185,8 @@ def camper_scholarship_form(request):
 def camper_scholarship_submitted(request):
   return render(request, 'core/scholarship_form_submitted.html')
 
-# django-registration-redux:
 
+@login_required
 def camper_medical_form_submitted(request):
   return render(request, 'core/camper_medical_form_submitted.html')
 

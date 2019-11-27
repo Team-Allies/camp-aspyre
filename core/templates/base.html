@@ -14,25 +14,31 @@
 
 <body>
     {% if not user.is_authenticated %}
-        <header>
-            <nav>
-                <ul>
-                    <h1>Please login</h1>
-                    <a href="{% url 'index' %}">Home</a>
-                    <a href="{% url 'auth_login' %}">Login/Register</a>
-                </ul>
-            </nav>
+        <header id="top_of_page" class="login_header_ifLoggedOut">
+            <div class="aspyre_logo_container_ifLoggedOut">
+                <img class="aspyre_logo_ifLoggedOut" src="{% static 'assets/ASPYRE_main_logo.png' %}">
+            </div>
         </header>
+        <div class="login_container_ifLoggedOut">
+            <div class="login_title_container_ifLoggedOut">
+                <h1>Please login</h1>
+            </div>
+            <div class="link_container_ifLoggedOut">
+                <a href="{% url 'auth_login' %}">Login/Register</a>
+            </div>
+        </div>
     {% else %}
-        <header>
-            <nav>
-                <ul>
-                    <h1>Welcome {{ request.user.first_name }}!</h1>
-                    <a href="{% url 'camper_registration' %}">Home</a>
-                    <a href="{% url 'index' %}"></a>
-                    <a href="{% url 'auth_logout' %}">Logout</a>
-                </ul>
-            </nav>
+        <header  id="top_of_page" class="login_header_ifLoggedIn">
+            <div class="aspyre_logo_container_ifLoggedIn">
+                <img class="aspyre_logo_ifLoggedIn" src="{% static 'assets/ASPYRE_main_logo.png' %}">
+            </div>
+            <div class="login_container_ifLoggedIn">
+                <div class="login_title_ifLoggedIn">
+                    <h1>Welcome {{ request.user.username }}!</h1>
+                </div>
+                <div class="link_ifLoggedIn">
+                    <a class="home_link" href="{% url 'index' %}">Home</a>|<a class="logout_link" href="{% url 'auth_logout' %}">Logout</a>
+            </div>
         </header>
     {% endif %}
     {% block content %}
