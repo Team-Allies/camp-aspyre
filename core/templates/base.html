@@ -34,7 +34,7 @@
             </div>
             <div class="login_container_ifLoggedIn">
                 <div class="login_title_ifLoggedIn">
-                    <h1>Welcome {{ request.user.username }}!</h1>
+                    <h1>Welcome {{ request.user.first_name }}!</h1>
                 </div>
                 <div class="link_ifLoggedIn">
                     <a class="home_link" href="{% url 'index' %}">Home</a>|<a class="logout_link" href="{% url 'auth_logout' %}">Logout</a>
