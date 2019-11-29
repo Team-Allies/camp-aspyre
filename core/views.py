@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
-from core.forms import CamperRegistrationForm, CamperScholarshipForm
+from core.forms import CamperRegistrationForm, CamperScholarshipForm, CamperMedicalForm
 from core.models import User, Camper, Camp, MedicalInformation, Registration
 
 def index(request):
@@ -116,7 +116,7 @@ def camper_medical_form(request):
       other_allergies_illnesses = form_data.get("other_allergies_illnesses")
       physical_limitations = form_data.get("physical_limitations")
       details_answers = form_data.get("details_answers")
-      camper = Camper.objects.create(
+      camper = MedicalInformation.objects.create(
         user=user,
         date_of_birth=date_of_birth,
         height=height,
@@ -152,14 +152,14 @@ def camper_medical_form(request):
         physical_limitations=physical_limitations,
         details_answers=details_answers,
       )
-      registration = Registration.objects.create(
+      registration = Registration.objects.get(
         user=user,
         camper=camper,
         camp=camp
       )
       return redirect(to='camper_medical_form_submitted')
   else:
-    form = CamperRegistrationForm()
+    form = CamperMedicalForm()
   return render(request, 'core/camper_medical_form.html', {'form': form, 'camp': camp})
 
 @login_required
