@@ -5,9 +5,10 @@ from core.models import User, Camper, Camp, Registration, Role, MedicalInformati
 class CampAdmin(admin.ModelAdmin):
     list_display = (
     'name_of_camp',
-    'start_date',
-    'end_date',
-    'city_location',
+    'camp_start_date',
+    'camp_end_date',
+    'camp_location_street_address',
+    'camp_location_city',
     'number_of_campers',
     )
 

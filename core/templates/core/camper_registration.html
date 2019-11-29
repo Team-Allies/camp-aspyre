@@ -6,17 +6,22 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/camper_form.css' %}">
     
     <div class="main_content_wrapper">
+
         <div class="rainbow"></div>
+
         <form class="camper_form" method="POST">
-        {% csrf_token %}
+            {% csrf_token %}
+
+            <div class="divider"></div>
+
             <div class="camper_form_title_container">
-                <h1>{{ camp.start_date.year }} ASPYRE Registration</h1>
+                <h1>{{ camp.camp_start_date.year }} ASPYRE Registration</h1>
             </div>
 
             <div class="divider"></div>
             
             <div class="text_field">
-                <p class="hint_text"> Thank you for your interest in attending the {{camp.start_date|date:"Y"}} ASPYRE Leadership Camp located at Camp Weaver in Greensboro, NC on {{camp.start_date|date:"l"}}, {{camp.start_date|date:"F"}} {{camp.start_date|date:"dS"}}, {{camp.start_date|date:"Y"}} at [start_time] [AM_PM] through {{camp.end_date|date:"l"}}, {{camp.end_date|date:"F"}} {{camp.end_date|date:"dS"}}, {{camp.end_date|date:"Y"}} at [end_time] [AM_PM]. The camp is a leadership retreat for LGBTQ youth and allies ages 13-17, or 18 and still in high school. You will be creating an action plan for a change you want to see in your community and learning the skills you need to jump start your effort. You will also have the opportunity to network with other LGBTQ youth from across the state, make new friendships, and get inspired.</p>
+                <p class="hint_text"> Thank you for your interest in attending the {{camp.camp_start_date|date:"Y"}} ASPYRE Leadership Camp located at Camp Weaver in Greensboro, NC on {{camp.camp_start_date|date:"l"}}, {{camp.camp_start_date|date:"F"}} {{camp.camp_start_date|date:"dS"}}, {{camp.camp_start_date|date:"Y"}} at [start_time] [AM_PM] through {{camp.camp_end_date|date:"l"}}, {{camp.camp_end_date|date:"F"}} {{camp.camp_end_date|date:"dS"}}, {{camp.camp_end_date|date:"Y"}} at [end_time] [AM_PM]. The camp is a leadership retreat for LGBTQ youth and allies ages 13-17, or 18 and still in high school. You will be creating an action plan for a change you want to see in your community and learning the skills you need to jump start your effort. You will also have the opportunity to network with other LGBTQ youth from across the state, make new friendships, and get inspired.</p>
 
                 <p class="hint_text"> Before you register, please note, the camp will cover many sensitive topics that can potentially be triggering. We will attempt to sufficiently warn you, however the camp is designed to prepare you to lead a movement in your community where you may have to face these topics. Parental permission for all attendees under 18 will be required for this overnight event.  If you have questions, please contact <a href=''>athomas@lgbtcenterofraleigh.com.</a>  We look forward to having you join us for this great event sponsored by the LGBT Center of Raleigh.</p>
 
@@ -25,53 +30,53 @@
             <div class="text_field">
                 <h3 class="field_title">Have you previously attended ASPYRE?</h3>
                 <p class="hint_text">Note: We are limiting attendance to 50 and first time attendees will be given priority</p>
-                {{ form.previously_attended }}
+                {{ form.has_camper_previously_attended_ASPYRE }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">Legal Full Name:</h3>
-                {{ form.legal_full_name }}
+                {{ form.legal_full_name_of_camper }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">Preferred Name:</h3>
                 <p class="hint_text">What you want us to call you.</p>
-                {{ form.preferred_name }}
+                {{ form.preferred_name_of_camper }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">Preferred Pronouns:</h3>
                 <p class="hint_text">(he/his, she/hers, they/theirs, etc.)</p>
-                {{ form.preferred_pronouns }}
+                {{ form.preferred_pronouns_of_camper }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">Date of Birth:</h3>
                 <p class="hint_text">Must be 13 to 17, or 18 and still in highschool at time of event</p>
-                {{ form.date_of_birth }}
+                {{ form.date_of_birth_of_camper }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">Street Address:</h3>
-                {{ form.street_address }}
+                {{ form.street_address_of_camper }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">City:</h3>
-                {{ form.city }}
+                {{ form.city_of_camper }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">State:</h3>
                 <p class="hint_text">(Example: NC)</p>
-                {{ form.state }}
+                {{ form.state_of_camper }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">Zip Code:</h3>
                 <p class="hint_text">(Example: 27601)</p>
-                {{ form.zip_code }}
+                {{ form.zip_code_of_camper }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">Phone Number:</h3>
                 <p class="hint_text">Must include area code (Example: 012-345-6789)</p>
-                {{ form.phone_number }}
+                {{ form.phone_number_of_camper }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">Email:</h3>
-                {{ form.email }}
+                {{ form.email_of_camper }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">Name of School:</h3>
@@ -80,52 +85,52 @@
             <div class="text_field">
                 <h3 class="field_title">How did you hear about the camp?</h3>
                 <p class="hint_text">(LGBT Center Website, GSA, Invite from Volunteer, Teacher, Counselor, etc.)</p>
-                {{ form.how_heard_about }}
+                {{ form.how_did_the_camper_hear_about_the_camp }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">Are you on Facebook? If so, would you like to be added to the ASPYRE group?</h3>
                 <p class="hint_text">Please write in if you use a different name on Facebook. A Youth Leader will be sending you a friend request to add you to the group.</p>
-                {{ form.facebook }}
-            </div>
-            <div class="text_field">
-                <h3 class="field_title">What do you hope to gain from your experience at ASPYRE?</h3>
-                {{ form.gain_from_camp }}
-            </div>
-            <div class="text_field">
-                <h3 class="field_title">Dietary Restrictions:</h3>
-                <p class="hint_text">(None, Vegetarian, Vegan, Allergies, etc.)</p>
-                {{ form.dietary_restrictions }}
+                {{ form.would_the_camper_like_to_be_added_facebook }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">T-Shirt Size:</h3>
                 {{ form.tshirt_size }}
             </div>
             <div class="text_field">
+                <h3 class="field_title">What do you hope to gain from your experience at ASPYRE?</h3>
+                {{ form.what_does_the_camper_want_to_gain_from_the_camp }}
+            </div>
+            <div class="text_field">
+                <h3 class="field_title">Dietary Restrictions:</h3>
+                <p class="hint_text">(None, Vegetarian, Vegan, Allergies, etc.)</p>
+                {{ form.does_camper_have_any_dietary_restrictions }}
+            </div>
+            <div class="text_field">
                 <h3 class="field_title">Please verify that you understand that potentially sensitive topics will be covered at this camp.</h3>
-                <p>{{ form.verify_sensitive_topics }} Yes, I understand</p>
+                <p>{{ form.has_the_camper_verified_that_sensitive_topics_will_be_covered }} Yes, I understand</p>
             </div>
             <div class="text_field">
                 <h3 class="field_title">Does the participant have a disability?</h3>
-                {{ form.have_disability }}
+                {{ form.does_the_camper_have_any_disabilities }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">Please describe any additional accommodations that you may need while at the camp:</h3>
-                {{ form.accommodations }}
+                {{ form.any_additional_accommodations_needed }}
             </div>
             <div class="text_field">
                 <h3 class="field_title">Sponsoring Organization:</h3>
                 <p class="hint_text">Only if they are paying the Registration Fee</p>
-                {{ form.other_companies_paying }}
+                {{ form.does_the_camper_have_any_sponsoring_organizations }}
             </div>
             <div class="save_submit_button_container">
-                <button class="save_button" onclick="" value="Save">Save/Continue Later</button>
+                <button class="save_button" value="Save">Save/Continue Later</button>
                 <button class="submit_button" type="submit">SUBMIT</button>
             </div>
         </form>
 
         <div class="toDelete">
-            <a href="{% url 'index' %}"><button class="index">‹ TO INDEX</button></a>
-            <a href="{% url 'camper_medical_form' %}"><button class="medicalForm">TO MEDICAL FORM ›</button></a>
+            <a href="{% url 'index' %}"><button class="leftButton">‹ TO INDEX</button></a>
+            <a href="{% url 'camper_scholarship_form' %}"><button class="rightButton">TO SCHOLARSHIP FORM ›</button></a>
         </div>
     </div>
 

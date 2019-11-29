@@ -62,14 +62,14 @@ h6 {
     z-index: 2;
 }
 
-.toDelete .medicalForm {
-    margin-left: auto;
-    margin-right: 1rem;
-}
-
-.toDelete .index {
+.toDelete .leftButton {
     margin-left: 1rem;
     margin-right: auto;
+}
+
+.toDelete .rightButton {
+    margin-left: auto;
+    margin-right: 1rem;
 }
 
 .toDelete button {
@@ -192,6 +192,21 @@ h6 {
     border-radius: 0.3rem;
 }
 
+.textarea_field_input {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    width: 30rem;
+    height: 10rem;
+    border: 1px solid black;
+    box-shadow: inset 3px 3px 7px #8c8c8c;
+    font-size: 1.3rem;
+    padding-top: 0.2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-bottom: 0.2rem;
+    border-radius: 0.3rem;
+}
+
 .date_field_input {
     margin-top: 1rem;
     margin-left: 1rem;
@@ -204,6 +219,17 @@ h6 {
     padding-right: 0.5rem;
     padding-bottom: 0.2rem;
     border-radius: 0.3rem;
+}
+
+.radio_field_input {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    font-size: 1.3rem;
+    padding-top: 0.2rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    padding-bottom: 0.2rem;
+    list-style-type: none;
 }
 
 .boolean_field_input {

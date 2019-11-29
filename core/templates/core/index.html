@@ -3,9 +3,10 @@
 
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/camper_form.css' %}">
 
-<div>
-    <a href="{% url 'camper_registration' %}"><button>To Registration</button></a>
-</div>
+    <div class="toDelete">
+        <a href="{% url 'camper_registration_form' %}"><button class="rightButton">TO REGISTRATION FORM ›</button></a>
+    </div>
 
 {% endblock %}
