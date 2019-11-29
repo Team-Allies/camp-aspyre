@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/camper_form.css' %}">
 <div class="main_content_wrapper">
   <div class="rainbow"></div>
-  <form class="camper_registration_form" method="POST">
+  <form class="camper_form" method="POST">
     {% csrf_token %}
     <div class="divider"></div>
     <div class="camper_form_title_container">
@@ -42,7 +42,7 @@
     </div>
   </form>
   <div class="toDelete">
-      <a href="{% url 'camper_registration form' %}"><button class="leftButton">‹ TO REGISTRATION</button></a>
+      <a href="{% url 'camper_registration' %}"><button class="leftButton">‹ TO REGISTRATION</button></a>
       <a href="{% url 'camper_medical_form' %}"><button class="rightButton">TO MEDICAL FORM ›</button></a>
   </div>
 </div>
