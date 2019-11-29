@@ -59,7 +59,7 @@ class CamperScholarshipForm(forms.Form):
 
 
 class CamperMedicalForm(forms.Form):
-  date_of_birth = forms.DateField(widget=forms.SelectDateWidget(attrs={'class':'date_field_input'}))
+  date_of_birth = forms.DateField(widget = forms.DateInput(attrs={'type':'date', 'class':'text_field_input'}))
   height = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   weight = forms.IntegerField()
   biological_sex = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))

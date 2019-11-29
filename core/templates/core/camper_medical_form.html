@@ -55,7 +55,7 @@
                     <h5 class="field_title">Youth's Legal Name: [CharField]</h5>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Date of Birth: [CharField]</h5>
+                    <h5 class="field_title">Date of Birth: {{ form.date_of_birth }}</h5>
                 </div>
                 <div class="text_field">
                     <h5 class="field_title">Age: [CharField]</h5>
@@ -64,7 +64,7 @@
                     <h5 class="field_title">Youth's Pronouns: [CharField]</h5>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Home Address: [CharField]</h5>
+                    <h5 class="field_title">Home Address: {{ form.full_address }}</h5>
                 </div>
                 <div class="text_field">
                     <h5 class="field_title">Parent/Guardian Name: [CharField]</h5>
@@ -154,7 +154,7 @@
                     <h5 class="field_title">Will the youth be taking medications while at camp?</h5>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">[radio] YES [radio] NO</h5>
+                    <h5 class="field_title">{{ form.taking_meds }}</h5>
                 </div>
                 <div class="text_field">
                 <p class="hint_text">Please list all (prescription and non-prescription) medications or provide a copy of the youth’s medication list. When you check-in at camp, please provide all medications in their original packaging that identifies the prescribing physician (if prescription drug), the name of the medication, the dosage, and frequency of administration. Please have medication in a ziplock bag labeled with your child’s first and last name along with birth date. Medications will be turned over to our volunteer Nurse onsite during registration.</p>
@@ -329,7 +329,7 @@
                     </li>
                     <li>
                         <div class="text_field">
-                            <h5 class="field_title">[checkbox] Asthma</h5>
+                            <h5 class="field_title">{{ form.asthma }} Asthma</h5>
                         </div>
                     </li>
                     <li>
@@ -889,11 +889,6 @@
                     <li>
                         <div class="text_field">
                             <h5 class="field_title li">Hoodie or sweater (to have throughout the day)</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title li">Warm Jacket</h5>
                         </div>
                     </li>
                     <li>
