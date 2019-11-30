@@ -168,4 +168,8 @@ REGISTRATION_AUTO_LOGIN = True
 LOGIN_REDIRECT_URL = "camper_registration" 
 LOGOUT_REDIRECT_URL = "index"
 
-
+EMAIL_HOST = 'in-v3.mailjet.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = '1d7e9ea5fcef2cce7d213d9c01adde0b'
+EMAIL_HOST_PASSWORD = '0cbe627d8250d2cae0ee0de06c2ef460'
+EMAIL_USE_TLS = True
