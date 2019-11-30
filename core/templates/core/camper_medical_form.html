@@ -6,17 +6,13 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/camper_form.css' %}">
 
 <div class="main_content_wrapper">
-
     <div class="rainbow"></div>
-
     <form class="camper_form">
-    {% csrf_token %}
-
+        {% csrf_token %}
         <div class="camper_form_title_container">
             <h1>A Safer Place for Youth to Reach for Excellence</h1>
             <h2>{{ camp.start_date.year }} Leadership Camp Confirmation Packet</h2>
         </div>
-
         <ol class="table_of_contents">
             <li><a href="#section1">BASIC CONTACT INFO</a></li>
             <li><a href="#section2">MEDICATIONS</a></li>
@@ -49,95 +45,100 @@
             </div>
             <div class="section_content">
                 <div class="text_field">
-                    <h5 class="field_title">Name of Youth Attending: [CharField]</h5>
+                    <h5 class="field_title">Parent/Guardian Name:</h5>
+                    {{ form.first_guardian_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Youth's Legal Name: [CharField]</h5>
+                    <h5 class="field_title">Phone #:</h5>
+                    {{ form.first_guardian_phone_number }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Date of Birth: {{ form.date_of_birth }}</h5>
+                    <h5 class="field_title">What type of phone number?</h5>
+                    <p class="hint_text">(Home, Work, or Cellular?)</p>
+                    {{ form.first_guardian_home_work_or_cell }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Age: [CharField]</h5>
+                    <h5 class="field_title">Parent/Guardian Name:</h5>
+                    {{ form.second_guardian_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Youth's Pronouns: [CharField]</h5>
+                    <h5 class="field_title">Phone #:</h5>
+                    {{form.second_guardian_phone_number }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Home Address: {{ form.full_address }}</h5>
+                    <h5 class="field_title">What type of phone number?</h5>
+                    <p class="hint_text">(Home, Work, or Cellular?)</p>
+                    {{ form.second_guardian_home_work_or_cell }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Parent/Guardian Name: [CharField]</h5>
+                    <h5 class="field_title">Parent/Guardian Name:</h5>
+                    {{ form.third_guardian_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Phone #: [CharField]</h5>
+                    <h5 class="field_title">Phone #:</h5>
+                    {{ form.third_guardian_phone_number }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">[radio] Home [radio] Work [radio] Cell</h5>
+                    <h5 class="field_title">What type of phone number?</h5>
+                    <p class="hint_text">(Home, Work, or Cellular?)</p>
+                    {{ form.third_guardian_home_work_or_cell }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Parent/Guardian Name: [CharField]</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Phone #: [CharField]</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">[radio] Home [radio] Work [radio] Cell</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Parent/Guardian Name: [CharField]</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Phone #: [CharField]</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">[radio] Home [radio] Work [radio] Cell</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Emergency Contact Name: [CharField]</h5>
+                    <h5 class="field_title">Emergency Contact Name:</h5>
                     <p class="hint_text">(If parent/guardian cannot be reached)</p>
+                    {{ form.emergency_contact_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Phone #: [CharField]</h5>
+                    <h5 class="field_title">Phone #:</h5>
+                    {{ form.emergency_contact_phone_number }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">[radio] Home [radio] Work [radio] Cell</h5>
+                    <h5 class="field_title">What type of phone number?</h5>
+                    <p class="hint_text">(Home, Work, or Cellular?)</p>
+                    {{ form.emergency_home_work_cell }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">My child can be picked up by either guardian and/or emergency contact: [CharField]</h5>
+                    <h5 class="field_title">My child can be picked up by either guardian and/or emergency contact:</h5>
+                    {{ form.can_camper_be_picked_up_by_guardian_or_emergency_contact }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">[radio] YES [radio] NO</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">If no, please list the name of the person NOT authorized to pick up your child: [CharField]</h5>
+                    <h5 class="field_title">If no, please list the name of the person NOT authorized to pick up your child:</h5>
+                    {{ form.any_unauthorized_persons_that_can_pick_up_camper }}
                 </div>
                 <div class="text_field">
                     <h5 class="field_title">Please list the full name and phone number of any other adult you are authorizing to pick up/drop off your child:</h5>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Adult 1 Full Name: [CharField]</h5>
+                    <h5 class="field_title">Authorized Persons Full Name:</h5>
+                    {{ form.first_authorized_persons_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Adult 1 Phone Number: [CharField]</h5>
+                    <h5 class="field_title">Authorized Persons Phone Number:</h5>
+                    {{ form.first_authorized_persons_phone }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Adult 2 Full Name: [CharField]</h5>
+                    <h5 class="field_title">Authorized Persons Full Name:</h5>
+                    {{ form.second_authorized_persons_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Adult 2 Phone Number: [CharField]</h5>
+                    <h5 class="field_title">Authorized Persons Phone Number:</h5>
+                    {{ form.second_authorized_persons_phone }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Family Physician/NP/PA Name: [CharField]</h5>
+                    <h5 class="field_title">Family Physician/NP/PA Name:</h5>
+                    {{ form.family_physician_NP_PA_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Phone Number: [CharField]</h5>
+                    <h5 class="field_title">Family Physician/NP/PA Phone Number:</h5>
+                    {{ form.family_physician_NP_PA_phone_number }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Youth’s Mental Healthcare Provider Name: [CharField]</h5>
+                    <h5 class="field_title">Youth’s Mental Healthcare Provider Name:</h5>
+                    {{ form.mental_healthcare_provider_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Phone Number: [CharField]</h5>
+                    <h5 class="field_title">Mental Healthcare Provider Phone Number:</h5>
+                    {{ form.mental_healthcare_provider_phone_number }}
                 </div>
             </div>
         </section>
@@ -152,118 +153,152 @@
             <div class="section_content">
                 <div class="text_field">
                     <h5 class="field_title">Will the youth be taking medications while at camp?</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">{{ form.taking_meds }}</h5>
+                    {{ form.will_camper_take_medication_while_at_camp }}
                 </div>
                 <div class="text_field">
                 <p class="hint_text">Please list all (prescription and non-prescription) medications or provide a copy of the youth’s medication list. When you check-in at camp, please provide all medications in their original packaging that identifies the prescribing physician (if prescription drug), the name of the medication, the dosage, and frequency of administration. Please have medication in a ziplock bag labeled with your child’s first and last name along with birth date. Medications will be turned over to our volunteer Nurse onsite during registration.</p>
-                    <h5 class="field_title">Medication: [CharField]</h5>
+                    <h5 class="field_title">Medication:</h5>
+                    {{ form.first_medication_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Dose: [CharField]</h5>
+                    <h5 class="field_title">Dose:</h5>
+                    {{ form.first_medication_dose }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Take at what times: [CharField]</h5>
+                    <h5 class="field_title">Take at what times:</h5>
+                    {{ form.first_medication_times }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Reasons for Taking: [CharField]</h5>
+                    <h5 class="field_title">Reasons for Taking:</h5>
+                    {{ form.first_medication_reason_for_taking }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Prescriber: [CharField]</h5>
+                    <h5 class="field_title">Prescriber:</h5>
+                    {{ form.first_medication_prescriber_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Phone Number: [CharField]</h5>
+                    <h5 class="field_title">Prescriber's Phone Number:</h5>
+                    {{ form.first_medication_prescriber_phone_number }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Medication: [CharField]</h5>
+                    <h5 class="field_title">Medication:</h5>
+                    {{ form.second_medication_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Dose: [CharField]</h5>
+                    <h5 class="field_title">Dose:</h5>
+                    {{ form.second_medication_dose }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Take at what times: [CharField]</h5>
+                    <h5 class="field_title">Take at what times:</h5>
+                    {{ form.second_medication_times }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Reasons for Taking: [CharField]</h5>
+                    <h5 class="field_title">Reasons for Taking:</h5>
+                    {{ form.second_medication_reason_for_taking }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Prescriber: [CharField]</h5>
+                    <h5 class="field_title">Prescriber:</h5>
+                    {{ form.second_medication_prescriber_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Phone Number: [CharField]</h5>
+                    <h5 class="field_title">Prescriber's Phone Number:</h5>
+                    {{ form.second_medication_prescriber_phone_number }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Medication: [CharField]</h5>
+                    <h5 class="field_title">Medication:</h5>
+                    {{ form.third_medication_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Dose: [CharField]</h5>
+                    <h5 class="field_title">Dose:</h5>
+                    {{ form.third_medication_dose }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Take at what times: [CharField]</h5>
+                    <h5 class="field_title">Take at what times:</h5>
+                    {{ form.third_medication_times }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Reasons for Taking: [CharField]</h5>
+                    <h5 class="field_title">Reasons for Taking:</h5>
+                    {{ form.third_medication_reason_for_taking }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Prescriber: [CharField]</h5>
+                    <h5 class="field_title">Prescriber:</h5>
+                    {{ form.third_medication_prescriber_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Phone Number: [CharField]</h5>
+                    <h5 class="field_title">Prescriber's Phone Number:</h5>
+                    {{ form.third_medication_prescriber_phone_number }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Medication: [CharField]</h5>
+                    <h5 class="field_title">Medication:</h5>
+                    {{ form.fourth_medication_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Dose: [CharField]</h5>
+                    <h5 class="field_title">Dose:</h5>
+                    {{ form.fourth_medication_dose }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Take at what times: [CharField]</h5>
+                    <h5 class="field_title">Take at what times:</h5>
+                    {{ form.fourth_medication_times }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Reasons for Taking: [CharField]</h5>
+                    <h5 class="field_title">Reasons for Taking:</h5>
+                    {{ form.fourth_medication_reason_for_taking }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Prescriber: [CharField]</h5>
+                    <h5 class="field_title">Prescriber:</h5>
+                    {{ form.fourth_medication_prescriber_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Phone Number: [CharField]</h5>
+                    <h5 class="field_title">Prescriber's Phone Number:</h5>
+                    {{ form.fourth_medication_prescriber_phone_number }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Medication: [CharField]</h5>
+                    <h5 class="field_title">Medication:</h5>
+                    {{ form.fifth_medication_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Dose: [CharField]</h5>
+                    <h5 class="field_title">Dose:</h5>
+                    {{ form.fifth_medication_dose }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Take at what times: [CharField]</h5>
+                    <h5 class="field_title">Take at what times:</h5>
+                    {{ form.fifth_medication_times }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Reasons for Taking: [CharField]</h5>
+                    <h5 class="field_title">Reasons for Taking:</h5>
+                    {{ form.fifth_medication_reason_for_taking }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Prescriber: [CharField]</h5>
+                    <h5 class="field_title">Prescriber:</h5>
+                    {{ form.fifth_medication_prescriber_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Phone Number: [CharField]</h5>
+                    <h5 class="field_title">Prescriber's Phone Number:</h5>
+                    {{ form.fifth_medication_prescriber_phone_number }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Medication: [CharField]</h5>
+                    <h5 class="field_title">Medication:</h5>
+                    {{ form.sixth_medication_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Dose: [CharField]</h5>
+                    <h5 class="field_title">Dose:</h5>
+                    {{ form.sixth_medication_dose }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Take at what times: [CharField]</h5>
+                    <h5 class="field_title">Take at what times:</h5>
+                    {{ form.sixth_medication_times }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Reasons for Taking: [CharField]</h5>
+                    <h5 class="field_title">Reasons for Taking:</h5>
+                    {{ form.sixth_medication_reason_for_taking }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Prescriber: [CharField]</h5>
+                    <h5 class="field_title">Prescriber:</h5>
+                    {{ form.sixth_medication_prescriber_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Phone Number: [CharField]</h5>
+                    <h5 class="field_title">Prescriber's Phone Number:</h5>
+                    {{ form.sixth_medication_prescriber_phone_number }}
                 </div>
             </div>
         </section>
@@ -277,30 +312,18 @@
             </div>
             <div class="section_content">
                 <div class="text_field">
-                    <h5 class="field_title">Dietary Preference:</h5>
+                    <h5 class="field_title">Dietary Preferences:</h5>
+                    {{ form.camper_dietary_preference_choices }}
                 </div>
                 <div class="text_field">
-                            <h5 class="field_title">[checkbox] Vegetarian</h5>
-                        </div>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Vegan</h5>
-                        </div>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Dairy-Free</h5>
-                        </div>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Nut-Free</h5>
-                        </div>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Gluten-Free</h5>
-                        </div>
-                <div class="text_field">
-                    <h5 class="field_title">Food Allergies: [CharField]</h5>
+                    <h5 class="field_title">Food Allergies:</h5>
                     <p class="hint_text">(Please specify and list reactions)</p>
+                    {{ forms.does_camper_have_any_food_allergies }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Known Drug Allergies/Other Allergies: [CharField]</h5>
+                    <h5 class="field_title">Known Drug Allergies/Other Allergies:</h5>
                     <p class="hint_text">(Please specify and list reactions)</p>
+                    {{ forms.does_camper_have_any_drug_other_allergies }}
                 </div>
             </div>
         </section>
@@ -315,225 +338,96 @@
             <div class="section_content">
                 <div class="text_field">
                     <p class="hint_text">Does the camper have a history of or is prone to any of the following (Please check all that apply)</p>
-                </div>
-                <ol class="health_immunizations_list">
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Recent injury, illness or infectious disease</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Chronic or recurring illness</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">{{ form.asthma }} Asthma</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Dysmenorrhea</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Frequent Ear Infections</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Seizure Disorder or Convulsions</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Dizziness during or after exercise</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Chest pain during or after exercise</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Heart Defect/Disease</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Hypertension</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Bleeding/Clotting Disorders</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Diabetes</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Mononucleosis</h5>
-                            <p class="hint_text">(in last 12 months)</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Chicken Pox</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Measles</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] German Measles</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Mumps</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Tuberculosis</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Joint problems</h5>
-                            <p class="hint_text">(knees, ankles, etc.)</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Fractures</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Frequent Headaches</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Head Injury</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Eating Disorder</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Diarrhea or constipation</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Frequent Stomach Aches</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Wears glasses or contacts</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Been Hospitalized/Surgery</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Wears a Medic Alert ID</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="text_field">
-                            <h5 class="field_title">[checkbox] Other</h5>
-                            <p class="hint_text">(Please Explain Below)</p>
-                        </div>
-                    </li>
-                </ol>
-                <div class="text_field">
-                    <h5 class="field_title">Please list the number and provide explanation for any checked items: [CharField]</h5>
+                    {{ form.camper_physical_health_history_choices }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Physical Activities to be Limited/Restricted while at Camp: [CharField]</h5>
+                    <h5 class="field_title">Please list the number and provide explanation for any checked items:</h5>
+                    {{ form.provide_explanation_of_any_checked_medical_history_items }}
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">Physical Activities to be Limited/Restricted while at Camp:</h5>
+                    {{ form.does_camper_have_any_physical_activities_to_be_limited_or_restricted }}
                 </div>
                 <div class="text_field">
                     <p class="hint_text">Please record the month and year of immunizations or email a copy of the youth’s immunization records.</p>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Diphtheria, tetanus, pertussis: [CharField] or [DateField?]</h5>
+                    <h5 class="field_title">Diphtheria, tetanus, pertussis:</h5>
                     <p class="hint_text">(DTaP or TdaP)</p>
+                    {{ form.month_and_year_of_diphtheria_or_tetanus_immunization }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Tetanus booster: [CharField] or [DateField?]</h5>
+                    <h5 class="field_title">Tetanus booster:</h5>
                     <p class="hint_text">(dT or TdaP)</p>
+                    {{ form.month_and_year_of_tetanus_booster_immunization }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Polio: [CharField] or [DateField?]</h5>
+                    <h5 class="field_title">Polio:</h5>
                     <p class="hint_text">(IPV)</p>
+                    {{ form.month_and_year_of_polio_immunization }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Rotavirus: [CharField] or [DateField?]</h5>
+                    <h5 class="field_title">Rotavirus:</h5>
                     <p class="hint_text">(RV)</p>
+                    {{ form.month_and_year_of_rotavirus_immunization }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Mumps, Measles, Rubella: [CharField] or [DateField?]</h5>
+                    <h5 class="field_title">Mumps, Measles, Rubella:</h5>
                     <p class="hint_text">(MMR)</p>
+                    {{ form.month_and_year_of_mumps_measles_or_rubella_immunization }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Hepatitis A: [CharField] or [DateField?]</h5>
+                    <h5 class="field_title">Hepatitis A:</h5>
                     <p class="hint_text">(Hep. A)</p>
+                    {{ form.month_and_year_of_hepatitis_a_immunization }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Hepatitis B: [CharField] or [DateField?]</h5>
+                    <h5 class="field_title">Hepatitis B:</h5>
                     <p class="hint_text">(Hep. B)</p>
+                    {{ form.month_and_year_of_hepatitis_b_immunization }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Varicella: [CharField] or [DateField?]</h5>
+                    <h5 class="field_title">Varicella:</h5>
                     <p class="hint_text">(Chicken pox)</p>
+                    {{ form.month_and_year_of_varicella_immunization }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Had chicken pox & date: [CharField] or [DateField?]</h5>
+                    <h5 class="field_title">Had chicken pox & date:</h5>
+                    {{ form.month_and_year_of_duration_of_chicken_pox }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Haemophilus Influenzae B: [CharField] or [DateField?]</h5>
+                    <h5 class="field_title">Haemophilus Influenzae B:</h5>
                     <p class="hint_text">(Hib)</p>
+                    {{ form.month_and_year_of_haemophilus_influenza_b_immunization }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Seasonal Flu Vaccine: [CharField] or [DateField?]</h5>
+                    <h5 class="field_title">Seasonal Flu Vaccine:</h5>
+                    {{ form.month_and_year_of_seasonal_flu_vaccine_immunization }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Pneumococcal Vaccine: [CharField] or [DateField?]</h5>
+                    <h5 class="field_title">Pneumococcal Vaccine:</h5>
                     <p class="hint_text">(PCV13)</p>
+                    {{ form.month_and_year_of_pneumococcal_vaccine_immunization }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Human Papillomavirus: [CharField] or [DateField?]</h5>
+                    <h5 class="field_title">Human Papillomavirus:</h5>
                     <p class="hint_text">(HPV)</p>
+                    {{ form.month_and_year_of_human_papillomavirus_immunization }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Meningococcal meningitis: [CharField] or [DateField?]</h5>
+                    <h5 class="field_title">Meningococcal meningitis:</h5>
+                    {{ form.month_and_year_of_meningococcal_meningitis_immunization }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Tuberculin test given: [CharField] or [DateField?]</h5>
+                    <h5 class="field_title">Tuberculin test given:</h5>
                     <p class="hint_text">(Most Recent)</p>
+                    {{ form.month_and_year_of_tuberculin_test }}
+                    <p class="hint_text">Was this test Positive or Negative?</p>
+                    {{ form.was_tuberculin_test_positive_or_negative }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Other: [CharField] or [DateField?]</h5>
+                    <h5 class="field_title">Other:</h5>
+                    {{ form.any_other_unlisted_immunizations }}
                 </div>
             </div>
         </section>
@@ -549,63 +443,19 @@
                 <div class="text_field">
                     <h5 class="field_title">Has the camper have a history of any of the following:</h5>
                     <p class="hint_text">(Please check all that apply)</p>
+                    {{ form.camper_mental_health_history_choices }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">[checkbox] Eating Disorders</h5>
+                    <h5 class="field_title">Please list the number and provide explanation for any checked items:</h5>
+                    {{ form.any_other_unlisted_mental_illnesses }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">[checkbox] ADD/ADHD</h5>
-                    <p class="hint_text">(Attention Deficit Disorder/Attention Deficit Hyperactivity Disorder)</p>
+                    <h5 class="field_title">Please list any triggers we should be aware of:</h5>
+                    {{ form.does_camper_have_any_triggers_to_be_aware_of }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">[checkbox] Experience audio and/or visual hallucinations</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">[checkbox] PTSD</h5>
-                    <p class="hint_text">(Post Traumatic Stress Disorder)</p>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">[checkbox] Gender Dysphoria</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">[checkbox] Significant life event that continues to affect the camper</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">[checkbox] Sexual assault/Sexual violence</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">[checkbox] Depression</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">[checkbox] Obsessive Compulsive Disorder</h5>
-                    <p class="hint_text">(OCD)</p>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">[checkbox] Panic Attacks</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">[checkbox] Anxiety</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">[checkbox] Mental/Verbal abuse</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">[checkbox] Physical abuse</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">[checkbox] Trouble sleeping/sleep disorders/nightmares</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">[checkbox] Other</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Please list the number and provide explanation for any checked items: [CharField]</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Please list any triggers we should be aware of: [CharField]</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Please list any good coping skills the youth likes to use: [CharField]</h5>
+                    <h5 class="field_title">Please list any good coping skills the youth likes to use:</h5>
+                    {{ form.does_camper_have_positive_coping_skills_to_use }}
                 </div>
             </div>
         </section>
@@ -622,46 +472,10 @@
                     <h5 class="field_title bold underline text-center">Consent for Medication Administration and to Give Over-The-Counter Medication</h5>
                     <p class="hint_text">I request the authorized ASPYRE staff members to administer medication or supervise the camper in self-administration as prescribed by the camper’s physician. I certify that I have the legal authority to consent to medical treatment for the camper named above, including the administration of medication at the facility. Additionally, I authorize ASPYRE staff members to administer the following over the counter medications listed below to the camper at the request of the camper.</p>
                     <p class="hint_text">I understand that the end of the authorized period I will be responsible for picking up any remaining medications, otherwise it will be discarded. I authorize camp personnel to communicate with the prescriber as allowed by HIPAA.</p>
+                    {{ form.guardian_authorized_over_counter_medications_choices }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">[checkbox] Acetaminophen - fever, pain</h5>
-                    <p class="hint_text">(Tylenol)</p>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">[checkbox] Ibuprofen - fever, pain</h5>
-                    <p class="hint_text">(advil)</p>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">[checkbox] Diphenhydramine - antihistamine</h5>
-                    <p class="hint_text">(benadryl)</p>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">[checkbox] Bismuth subsalicylate - heartburn, indigestion, nausea</h5>
-                    <p class="hint_text">(pepto bismol)</p>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">[checkbox] Calcium carbonate - heartburn, indigestion</h5>
-                    <p class="hint_text">(tums)</p>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">[checkbox] Polyethylene glycol - laxative</h5>
-                    <p class="hint_text">(miralax)</p>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">[checkbox] Bacitracin - antibiotic ointment for cuts, scrapes, minor burns</h5>
-                    <p class="hint_text">(neosporin)</p>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">[checkbox] 'All of the above over the counter medications mentioned.'</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">[checkbox] 'I do not want my child to receive over the counter medication.'</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Parent/Guardian Signature: [CharField]</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Date: [CharField]</h5>
+                    <p class="hint_text">{{ form.guardian_consent_to_give_over_the_counter_medications }} I Agree</p>
                 </div>
                 <div class="text_field">
                     <h5 class="field_title bold underline text-center">Consent to Use Health Information and Consent for Treatment at ASPYRE</h5>
@@ -670,10 +484,7 @@
                     <h5 class="hint_text">To the best of my knowledge, the health information stated in the “ASPYRE Leadership Camp Health Form” is correct for my child. I give permission for the staff to treat my child for any minor medical injuries including but not limited to cuts, scrapes, insect bites, etc. In case of medical and/or mental health emergency, the camp will try to contact the person designated as the emergency contact on this form but in the event that the person cannot be contacted, I give permission to the physician selected by a ASPYRE Staff to hospitalize, secure proper treatment, order injection, anesthesia and/or surgery for the individual.</h5>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Parent/Guardian Signature: [CharField]</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Date: [CharField]</h5>
+                    <p class="hint_text">{{ form. }} I Agree</p>
                 </div>
                 <div class="text_field">
                     <h5 class="field_title bold underline text-center">Freedom of Expression Consent</h5>
@@ -682,20 +493,20 @@
                     <p class="hint_text">I understand that my adolescent may be exposed to concepts or language in discussions at ASPYRE camp that our family does not personally endorse. I understand that the APRYRE staff will make every attempt to keep all camp materials age-appropriate, while recognizing that different cultures, families, and individuals may define this differently. I recognize that some written pieces, songs, or videos that demonstrate the lives of strong LGBTQI leaders in history may contain some strong language and that the staff may determine that there is benefit in introducing the material to campers. I agree to discuss with my child after camp any concepts or language in songs, etc. in terms of the values of our own family/culture.</p>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Parent/Guardian Signature: [CharField]</h5>
+                    <h5 class="field_title">Parent/Guardian Signature:</h5>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Date: [CharField]</h5>
+                    <h5 class="field_title">Date:</h5>
                 </div>
                 <div class="text_field">
                     <h5 class="field_title">AGREED Participant over 18 years old or Parent/Guardian of youth under 18 years old:</h5>
                     <p class="hint_text">[radio] Yes [radio] No</p>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Signature: [CharField]</h5>
+                    <h5 class="field_title">Signature:</h5>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Date: [CharField]</h5>
+                    <h5 class="field_title">Date:</h5>
                 </div>
             </div>
         </section>
@@ -739,22 +550,22 @@
                     <p class="hint_text">Violations of this agreement will result in notification to the respective nominator and sponsor. Violations involving destruction of property, or possession, consumption or use of alcoholic beverages or controlled substances or tobacco products will result in dismissal from the event. Further, it is in the discretion of the Volunteer Staff to notify the appropriate authorities of any criminal violations. These values are effective as of the time the participant arrives at this event until the time the participant departs.</p>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Participant Signature: [CharField]</h5>
+                    <h5 class="field_title">Participant Signature:</h5>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Printed Name: [CharField]</h5>
+                    <h5 class="field_title">Printed Name:</h5>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Date: [CharField]</h5>
+                    <h5 class="field_title">Date:</h5>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Participant Parent/Guardian Signature: [CharField]</h5>
+                    <h5 class="field_title">Participant Parent/Guardian Signature:</h5>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Printed Name: [CharField]</h5>
+                    <h5 class="field_title">Printed Name:</h5>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Date: [CharField]</h5>
+                    <h5 class="field_title">Date:</h5>
                 </div>
             </div>
         </section>
@@ -799,22 +610,22 @@
                     </ol>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Participant Signature: [CharField]</h5>
+                    <h5 class="field_title">Participant Signature:</h5>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Print Name: [CharField]</h5>
+                    <h5 class="field_title">Print Name:</h5>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Date: [CharField]</h5>
+                    <h5 class="field_title">Date:</h5>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Parent/Guardian Signature: [CharField]</h5>
+                    <h5 class="field_title">Parent/Guardian Signature:</h5>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Print Name: [CharField]</h5>
+                    <h5 class="field_title">Print Name:</h5>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Date: [CharField]</h5>
+                    <h5 class="field_title">Date:</h5>
                 </div>
             </div>
         </section>
@@ -1040,7 +851,7 @@
     </form>
 
     <div class="toDelete">
-        <a href="{% url 'camper_registration' %}"><button class="index">‹ TO REGISTRATION FORM</button></a>
+        <a href="{% url 'camper_scholarship_form' %}"><button class="leftButton">‹ TO SCHOLARSHIP FORM</button></a>
     </div>
 </div>
 
