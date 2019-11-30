@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from core.forms import CamperRegistrationForm, CamperScholarshipForm, CamperMedicalForm
 from core.models import User, Camper, Camp, MedicalInformation, Registration
+from django.core.mail import send_mail
 
 def index(request):
   return render(request, 'core/index.html')
@@ -66,6 +67,7 @@ def camper_registration(request):
         camper=camper,
         camp=camp
       )
+      send_mail('Test Email', f'This is an automated email saying that a new registration was submitted for {legal_full_name}', 'jjporter921@gmail.com', [f'{email}'])
       return redirect(to='camper_registration_submitted')
   else:
     form = CamperRegistrationForm()
