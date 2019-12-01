@@ -25,7 +25,7 @@ urlpatterns = [
     path('accounts/', include('registration.backends.simple.urls')),
     path('', include("django.contrib.auth.urls")),
     path('ASPYRE-Registration/', views.camper_registration, name="camper_registration_form"),
-    path('ASPYRE-Registration-submitted', views.camper_registration_submitted, name="camper_registration_form_submitted"),
+    path('ASPYRE-Registration-submitted', views.camper_registration_form_submitted, name="camper_registration_form_submitted"),
     path('ASPYRE-Scholarship-form/', views.camper_scholarship_form, name="camper_scholarship_form"),
     path('ASPYRE-Scholarship-submitted/', views.camper_scholarship_submitted, name="camper_scholarship_form_submitted"),
     path('ASPYRE-Medical-Form/', views.camper_medical_form, name="camper_medical_form"),
