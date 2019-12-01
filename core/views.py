@@ -310,10 +310,10 @@ def camper_scholarship_form(request):
     if form.is_valid():
       form_data = form.cleaned_data
       camper = form_data.get("camper")
-      camper.like_to_change = form_data.get("like_to_change")
-      camper.currently_involved_activities = form_data.get("currently_involved_activities")
-      camper.if_scholarship_not_granted = form_data.get("if_scholarship_not_granted")
-      camper.definite_transportation = form_data.get("definite_transportation")
+      camper.what_would_camper_change_in_school_or_community = form_data.get("what_would_camper_change_in_school_or_community")
+      camper.what_activities_is_the_camper_involved_in = form_data.get("what_activities_is_the_camper_involved_in")
+      camper.if_scholarship_not_granted_can_they_pay_camp_cost = form_data.get("if_scholarship_not_granted_can_they_pay_camp_cost")
+      camper.camper_has_definite_transportation_if_scholarship_is_granted = form_data.get("camper_has_definite_transportation_if_scholarship_is_granted")
       camper.save()
       return redirect(to='camper_scholarship_form_submitted')
   else:

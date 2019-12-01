@@ -49,6 +49,13 @@ h6 {
 }
 
 
+/*|=====| Class to apply to any <ul> to allow their <li> to be horizontal |=====|*/
+
+.horizontal li {
+    display: inline-block;
+}
+
+
 /*======================| FAST-TRAVEL |====================*/
 
 
@@ -119,8 +126,8 @@ h6 {
     margin-right: 10rem;
     margin-bottom: 0.5rem;
     padding-top: 1rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
     padding-bottom: 1rem;
     border-left: 1px solid black;
     border-right: 1px solid black;
@@ -213,7 +220,7 @@ h6 {
 .date_field_input {
     margin-top: 1rem;
     margin-left: 1rem;
-    width: 10rem;
+    width: auto;
     border: 1px solid black;
     box-shadow: inset 3px 3px 7px #8c8c8c;
     font-size: 1.3rem;
@@ -238,8 +245,8 @@ h6 {
 .boolean_field_input {
     margin-top: 1rem;
     margin-left: 1rem;
-    width: 0.75rem;
-    height: 0.75rem;
+    width: auto;
+    height: auto;
     border: 1px solid black;
     box-shadow: inset 1px 1px 6px #8c8c8c;
     font-size: 1.3rem;
@@ -270,7 +277,7 @@ h6 {
 
 .divider {
     border: 1px solid rgb(177, 177, 177);
-    margin-top: 1rem;
+    margin-top: 2rem;
     margin-left: 1rem;
     margin-right: 1rem;
     margin-bottom: 1rem;
@@ -401,4 +408,46 @@ h6 {
     padding-right: 0.5rem;
     padding-bottom: 0.2rem;
     border-radius: 0.5rem;
+}
+
+.fancy_divider_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.fancy_divider_left_side {
+    border-top: 3px solid #d88383;
+    border-left: 0 solid #bb5353;
+    border-right: 0 solid #bb5353;
+    border-bottom: 3px solid #813839;
+    width: 100px;
+    position: absolute;
+    top: 0.6rem;
+    left: 12.7rem;
+}
+
+.fancy_divider_center {
+    background-color: #d88383;
+    border: 5px ridge #bb5353;
+    width: 30px;
+    height: 30px;
+    transform: rotateZ(225deg);
+    border-radius: 0.1rem;
+}
+
+.fancy_divider_right_side {
+    border-top: 3px solid #d88383;
+    border-left: 0 solid #bb5353;
+    border-right: 0 solid #bb5353;
+    border-bottom: 3px solid #813839;
+    width: 100px;
+    position: absolute;
+    top: 0.6rem;
+    left: 20.5rem;
 }

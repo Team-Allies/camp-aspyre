@@ -41,15 +41,15 @@ class CamperRegistrationForm(forms.Form):
   does_the_camper_have_other_companies_paying = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
 class CamperScholarshipForm(forms.Form):
   camper = forms.ModelChoiceField(queryset=Camper.objects.all())
-  like_to_change = forms.CharField(widget=forms.Textarea, max_length=255)
-  currently_involved_activities = forms.CharField(max_length=100)
-  if_scholarship_not_granted = forms.CharField(max_length=50)
+  what_would_camper_change_in_school_or_community = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  what_activities_is_the_camper_involved_in = forms.CharField(max_length=100, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  if_scholarship_not_granted_can_they_pay_camp_cost = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   DEFINITE_TRANSPORTATION = (
   ('Yes', 'Yes'),
   ('No', 'No'),
   ('Carpool', 'Carpool would be necessary')
   )
-  definite_transportation = forms.ChoiceField(choices=DEFINITE_TRANSPORTATION, widget=forms.RadioSelect())
+  camper_has_definite_transportation_if_scholarship_is_granted = forms.ChoiceField(choices=DEFINITE_TRANSPORTATION, widget=forms.RadioSelect(attrs={'class':'radio_field_input'}))
 
   def __init__(self, user, *args, **kwargs):
     super(CamperScholarshipForm, self).__init__(*args, **kwargs)
@@ -166,89 +166,89 @@ class CamperMedicalForm(forms.Form):
     ('Nut-free','Nut-free'),
     ('Gluten-free','Gluten-free'),
   )
-  camper_dietary_preference_choices = forms.ChoiceField(choices=DIETARY_PREFERENCE_CHOICES, widget=forms.RadioSelect(attrs={'class':'radio_field_input'}))
-  does_camper_have_any_food_allergies = forms.CharField(widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  does_camper_have_any_drug_other_allergies = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  camper_dietary_preference_choices = forms.ChoiceField(choices=DIETARY_PREFERENCE_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
+  does_camper_have_any_food_allergies = forms.CharField(required=True, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  does_camper_have_any_drug_other_allergies = forms.CharField(required=True, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
 
 #|=====| Section 4 - PHYSICAL HEALTH HISTORY/IMMUNIZATIONS |=====|#
 
   CAMPER_PHYSICAL_HEALTH_HISTORY_CHOICES = (
-    ('recent injury , illness or infectious disease', 'recent injury , illness or infectious disease'),
-    ('chronic or recurring illness', 'chronic or recurring illness'),
-    ('asthma', 'asthma'),
-    ('dysmenorrhea', 'dysmenorrhea'),
-    ('frequent ear infections', 'frequent ear infections'),
-    ('seizure disorders or convulsions', 'seizure disorders or convulsions'),
-    ('dizziness during or after exercise', 'dizziness during or after exercise'),
-    ('chest pain during or after exercise', 'chest pain during or after exercise'),
-    ('heart defect / disease', 'heart defect / disease'),
-    ('hypertension', 'hypertension'),
-    ('bleeding / clotting disorder', 'bleeding / clotting disorder'),
-    ('diabetes', 'diabetes'),
-    ('mononucleosis ( in last 12 months )', 'mononucleosis ( in last 12 months )'),
-    ('chicken pox', 'chicken pox'),
-    ('measles', 'measles'),
-    ('german measles', 'german measles'),
-    ('mumps', 'mumps'),
-    ('tuberculosis', 'tuberculosis'),
-    ('hepatitis', 'hepatitis'),
-    ('joint problems', 'joint problems'),
-    ('fractures', 'fractures'),
-    ('frequent headaches', 'frequent headaches'),
-    ('head injury', 'head injury'),
-    ('eating disorder', 'eating disorder'),
-    ('diarrhea or constipation', 'diarrhea or constipation'),
-    ('frequent stomach aches', 'frequent stomach aches'),
-    ('wearing glasses or contacts', 'wearing glasses or contacts'),
-    ('surgery or being hospitalized', 'surgery or being hospitalized'),
-    ('wearing medic alert id', 'wearing medic alert id'),
+    ('Recent Injury , Illness or Infectious Disease', 'Recent Injury , Illness or Infectious Disease'),
+    ('Chronic or Recurring Illness', 'Chronic or Recurring Illness'),
+    ('Asthma', 'Asthma'),
+    ('Dysmenorrhea', 'Dysmenorrhea'),
+    ('Frequent Ear Infections', 'Frequent Ear Infections'),
+    ('Seizure Sisorders or Convulsions', 'Seizure Disorders or Convulsions'),
+    ('Dizziness during or after exercise', 'Dizziness during or after exercise'),
+    ('Chest Pain during or after exercise', 'Chest Pain during or after exercise'),
+    ('Heart Defect / Disease', 'Heart Defect / Disease'),
+    ('Hypertension', 'Hypertension'),
+    ('Bleeding / Clotting Disorder', 'Bleeding / Clotting Disorder'),
+    ('Diabetes', 'Diabetes'),
+    ('Mononucleosis ( in last 12 months )', 'Mononucleosis ( in last 12 months )'),
+    ('Chicken pox', 'Chicken pox'),
+    ('Measles', 'Measles'),
+    ('German Measles', 'German Measles'),
+    ('Mumps', 'Mumps'),
+    ('Tuberculosis', 'Tuberculosis'),
+    ('Hepatitis', 'Hepatitis'),
+    ('Joint Problems', 'Joint Problems'),
+    ('Fractures', 'Fractures'),
+    ('Frequent Headaches', 'Frequent Headaches'),
+    ('Head Injury', 'Head Injury'),
+    ('Eating Disorder', 'Eating Disorder'),
+    ('Diarrhea or Constipation', 'Diarrhea or Constipation'),
+    ('Frequent Stomach Aches', 'Frequent Stomach Aches'),
+    ('Wearing Glasses or Contacts', 'Wearing Glasses or Contacts'),
+    ('Surgery or being Hospitalized', 'Surgery or being Hospitalized'),
+    ('Wearing Medic Alert ID', 'Wearing Medic Alert ID'),
     ('other unlisted medical history', 'other unlisted medical history'),
   )
-  camper_physical_health_history_choices = forms.ChoiceField(choices=CAMPER_PHYSICAL_HEALTH_HISTORY_CHOICES, widget=forms.RadioSelect(attrs={'class':'radio_field_input'}))
+  camper_physical_health_history_choices = forms.ChoiceField(choices=CAMPER_PHYSICAL_HEALTH_HISTORY_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
   explain_any_other_unlisted_medical_history = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   provide_explanation_of_any_checked_medical_history_items = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   does_camper_have_any_physical_activities_to_be_limited_or_restricted = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  month_and_year_of_diphtheria_or_tetanus_immunization = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  month_and_year_of_tetanus_booster_immunization = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  month_and_year_of_polio_immunization = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  month_and_year_of_rotavirus_immunization = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  month_and_year_of_mumps_measles_or_rubella_immunization = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  month_and_year_of_hepatitis_a_immunization = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  month_and_year_of_hepatitis_b_immunization = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  month_and_year_of_varicella_immunization = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  month_and_year_of_duration_of_chicken_pox = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  month_and_year_of_diphtheria_or_tetanus_immunization = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  month_and_year_of_tetanus_booster_immunization = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  month_and_year_of_polio_immunization = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  month_and_year_of_rotavirus_immunization = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  month_and_year_of_mumps_measles_or_rubella_immunization = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  month_and_year_of_hepatitis_a_immunization = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  month_and_year_of_hepatitis_b_immunization = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  month_and_year_of_varicella_immunization = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  month_and_year_of_duration_of_chicken_pox = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   month_and_year_of_haemophilus_influenza_b_immunization = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  month_and_year_of_seasonal_flu_vaccine_immunization = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  month_and_year_of_pneumococcal_vaccine_immunization = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  month_and_year_of_human_papillomavirus_immunization = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  month_and_year_of_meningococcal_meningitis_immunization = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  month_and_year_of_tuberculin_test = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  month_and_year_of_seasonal_flu_vaccine_immunization = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  month_and_year_of_pneumococcal_vaccine_immunization = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  month_and_year_of_human_papillomavirus_immunization = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  month_and_year_of_meningococcal_meningitis_immunization = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  month_and_year_of_tuberculin_test = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   TUBERCULIN_TEST_POSITIVE_OR_NEGATIVE = (
-    ('Yes, it was Positive', 'Yes, it was Positive'),
-    ('No, it was Negative', 'No, it was Negative'),
+    ('Positive', 'Positive'),
+    ('Negative', 'Negative'),
   )
-  was_tuberculin_test_positive_or_negative = forms.ChoiceField(choices=TUBERCULIN_TEST_POSITIVE_OR_NEGATIVE, widget=forms.RadioSelect(attrs={'class':'radio_field_input'}))
+  was_tuberculin_test_positive_or_negative = forms.ChoiceField(required=True, choices=TUBERCULIN_TEST_POSITIVE_OR_NEGATIVE, widget=forms.RadioSelect(attrs={'class':'radio_field_input'}))
   any_other_unlisted_immunizations = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
 
 #|=====| Section 5 - MENTAL HEALTH HISTORY |=====|#
 
   MENTAL_HEALTH_HISTORY_CHOICES = ( 
-    ('any eating disorders', 'any eating disorders'),
-    ('add or adhd', 'add or adhd'),
-    ('any audio visual hallucinations', 'any audio visual hallucinations'),
-    ('ptsd', 'ptsd'),
-    ('gender dysphoria', 'gender dysphoria'),
-    ('any significant life event that continues to affect camper', 'any significant life event that continues to affect camper'),
-    ('any sexual assault or sexual violence', 'any sexual assault or sexual violence'),
-    ('depression', 'depression'),
-    ('obsessive compulsive disorder', 'obsessive compulsive disorder'),
-    ('any panic attacks', 'any panic attacks'),
-    ('anxiety', 'anxiety'),
-    ('any mental or verbal abuse', 'any mental or verbal abuse'),
-    ('any physical abuse', 'any physical abuse'),
-    ('any trouble sleeping or sleep disorders', 'any trouble sleeping or sleep disorders'),
+    ('Any Eating Disorders', 'Any Eating Disorders'),
+    ('Add or Adhd', 'Add or Adhd'),
+    ('Any Audio Visual Hallucinations', 'Any Audio Visual Hallucinations'),
+    ('PTSD', 'PTSD'),
+    ('Gender Dysphoria', 'Gender Dysphoria'),
+    ('Any Significant Life Event that continues to affect camper', 'Any Significant Life Event that continues to affect camper'),
+    ('Any Sexual Assault or Sexual Violence', 'Any Sexual Assault or Sexual Violence'),
+    ('Depression', 'Depression'),
+    ('Obsessive Compulsive Disorder', 'Obsessive Compulsive Disorder'),
+    ('Any Panic Attacks', 'Any Panic Attacks'),
+    ('Anxiety', 'Anxiety'),
+    ('Any Mental or Verbal Abuse', 'Any Mental or Verbal Abuse'),
+    ('Any Physical Abuse', 'Any Physical Abuse'),
+    ('Any Trouble Sleeping or Sleep Disorders', 'Any Trouble Sleeping or Sleep Disorders'),
   )
-  camper_mental_health_history_choices = forms.ChoiceField(choices=MENTAL_HEALTH_HISTORY_CHOICES, widget=forms.RadioSelect(attrs={'class':'radio_field_input'}))
+  camper_mental_health_history_choices = forms.ChoiceField(choices=MENTAL_HEALTH_HISTORY_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
   any_other_unlisted_mental_illnesses = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   provide_explanation_for_any_checked_mental_illness_items = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   does_camper_have_any_triggers_to_be_aware_of = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'text_field_input'}))
@@ -260,35 +260,35 @@ class CamperMedicalForm(forms.Form):
     ('Acetaminophen (Tylenol) - fever, pain', 'Acetaminophen (Tylenol) - fever, pain'),
     ('Ibuprofen (Advil) - fever, pain', 'Ibuprofen (Advil) - fever, pain'),
     ('Diphenhydramine (Benadryl) - antihistamine', 'Diphenhydramine (Benadryl) - antihistamine'),
-    ('Bismuth Subsalicylate (Pepto Bismol) - heartburn, indigestion, nausea', 'Bismuth Subsalicylate (Pepto Bismol) - heartburn, indigestion, nausea'),
+    ('Bismuth Subsalicylate (Pepto Bismol) - heartburn, indigestion, nausea', 'Bismuth Subsalicylate (Pepto Bismol) - heartburn, indigestion'),
     ('Calcium Carbonate (Tums) - heartburn, indigestion', 'Calcium Carbonate (Tums) - heartburn, indigestion'),
     ('Polyethylene Glycol (Miralax) - laxative', 'Polyethylene Glycol (Miralax) - laxative'),
-    ('Bacitracin (Neosporin) - antibiotic ointment', 'Bacitracin (Neosporin) - antibiotic ointment for cuts, scrapes, minor burns'),
+    ('Bacitracin (Neosporin) - antibiotic ointment', 'Bacitracin (Neosporin) - antibiotic ointment'),
     ('I consent for all of the above', 'I consent for all of the above'),
     ('I do not want any over the counter medications to be given', 'I do not want any over the counter medications to be given'),
   )
-  guardian_authorized_over_counter_medications_choices = forms.ChoiceField(choices=AUTHORIZED_OVER_COUNTER_MEDICATIONS_CHOICES, widget=forms.RadioSelect(attrs={'class':'radio_field_input'}))
+  guardian_authorized_over_counter_medications_choices = forms.ChoiceField(choices=AUTHORIZED_OVER_COUNTER_MEDICATIONS_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
 
-  guardian_consent_to_give_over_the_counter_medications = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
+  guardian_consent_to_give_over_the_counter_medications = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
 
-  guardian_consent_to_health_information_and_treatment_at_ASPYRE = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
+  guardian_consent_to_health_information_and_treatment_at_ASPYRE = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
   
-  guardian_consent_to_freedom_of_expression_consent = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
+  guardian_consent_to_freedom_of_expression_consent = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
 
-  guardian_or_18yr_old_consent_to_photo_release = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
+  guardian_or_18yr_old_consent_to_photo_release = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
 
 #|=====| Section 7 - COMMUNITY VALUES AGREEMENT |=====|#
 
-  guardian_consent_for_community_values_agreement = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
-  camper_consent_for_community_values_agreement = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
+  guardian_consent_for_community_values_agreement = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
+  camper_consent_for_community_values_agreement = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
 
 #|=====| Section 8 - PARENT/GUARDIAN AND PARTICIPANT RELEASE |=====|#
 
-  guardian_consent_for_waiver_to_participate = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
-  camper_consent_for_waiver_to_participate = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))  
+  guardian_consent_for_waiver_to_participate = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
+  camper_consent_for_waiver_to_participate = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))  
 
-  guardian_signed_for_the_entire_form = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
+  guardian_signed_for_the_entire_form = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
   date_of_guardian_signed_for_the_entire_form = forms.DateField(widget = forms.DateInput(attrs={'type':'date', 'class':'date_field_input'}))
 
-  camper_signed_for_the_entire_form = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
+  camper_signed_for_the_entire_form = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
   date_of_camper_signed_for_the_entire_form = forms.DateField(widget = forms.DateInput(attrs={'type':'date', 'class':'date_field_input'}))

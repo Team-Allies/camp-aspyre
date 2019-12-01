@@ -3,8 +3,6 @@
 
 {% block content %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'css/camper_form.css' %}">
-
 <div class="main_content_wrapper">
     <div class="rainbow"></div>
     <form class="camper_form">
@@ -49,39 +47,45 @@
                     {{ form.first_guardian_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Phone #:</h5>
+                    <h5 class="field_title">Parent/Guardian Phone Number:</h5>
                     {{ form.first_guardian_phone_number }}
                 </div>
                 <div class="text_field">
                     <h5 class="field_title">What type of phone number?</h5>
                     <p class="hint_text">(Home, Work, or Cellular?)</p>
-                    {{ form.first_guardian_home_work_or_cell }}
+                    <ul class="horizontal">
+                        <li>{{ form.first_guardian_home_work_or_cell }}</li>
+                    </ul>
                 </div>
                 <div class="text_field">
                     <h5 class="field_title">Parent/Guardian Name:</h5>
                     {{ form.second_guardian_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Phone #:</h5>
+                    <h5 class="field_title">Parent/Guardian Phone Number:</h5>
                     {{form.second_guardian_phone_number }}
                 </div>
                 <div class="text_field">
                     <h5 class="field_title">What type of phone number?</h5>
                     <p class="hint_text">(Home, Work, or Cellular?)</p>
-                    {{ form.second_guardian_home_work_or_cell }}
+                    <ul class="horizontal">
+                        <li>{{ form.second_guardian_home_work_or_cell }}</li>
+                    </ul>
                 </div>
                 <div class="text_field">
                     <h5 class="field_title">Parent/Guardian Name:</h5>
                     {{ form.third_guardian_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Phone #:</h5>
+                    <h5 class="field_title">Parent/Guardian Phone Number:</h5>
                     {{ form.third_guardian_phone_number }}
                 </div>
                 <div class="text_field">
                     <h5 class="field_title">What type of phone number?</h5>
                     <p class="hint_text">(Home, Work, or Cellular?)</p>
-                    {{ form.third_guardian_home_work_or_cell }}
+                    <ul class="horizontal">
+                        <li>{{ form.third_guardian_home_work_or_cell }}</li>
+                    </ul>
                 </div>
                 <div class="text_field">
                     <h5 class="field_title">Emergency Contact Name:</h5>
@@ -89,13 +93,15 @@
                     {{ form.emergency_contact_name }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Phone #:</h5>
+                    <h5 class="field_title">Emergency Contact Phone Number:</h5>
                     {{ form.emergency_contact_phone_number }}
                 </div>
                 <div class="text_field">
                     <h5 class="field_title">What type of phone number?</h5>
                     <p class="hint_text">(Home, Work, or Cellular?)</p>
-                    {{ form.emergency_home_work_cell }}
+                    <ul class="horizontal">
+                        <li>{{ form.emergency_home_work_cell }}</li>
+                    </ul>
                 </div>
                 <div class="text_field">
                     <h5 class="field_title">My child can be picked up by either guardian and/or emergency contact:</h5>
@@ -180,6 +186,9 @@
                     <h5 class="field_title">Prescriber's Phone Number:</h5>
                     {{ form.first_medication_prescriber_phone_number }}
                 </div>
+
+                <div class="divider"></div>
+
                 <div class="text_field">
                     <h5 class="field_title">Medication:</h5>
                     {{ form.second_medication_name }}
@@ -204,6 +213,9 @@
                     <h5 class="field_title">Prescriber's Phone Number:</h5>
                     {{ form.second_medication_prescriber_phone_number }}
                 </div>
+
+                <div class="divider"></div>
+
                 <div class="text_field">
                     <h5 class="field_title">Medication:</h5>
                     {{ form.third_medication_name }}
@@ -228,6 +240,9 @@
                     <h5 class="field_title">Prescriber's Phone Number:</h5>
                     {{ form.third_medication_prescriber_phone_number }}
                 </div>
+
+                <div class="divider"></div>
+
                 <div class="text_field">
                     <h5 class="field_title">Medication:</h5>
                     {{ form.fourth_medication_name }}
@@ -252,6 +267,9 @@
                     <h5 class="field_title">Prescriber's Phone Number:</h5>
                     {{ form.fourth_medication_prescriber_phone_number }}
                 </div>
+
+                <div class="divider"></div>
+
                 <div class="text_field">
                     <h5 class="field_title">Medication:</h5>
                     {{ form.fifth_medication_name }}
@@ -276,6 +294,9 @@
                     <h5 class="field_title">Prescriber's Phone Number:</h5>
                     {{ form.fifth_medication_prescriber_phone_number }}
                 </div>
+                
+                <div class="divider"></div>
+
                 <div class="text_field">
                     <h5 class="field_title">Medication:</h5>
                     {{ form.sixth_medication_name }}
@@ -318,12 +339,12 @@
                 <div class="text_field">
                     <h5 class="field_title">Food Allergies:</h5>
                     <p class="hint_text">(Please specify and list reactions)</p>
-                    {{ forms.does_camper_have_any_food_allergies }}
+                    {{ form.does_camper_have_any_food_allergies }}
                 </div>
                 <div class="text_field">
                     <h5 class="field_title">Known Drug Allergies/Other Allergies:</h5>
                     <p class="hint_text">(Please specify and list reactions)</p>
-                    {{ forms.does_camper_have_any_drug_other_allergies }}
+                    {{ form.does_camper_have_any_drug_other_allergies }}
                 </div>
             </div>
         </section>
@@ -349,15 +370,15 @@
                     {{ form.does_camper_have_any_physical_activities_to_be_limited_or_restricted }}
                 </div>
                 <div class="text_field">
-                    <p class="hint_text">Please record the month and year of immunizations or email a copy of the youth’s immunization records.</p>
+                    <h5 class="field_title">Please record the month and year of immunizations for the following entires, or email a copy of the youth’s immunization records.</h5>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Diphtheria, tetanus, pertussis:</h5>
+                    <h5 class="field_title">Diphtheria, Tetanus, Pertussis:</h5>
                     <p class="hint_text">(DTaP or TdaP)</p>
                     {{ form.month_and_year_of_diphtheria_or_tetanus_immunization }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Tetanus booster:</h5>
+                    <h5 class="field_title">Tetanus Booster:</h5>
                     <p class="hint_text">(dT or TdaP)</p>
                     {{ form.month_and_year_of_tetanus_booster_immunization }}
                 </div>
@@ -388,11 +409,11 @@
                 </div>
                 <div class="text_field">
                     <h5 class="field_title">Varicella:</h5>
-                    <p class="hint_text">(Chicken pox)</p>
+                    <p class="hint_text">(Chicken Pox)</p>
                     {{ form.month_and_year_of_varicella_immunization }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Had chicken pox & date:</h5>
+                    <h5 class="field_title">Duration of any Chicken Pox:</h5>
                     {{ form.month_and_year_of_duration_of_chicken_pox }}
                 </div>
                 <div class="text_field">
@@ -415,14 +436,16 @@
                     {{ form.month_and_year_of_human_papillomavirus_immunization }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Meningococcal meningitis:</h5>
+                    <h5 class="field_title">Meningococcal Meningitis:</h5>
                     {{ form.month_and_year_of_meningococcal_meningitis_immunization }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Tuberculin test given:</h5>
+                    <h5 class="field_title">Tuberculin Test given:</h5>
                     <p class="hint_text">(Most Recent)</p>
                     {{ form.month_and_year_of_tuberculin_test }}
-                    <p class="hint_text">Was this test Positive or Negative?</p>
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">Was the Tuberculin Test Positive or Negative?</h5>
                     {{ form.was_tuberculin_test_positive_or_negative }}
                 </div>
                 <div class="text_field">
@@ -446,7 +469,7 @@
                     {{ form.camper_mental_health_history_choices }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Please list the number and provide explanation for any checked items:</h5>
+                    <h5 class="field_title">Please list the name and provide explanation for any checked items:</h5>
                     {{ form.any_other_unlisted_mental_illnesses }}
                 </div>
                 <div class="text_field">
@@ -454,7 +477,7 @@
                     {{ form.does_camper_have_any_triggers_to_be_aware_of }}
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Please list any good coping skills the youth likes to use:</h5>
+                    <h5 class="field_title">Please list any positive coping skills the youth may use:</h5>
                     {{ form.does_camper_have_positive_coping_skills_to_use }}
                 </div>
             </div>
@@ -475,8 +498,11 @@
                     {{ form.guardian_authorized_over_counter_medications_choices }}
                 </div>
                 <div class="text_field">
-                    <p class="hint_text">{{ form.guardian_consent_to_give_over_the_counter_medications }} I Agree</p>
+                    <p class="hint_text">{{ form.guardian_consent_to_give_over_the_counter_medications }} I Agree with the Statement above.</p>
                 </div>
+
+                <div class="divider"></div>
+
                 <div class="text_field">
                     <h5 class="field_title bold underline text-center">Consent to Use Health Information and Consent for Treatment at ASPYRE</h5>
                 </div>
@@ -484,8 +510,11 @@
                     <h5 class="hint_text">To the best of my knowledge, the health information stated in the “ASPYRE Leadership Camp Health Form” is correct for my child. I give permission for the staff to treat my child for any minor medical injuries including but not limited to cuts, scrapes, insect bites, etc. In case of medical and/or mental health emergency, the camp will try to contact the person designated as the emergency contact on this form but in the event that the person cannot be contacted, I give permission to the physician selected by a ASPYRE Staff to hospitalize, secure proper treatment, order injection, anesthesia and/or surgery for the individual.</h5>
                 </div>
                 <div class="text_field">
-                    <p class="hint_text">{{ form. }} I Agree</p>
+                    <p class="hint_text">{{ form.guardian_consent_to_health_information_and_treatment_at_ASPYRE }} I Agree with the Statment above.</p>
                 </div>
+
+                <div class="divider"></div>
+
                 <div class="text_field">
                     <h5 class="field_title bold underline text-center">Freedom of Expression Consent</h5>
                 </div>
@@ -493,20 +522,19 @@
                     <p class="hint_text">I understand that my adolescent may be exposed to concepts or language in discussions at ASPYRE camp that our family does not personally endorse. I understand that the APRYRE staff will make every attempt to keep all camp materials age-appropriate, while recognizing that different cultures, families, and individuals may define this differently. I recognize that some written pieces, songs, or videos that demonstrate the lives of strong LGBTQI leaders in history may contain some strong language and that the staff may determine that there is benefit in introducing the material to campers. I agree to discuss with my child after camp any concepts or language in songs, etc. in terms of the values of our own family/culture.</p>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Parent/Guardian Signature:</h5>
+                    <p class="hint_text">{{ form.guardian_consent_to_freedom_of_expression_consent }} I Agree with the Statement above.</p>
+                </div>
+
+                <div class="divider"></div>
+                
+                <div class="text_field">
+                    <h5 class="field_title bold underline text-center">Photo Release</h5>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Date:</h5>
+                    <p class="hint_text">We understand ASPYRE will be taking photographs and/or taking video footage of youth during ASPYRE camp activities. ASPYRE has permission to publish my/my camper’s photograph in ASPYRE publications and outreach materials. ASPYRE has permission to use video of the camper on the ASPYRE Instagram, or in other ASPYRE materials.</p>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">AGREED Participant over 18 years old or Parent/Guardian of youth under 18 years old:</h5>
-                    <p class="hint_text">[radio] Yes [radio] No</p>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Signature:</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Date:</h5>
+                    <p class="hint_text">{{ form.guardian_or_18yr_old_consent_to_photo_release }} I Agree with the Statement above.</p>
                 </div>
             </div>
         </section>
@@ -525,24 +553,36 @@
                 <div class="text_field">
                     <p class="hint_text">The ASPYRE Leadership Camp participants, adult advisors, and invited guests are expected to demonstrate behavior consistent with the high ideals of the ASPYRE Leadership program and should abide by the provisions of this agreement while in attendance at any ASPYRE event. Every member will respect the authority of the facilitators, counselors and volunteers in attendance and the rules and regulations of the Camp and LGBT Center of Raleigh.</p>
                 </div>
+
+                <div class="divider"></div>
+
                 <div class="text_field">
                     <h5 class="field_title bold underline text-center">Responsible Behavior</h5>
                 </div>
                 <div class="text_field">
                     <p class="hint_text">Participants may not possess or consume any alcoholic beverages. Participants may not possess or use any drugs or other controlled substances, with the exception of prescribed medication for the attendee and disclosed to the facilitator prior to the event commencing. Participants may not possess or use any tobacco products, and the facilitator and advisors may not use any tobacco products in the presence of participants. Participants are expected to abstain from any activity of a sexual nature. Participants may not possess weapons, fireworks, or anything else of a dangerous nature or act in any way unbecoming of an aspiring Leader.</p>
                 </div>
+
+                <div class="divider"></div>
+
                 <div class="text_field">
                     <h5 class="field_title bold underline text-center">Lodging</h5>
                 </div>
                 <div class="text_field">
                     <p class="hint_text">Participants staying in the camp or conference center must sleep in their assigned room or cabin. All participants are expected to abide by a in bunk/lights out curfew of midnight to 6 a.m. unless otherwise specified by the facilitator or the conference center/camp.</p>
                 </div>
+
+                <div class="divider"></div>
+
                 <div class="text_field">
                     <h5 class="field_title bold underline text-center">Dress Code</h5>
                 </div>
                 <div class="text_field">
                     <p class="hint_text">All participants are expected to wear “camp casual” clothing. This includes shorts, T-shirts, jeans, sweatshirts, and closed-toe shoes. At no time will any clothing with inappropriate language or graphics be allowed. Any shirts, shorts or skirts deemed to be on inappropriate length or size will not be allowed. Flip-flops or open-toed shoes are not appropriate for the ASPYRE Leadership camp because of the nature of the activities in which students will participate. All participants will be required to wear their provided lanyard with name badge for the weekend.</p>
                 </div>
+
+                <div class="divider"></div>
+
                 <div class="text_field">
                     <h5 class="field_title bold underline text-center">Enforcement</h5>
                 </div>
@@ -550,22 +590,7 @@
                     <p class="hint_text">Violations of this agreement will result in notification to the respective nominator and sponsor. Violations involving destruction of property, or possession, consumption or use of alcoholic beverages or controlled substances or tobacco products will result in dismissal from the event. Further, it is in the discretion of the Volunteer Staff to notify the appropriate authorities of any criminal violations. These values are effective as of the time the participant arrives at this event until the time the participant departs.</p>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Participant Signature:</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Printed Name:</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Date:</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Participant Parent/Guardian Signature:</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Printed Name:</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Date:</h5>
+                    <p class="hint_text">{{ form.guardian_consent_for_community_values_agreement }} I Agree with the Statments above.</p>
                 </div>
             </div>
         </section>
@@ -610,22 +635,7 @@
                     </ol>
                 </div>
                 <div class="text_field">
-                    <h5 class="field_title">Participant Signature:</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Print Name:</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Date:</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Parent/Guardian Signature:</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Print Name:</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Date:</h5>
+                    <p class="hint_text">{{ form.guardian_consent_for_waiver_to_participate }} I Agree with the Statments above.</p>
                 </div>
             </div>
         </section>
@@ -721,7 +731,7 @@
                 <div class="text_field">
                     <h5 class="field_title text-center bold underline">OPTIONAL/RECOMMENDED ITEMS</h5>
                 </div>
-                <ul>
+                <ul class="ul">
                     <li>
                         <div class="text_field">
                             <h5 class="field_title li">Flashlight</h5>
@@ -738,8 +748,11 @@
                         </div>
                     </li>
                 </ul>
+
+                <div class="divider"></div>
+                
                 <div class="text_field">
-                    <h5 class="field_title text-center bold italics">** Note the LGBT Center of Raleigh is not responsible for any lost damaged or stolen items during the camp.</h5>
+                    <h5 class="field_title text-center bold italics">** Note the LGBT Center of Raleigh is not responsible for any lost damaged or stolen items during the camp **</h5>
                 </div>
             </div>
         </section>
@@ -762,11 +775,21 @@
                     <p class="hint_text">Email: lpilcher@lgbtcenterofraleigh.com</p>
                     <p class="hint_text">Cell: 217-520-3109</p>
                 </div>
+                <div class="fancy_divider_container">
+                    <div class="fancy_divider_left_side"></div>
+                    <div class="fancy_divider_center"></div>
+                    <div class="fancy_divider_right_side"></div>
+                </div>
                 <div class="text_field text-center">
                     <h5 class="field_title underline">Alex Thomas</h5>
                     <p class="hint_text">Key Volunteer and ASPYRE Logistics Coordinator</p>
                     <p class="hint_text">Email: athomas@lgbtcenterofraleigh.com</p>
                     <p class="hint_text">Cell: 336-419-7784</p>
+                </div>
+                <div class="fancy_divider_container">
+                    <div class="fancy_divider_left_side"></div>
+                    <div class="fancy_divider_center"></div>
+                    <div class="fancy_divider_right_side"></div>
                 </div>
                 <div class="text_field text-center">
                     <h5 class="field_title underline">Elizabeth Harles</h5>
@@ -774,17 +797,32 @@
                     <p class="hint_text">Email: eharles@lgbtcenterofraleigh.com</p>
                     <p class="hint_text">Cell: 919-601-4207</p>
                 </div>
+                <div class="fancy_divider_container">
+                    <div class="fancy_divider_left_side"></div>
+                    <div class="fancy_divider_center"></div>
+                    <div class="fancy_divider_right_side"></div>
+                </div>
                 <div class="text_field text-center">
                     <h5 class="field_title underline">Kori Hennessey</h5>
                     <p class="hint_text">Director of Education and Programs at LGBT Center of Raleigh</p>
                     <p class="hint_text">Email: Kori@lgbtcenterofraleigh.com</p>
                     <p class="hint_text">Cell: 919-480-1246</p>
                 </div>
+                <div class="fancy_divider_container">
+                    <div class="fancy_divider_left_side"></div>
+                    <div class="fancy_divider_center"></div>
+                    <div class="fancy_divider_right_side"></div>
+                </div>
                 <div class="text_field text-center">
                     <h5 class="field_title underline">Lindsey Lughes</h5>
                     <p class="hint_text">Executive Director of the LGBT Center of Raleigh</p>
                     <p class="hint_text">Email: llughes@lgbtcenterofraleigh.com</p>
                     <p class="hint_text">Cell: 919-696-2971</p>
+                </div>
+                <div class="fancy_divider_container">
+                    <div class="fancy_divider_left_side"></div>
+                    <div class="fancy_divider_center"></div>
+                    <div class="fancy_divider_right_side"></div>
                 </div>
             </div>
         </section>
