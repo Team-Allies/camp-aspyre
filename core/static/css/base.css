@@ -61,7 +61,8 @@ body {
 /*====================================*/
 
 .login_header_ifLoggedIn {
-    /* background-color: black; */
+    background-image: url("");
+    background-size: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

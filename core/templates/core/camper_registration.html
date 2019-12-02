@@ -3,7 +3,6 @@
 
 
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/camper_form.css' %}">
     
     <div class="main_content_wrapper">
         <div class="rainbow"></div>
@@ -110,7 +109,7 @@
             </div>
             <div class="text_field">
                 <h3 class="field_title">Please verify that you understand that potentially sensitive topics will be covered at this camp.</h3>
-                <p>{{ form.has_the_camper_verified_that_sensitive_topics_will_be_covered }} Yes, I understand</p>
+                <p class="hint_text">{{ form.has_the_camper_verified_that_sensitive_topics_will_be_covered }} Yes, I understand</p>
             </div>
             <div class="text_field">
                 <h3 class="field_title">Sponsoring Organization:</h3>

@@ -37,7 +37,7 @@ class Registration(models.Model):
     created_at = models.DateField(auto_now_add=True)
     
     def __str__(self):
-        return self.camper.legal_full_name
+        return self.camper.legal_full_name_of_camper
 
 class Camper(models.Model):
     user = models.ForeignKey(to='User', on_delete=models.CASCADE)
