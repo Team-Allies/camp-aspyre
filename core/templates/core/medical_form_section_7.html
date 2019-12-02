@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="main_content_wrapper">
+    <div class="rainbow"></div>
+    <form class="camper_form">
+        {% csrf_token %}
+        <div class="camper_form_title_container">
+            <h1>A Safer Place for Youth to Reach for Excellence</h1>
+            <h2>{{ camp.start_date.year }} Leadership Camp Confirmation Packet</h2>
+            <div class="section_current_out_of_total">
+              <h3>Page 7 of 11</h3>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <section id="section7" class="section">
+            <div class="section_header">
+                <h3>SECTION 7 - Community Agreement Values</h3>
+            </div>
+            <div class="section_content">
+                <div class="text_field">
+                    <h5 class="field_title bold underline text-center">COMMUNITY VALUES AGREEMENT</h5>
+                </div>
+                <div class="text_field">
+                    <p class="hint_text">The ASPYRE Leadership Camp participants, adult advisors, and invited guests are expected to demonstrate behavior consistent with the high ideals of the ASPYRE Leadership program and should abide by the provisions of this agreement while in attendance at any ASPYRE event. Every member will respect the authority of the facilitators, counselors and volunteers in attendance and the rules and regulations of the Camp and LGBT Center of Raleigh.</p>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="text_field">
+                    <h5 class="field_title bold underline text-center">Responsible Behavior</h5>
+                </div>
+                <div class="text_field">
+                    <p class="hint_text">Participants may not possess or consume any alcoholic beverages. Participants may not possess or use any drugs or other controlled substances, with the exception of prescribed medication for the attendee and disclosed to the facilitator prior to the event commencing. Participants may not possess or use any tobacco products, and the facilitator and advisors may not use any tobacco products in the presence of participants. Participants are expected to abstain from any activity of a sexual nature. Participants may not possess weapons, fireworks, or anything else of a dangerous nature or act in any way unbecoming of an aspiring Leader.</p>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="text_field">
+                    <h5 class="field_title bold underline text-center">Lodging</h5>
+                </div>
+                <div class="text_field">
+                    <p class="hint_text">Participants staying in the camp or conference center must sleep in their assigned room or cabin. All participants are expected to abide by a in bunk/lights out curfew of midnight to 6 a.m. unless otherwise specified by the facilitator or the conference center/camp.</p>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="text_field">
+                    <h5 class="field_title bold underline text-center">Dress Code</h5>
+                </div>
+                <div class="text_field">
+                    <p class="hint_text">All participants are expected to wear “camp casual” clothing. This includes shorts, T-shirts, jeans, sweatshirts, and closed-toe shoes. At no time will any clothing with inappropriate language or graphics be allowed. Any shirts, shorts or skirts deemed to be on inappropriate length or size will not be allowed. Flip-flops or open-toed shoes are not appropriate for the ASPYRE Leadership camp because of the nature of the activities in which students will participate. All participants will be required to wear their provided lanyard with name badge for the weekend.</p>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="text_field">
+                    <h5 class="field_title bold underline text-center">Enforcement</h5>
+                </div>
+                <div class="text_field">
+                    <p class="hint_text">Violations of this agreement will result in notification to the respective nominator and sponsor. Violations involving destruction of property, or possession, consumption or use of alcoholic beverages or controlled substances or tobacco products will result in dismissal from the event. Further, it is in the discretion of the Volunteer Staff to notify the appropriate authorities of any criminal violations. These values are effective as of the time the participant arrives at this event until the time the participant departs.</p>
+                </div>
+                <div class="text_field">
+                    <p class="hint_text">{{ form.guardian_consent_for_community_values_agreement }} I Agree with the Statments above.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <div class="save_submit_button_container">
+            <button class="save_button" value="Save">Save/Continue Later</button>
+            <button class="submit_button" type="submit">Submit This Section and Continue</button>
+        </div>
+
+    </form>
+</div>
+
+{% endblock %}

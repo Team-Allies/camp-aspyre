@@ -4,9 +4,9 @@
 /*|=====| Override for universal margins and paddings |=====|*/
 
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 
@@ -17,42 +17,42 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 
 /*|=====| Class to apply to any text for bold |=====|*/
 
 .bold {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 
 /*|=====| Class to apply to any text for underline |=====|*/
 
 .underline {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 
 /*|=====| Class to apply to any text for centered text |=====|*/
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 
 /*|=====| Class to apply to any text for italics (techincally oblique...) |=====|*/
 
 .italics {
-    font-style: oblique;
+  font-style: oblique;
 }
 
 
 /*|=====| Class to apply to any <ul> to allow their <li> to be horizontal |=====|*/
 
 .horizontal li {
-    display: inline-block;
+  display: inline-block;
 }
 
 
@@ -62,29 +62,29 @@ h6 {
 /* Delete this later, Used for template travel during development */
 
 .toDelete {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    position: relative;
-    z-index: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
 }
 
 .toDelete .leftButton {
-    margin-left: 1rem;
-    margin-right: auto;
+  margin-left: 1rem;
+  margin-right: auto;
 }
 
 .toDelete .rightButton {
-    margin-left: auto;
-    margin-right: 1rem;
+  margin-left: auto;
+  margin-right: 1rem;
 }
 
 .toDelete button {
-    font-size: 1.5rem;
-    padding-top: 0.2rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    padding-bottom: 0.2rem;
+  font-size: 1.5rem;
+  padding-top: 0.2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.2rem;
 }
 
 
@@ -94,360 +94,362 @@ h6 {
 /*|=====| Wrapper that consumes everything |=====|*/
 
 .main_content_wrapper {
-    /* background-color: lightgray; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    padding-bottom: 1rem;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding-bottom: 1rem;
 }
 
 
 /*|=====| 'Rainbow' colored div above the form |=====|*/
 
 .rainbow {
-    background: linear-gradient(to right, red, orange, yellow, green, blue, purple);
-    margin-top: 1rem;
-    margin-left: 10rem;
-    margin-right: 10rem;
-    height: 1.5rem;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
+  background: linear-gradient(to right, red, orange, yellow, green, blue, purple);
+  margin-top: 1rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  height: 1.5rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
 }
 
 
 /*|=====| Actual form |=====|*/
 
 .camper_form {
-    font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
-    background-color: white;
-    /* margin-top: 0.5rem; */
-    margin-left: 10rem;
-    margin-right: 10rem;
-    margin-bottom: 0.5rem;
-    padding-top: 1rem;
-    padding-left: 0.8rem;
-    padding-right: 0.8rem;
-    padding-bottom: 1rem;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-    box-shadow: -5px 5px 25px rgb(99, 99, 99);
-    border-bottom-left-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  background-color: white;
+  /* margin-top: 0.5rem; */
+  margin-left: 10rem;
+  margin-right: 10rem;
+  margin-bottom: 0.5rem;
+  padding-top: 1rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  padding-bottom: 1rem;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  box-shadow: -5px 5px 25px rgb(99, 99, 99);
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.section_current_out_of_total {
+  margin-top: 1rem;
 }
 
 
 /*|=====| Table of Contents (top of the form in <camper_medical_form.html>) |=====|*/
 
 .table_of_contents {
-    margin-top: 1rem;
-    margin-left: 20%;
-    font-size: 1.3rem;
+  margin-top: 1rem;
+  margin-left: 20%;
+  font-size: 1.3rem;
 }
 
 
 /*|=====| Title of the Form |=====|*/
 
 .camper_form_title_container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 1.2rem;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 
 /*|=====| Class for div container around each form field |=====|*/
 
 .text_field {
-    margin-top: 2rem;
-    margin-left: 1rem;
+  margin-top: 2rem;
+  margin-left: 1rem;
 }
 
 
 /*|=====| Class for title/question/subject in each text_field container |=====|*/
 
 .field_title {
-    font-size: 1.3rem;
-    margin-top: 2rem;
+  font-size: 1.3rem;
+  margin-top: 2rem;
 }
 
 
 /*|=====| Class for extra text (generally <p>) that does not need as much font-weight |=====|*/
 
 .hint_text {
-    margin-top: 0.5rem;
-    font-size: 1.2rem;
-    font-weight: 100;
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 100;
 }
 
 
 /*|=====| Classes applied to all entires in forms.py for styling |=====|*/
 
 .text_field_input {
-    margin-top: 1rem;
-    margin-left: 1rem;
-    width: 30rem;
-    border: 1px solid black;
-    box-shadow: inset 3px 3px 7px #8c8c8c;
-    font-size: 1.3rem;
-    padding-top: 0.2rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    padding-bottom: 0.2rem;
-    border-radius: 0.3rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  width: 30rem;
+  border: 1px solid black;
+  box-shadow: inset 3px 3px 7px #8c8c8c;
+  font-size: 1.3rem;
+  padding-top: 0.2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.2rem;
+  border-radius: 0.3rem;
 }
 
 .textarea_field_input {
-    margin-top: 1rem;
-    margin-left: 1rem;
-    width: 30rem;
-    height: 10rem;
-    border: 1px solid black;
-    box-shadow: inset 3px 3px 7px #8c8c8c;
-    font-size: 1.3rem;
-    padding-top: 0.2rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    padding-bottom: 0.2rem;
-    border-top-left-radius: 0.3rem;
-    border-top-right-radius: 0.3rem;
-    border-bottom-left-radius: 0.3rem;
-    border-bottom-right-radius: 0;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  width: 30rem;
+  height: 10rem;
+  border: 1px solid black;
+  box-shadow: inset 3px 3px 7px #8c8c8c;
+  font-size: 1.3rem;
+  padding-top: 0.2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.2rem;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+  border-bottom-right-radius: 0;
 }
 
 .date_field_input {
-    margin-top: 1rem;
-    margin-left: 1rem;
-    width: auto;
-    border: 1px solid black;
-    box-shadow: inset 3px 3px 7px #8c8c8c;
-    font-size: 1.3rem;
-    padding-top: 0.2rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    padding-bottom: 0.2rem;
-    border-radius: 0.3rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  width: auto;
+  border: 1px solid black;
+  box-shadow: inset 3px 3px 7px #8c8c8c;
+  font-size: 1.3rem;
+  padding-top: 0.2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.2rem;
+  border-radius: 0.3rem;
 }
 
 .radio_field_input {
-    margin-top: 1rem;
-    margin-left: 1rem;
-    font-size: 1.3rem;
-    padding-top: 0.2rem;
-    padding-left: 0.2rem;
-    padding-right: 0.2rem;
-    padding-bottom: 0.2rem;
-    list-style-type: none;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  font-size: 1.3rem;
+  padding-top: 0.2rem;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  padding-bottom: 0.2rem;
+  list-style-type: none;
 }
 
 .boolean_field_input {
-    margin-top: 1rem;
-    margin-left: 1rem;
-    width: auto;
-    height: auto;
-    border: 1px solid black;
-    box-shadow: inset 1px 1px 6px #8c8c8c;
-    font-size: 1.3rem;
-    padding-top: 0.2rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    padding-bottom: 0.2rem;
-    border-radius: 0.2rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  width: auto;
+  height: auto;
+  border: 1px solid black;
+  box-shadow: inset 1px 1px 6px #8c8c8c;
+  font-size: 1.3rem;
+  padding-top: 0.2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.2rem;
+  border-radius: 0.2rem;
 }
 
 
 /*|=====| Override class for all <ul> lists |=====|*/
 
 .ul {
-    list-style-type: disc;
-    margin-left: 1.5rem;
+  list-style-type: disc;
+  margin-left: 1.5rem;
 }
 
 
 /*|=====| Override class for all <li> items |=====|*/
 
 .li {
-    margin-left: -1rem;
+  margin-left: -1rem;
 }
 
 
 /*|=====| Divider between any sections of text |=====|*/
 
 .divider {
-    border: 1px solid rgb(177, 177, 177);
-    margin-top: 2rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
+  border: 1px solid rgb(177, 177, 177);
+  margin-top: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
 }
 
 
 /*|=====| Titles of each sections (<camper_medical_form.html |=====|*/
 
 .section_header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: #ffba3f;
-    color: black;
-    border-top: 5px solid #ff7d2c;
-    border-left: 25px solid #ff7d2c;
-    border-right: 25px solid #ff7d2c;
-    border-bottom: 5px solid #ff7d2c;
-    padding-top: 0.3rem;
-    padding-left: 0.6rem;
-    padding-right: 0.6rem;
-    padding-bottom: 0.3rem;
-    border-radius: 0.2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #436cc4;
+  color: white;
+  padding-top: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1rem;
+  border-radius: 0.2rem;
 }
 
 
 /*|=====| Class for each section throughout the form (located in <camper_medical_form.html>)|=====|*/
 
 .section {
-    text-align: left;
-    margin-left: 1rem;
-    margin-right: 1rem;
+  text-align: left;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 
 /*|=====| Font inside of each section title throughtout the form (located in <camper_medical_form.html>)|=====|*/
 
 .section h3 {
-    font-weight: bold
+  font-weight: bold
 }
 
 
 /*|=====| Specific styling for immunizations list (located in <camper_medical_form.html>)|=====|*/
 
 .health_immunizations_list {
-    margin-left: 1rem;
+  margin-left: 1rem;
 }
 
 
 /*|=====| Container around all photos at the bottom of the form (located in <camper_medical_form.html>)|=====|*/
 
 .medical_form_pic_container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 
 /*|=====| Container around each photo at the bottom of the form (located in <camper_medical_form.html>)|=====|*/
 
 .medical_form_pic_wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border: 2px solid black;
-    padding-bottom: 0.5rem;
-    width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid black;
+  padding-bottom: 0.5rem;
+  width: 45%;
 }
 
 
 /*|=====| Styling for image at the bottom of the form (located in <camper_medical_form.html>)|=====|*/
 
 .campWeaverSign {
-    width: 100%;
-    border-bottom: 2px solid black;
+  width: 100%;
+  border-bottom: 2px solid black;
 }
 
 
 /*|=====| Styling for image at the bottom of the form (located in <camper_medical_form.html>)|=====|*/
 
 .campBuilding {
-    width: 100%;
-    flex-grow: 1;
-    border-bottom: 2px solid black;
+  width: 100%;
+  flex-grow: 1;
+  border-bottom: 2px solid black;
 }
 
 
 /*|=====| Container around save/submit buttons at the bottom of the form |=====|*/
 
 .save_submit_button_container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-right: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 1rem;
 }
 
 
 /*|=====| Styling for submit button at the bottom of the form |=====|*/
 
 .submit_button {
-    background-color: #3974e9;
-    color: white;
-    border: 2px solid #0d204b;
-    font-size: 1.3rem;
-    margin-top: 2rem;
-    margin-left: 1rem;
-    padding-top: 0.2rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    padding-bottom: 0.2rem;
-    border-radius: 0.5rem;
+  background-color: #3974e9;
+  color: white;
+  border: 2px solid #0d204b;
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  margin-left: 1rem;
+  padding-top: 0.2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.2rem;
+  border-radius: 0.5rem;
 }
 
 
 /*|=====| Styling for save button at the bottom of the form |=====|*/
 
 .save_button {
-    background-color: #3974e9;
-    color: white;
-    border: 2px solid #0d204b;
-    font-size: 1.3rem;
-    margin-top: 2rem;
-    margin-left: 1rem;
-    padding-top: 0.2rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    padding-bottom: 0.2rem;
-    border-radius: 0.5rem;
+  background-color: #3974e9;
+  color: white;
+  border: 2px solid #0d204b;
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  margin-left: 1rem;
+  padding-top: 0.2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.2rem;
+  border-radius: 0.5rem;
 }
 
 .fancy_divider_container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 1rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
-    position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
 }
 
 .fancy_divider_left_side {
-    border-top: 3px solid #d88383;
-    border-left: 0 solid #bb5353;
-    border-right: 0 solid #bb5353;
-    border-bottom: 3px solid #813839;
-    width: 100px;
-    position: absolute;
-    top: 0.6rem;
-    left: 12.7rem;
+  border-top: 3px solid #f89b61;
+  border-left: 0 solid #ff7d2c;
+  border-right: 0 solid #ff7d2c;
+  border-bottom: 3px solid #ae5328;
+  width: 100px;
+  height: 0px;
+  margin-top: 0.58rem;
+  margin-right: 1rem;
+  margin-bottom: auto;
 }
 
 .fancy_divider_center {
-    background-color: #d88383;
-    border: 5px ridge #bb5353;
-    width: 30px;
-    height: 30px;
-    transform: rotateZ(225deg);
-    border-radius: 0.1rem;
+  background-color: #ffb956;
+  border: 9px ridge #ff7d2c;
+  width: 30px;
+  height: 30px;
+  transform: rotateZ(45deg);
+  border-radius: 0.1rem;
 }
 
 .fancy_divider_right_side {
-    border-top: 3px solid #d88383;
-    border-left: 0 solid #bb5353;
-    border-right: 0 solid #bb5353;
-    border-bottom: 3px solid #813839;
-    width: 100px;
-    position: absolute;
-    top: 0.6rem;
-    left: 20.5rem;
+  border-top: 3px solid #f89b61;
+  border-left: 0 solid #ff7d2c;
+  border-right: 0 solid #ff7d2c;
+  border-bottom: 3px solid #ae5328;
+  width: 100px;
+  height: 0px;
+  margin-top: 0.58rem;
+  margin-left: 1rem;
+  margin-bottom: auto;
 }

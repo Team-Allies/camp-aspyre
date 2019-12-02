@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block content %}
+
+<div class="main_content_wrapper">
+  <div class="rainbow"></div>
+  <form class="camper_form">
+    {% csrf_token %}
+    <div class="camper_form_title_container">
+      <h1>A Safer Place for Youth to Reach for Excellence</h1>
+      <h2>{{ camp.start_date.year }} Leadership Camp Confirmation Packet</h2>
+      <div class="section_current_out_of_total">
+        <h3>Page 10 of 11</h3>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <section id="section10" class="section">
+      <div class="section_header">
+        <h3>SECTION 10 - Emergency Contacts and Directions</h3>
+      </div>
+      <div class="section_content">
+        <div class="text_field text-center">
+          <h5 class="field_title bold">ASPYRE {{camp.start_date.year}} EMERGENCY CONTACTS:</h5>
+          <p class="hint_text">(Leave this page with Parent or Guardian)</p>
+        </div>
+        <div class="text_field text-center">
+          <h5 class="field_title underline">Lora Pilcher</h5>
+          <p class="hint_text">Youth and Family Initiative Coordinator</p>
+          <p class="hint_text">Email: lpilcher@lgbtcenterofraleigh.com</p>
+          <p class="hint_text">Cell: 217-520-3109</p>
+        </div>
+        <div class="fancy_divider_container">
+          <div class="fancy_divider_left_side"></div>
+          <div class="fancy_divider_center"></div>
+          <div class="fancy_divider_right_side"></div>
+        </div>
+        <div class="text_field text-center">
+          <h5 class="field_title underline">Alex Thomas</h5>
+          <p class="hint_text">Key Volunteer and ASPYRE Logistics Coordinator</p>
+          <p class="hint_text">Email: athomas@lgbtcenterofraleigh.com</p>
+          <p class="hint_text">Cell: 336-419-7784</p>
+        </div>
+        <div class="fancy_divider_container">
+          <div class="fancy_divider_left_side"></div>
+          <div class="fancy_divider_center"></div>
+          <div class="fancy_divider_right_side"></div>
+        </div>
+        <div class="text_field text-center">
+          <h5 class="field_title underline">Elizabeth Harles</h5>
+          <p class="hint_text">Lead Facilitator and Key Volunteer Advisor to the Youth Leadership Team of the LGBT Center of Raleigh</p>
+          <p class="hint_text">Email: eharles@lgbtcenterofraleigh.com</p>
+          <p class="hint_text">Cell: 919-601-4207</p>
+        </div>
+        <div class="fancy_divider_container">
+          <div class="fancy_divider_left_side"></div>
+          <div class="fancy_divider_center"></div>
+          <div class="fancy_divider_right_side"></div>
+        </div>
+        <div class="text_field text-center">
+          <h5 class="field_title underline">Kori Hennessey</h5>
+          <p class="hint_text">Director of Education and Programs at LGBT Center of Raleigh</p>
+          <p class="hint_text">Email: Kori@lgbtcenterofraleigh.com</p>
+          <p class="hint_text">Cell: 919-480-1246</p>
+        </div>
+        <div class="fancy_divider_container">
+          <div class="fancy_divider_left_side"></div>
+          <div class="fancy_divider_center"></div>
+          <div class="fancy_divider_right_side"></div>
+        </div>
+        <div class="text_field text-center">
+          <h5 class="field_title underline">Lindsey Lughes</h5>
+          <p class="hint_text">Executive Director of the LGBT Center of Raleigh</p>
+          <p class="hint_text">Email: llughes@lgbtcenterofraleigh.com</p>
+          <p class="hint_text">Cell: 919-696-2971</p>
+        </div>
+        <div class="fancy_divider_container">
+          <div class="fancy_divider_left_side"></div>
+          <div class="fancy_divider_center"></div>
+          <div class="fancy_divider_right_side"></div>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="divider"></div>
+
+    <div class="save_submit_button_container">
+      <button class="save_button" value="Save">Save/Continue Later</button>
+      <button class="submit_button" type="submit">Submit This Section and Continue</button>
+    </div>
+
+  </form>
+</div>
+
+{% endblock %}

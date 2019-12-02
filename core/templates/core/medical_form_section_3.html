@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="main_content_wrapper">
+    <div class="rainbow"></div>
+    <form class="camper_form">
+        {% csrf_token %}
+        <div class="camper_form_title_container">
+            <h1>A Safer Place for Youth to Reach for Excellence</h1>
+            <h2>{{ camp.start_date.year }} Leadership Camp Confirmation Packet</h2>
+            <div class="section_current_out_of_total">
+              <h3>Page 3 of 11</h3>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <section id="section3" class="section">
+            <div class="section_header">
+                <h3>SECTION 3 - Dietary Preferrences/Allergies</h3>
+            </div>
+            <div class="section_content">
+                <div class="text_field">
+                    <h5 class="field_title">Dietary Preferences:</h5>
+                    {{ form.camper_dietary_preference_choices }}
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">Food Allergies:</h5>
+                    <p class="hint_text">(Please specify and list reactions)</p>
+                    {{ form.does_camper_have_any_food_allergies }}
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">Known Drug Allergies/Other Allergies:</h5>
+                    <p class="hint_text">(Please specify and list reactions)</p>
+                    {{ form.does_camper_have_any_drug_other_allergies }}
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <div class="save_submit_button_container">
+            <button class="save_button" value="Save">Save/Continue Later</button>
+            <button class="submit_button" type="submit">Submit This Section and Continue</button>
+        </div>
+
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="main_content_wrapper">
+    <div class="rainbow"></div>
+    <form class="camper_form">
+        {% csrf_token %}
+        <div class="camper_form_title_container">
+            <h1>A Safer Place for Youth to Reach for Excellence</h1>
+            <h2>{{ camp.start_date.year }} Leadership Camp Confirmation Packet</h2>
+            <div class="section_current_out_of_total">
+              <h3>Page 1 of 11</h3>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <section id="section1" class="section">
+            <div class="section_header">
+                <h3>SECTION 1 - Basic Contact Info</h3>
+            </div>
+            <div class="section_content">
+                <div class="text_field">
+                    <h5 class="field_title">Parent/Guardian Name:</h5>
+                    {{ form.first_guardian_name }}
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">Parent/Guardian Phone Number:</h5>
+                    {{ form.first_guardian_phone_number }}
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">What type of phone number?</h5>
+                    <p class="hint_text">(Home, Work, or Cellular?)</p>
+                    <ul class="horizontal">
+                        <li>{{ form.first_guardian_home_work_or_cell }}</li>
+                    </ul>
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">Parent/Guardian Name:</h5>
+                    {{ form.second_guardian_name }}
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">Parent/Guardian Phone Number:</h5>
+                    {{form.second_guardian_phone_number }}
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">What type of phone number?</h5>
+                    <p class="hint_text">(Home, Work, or Cellular?)</p>
+                    <ul class="horizontal">
+                        <li>{{ form.second_guardian_home_work_or_cell }}</li>
+                    </ul>
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">Parent/Guardian Name:</h5>
+                    {{ form.third_guardian_name }}
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">Parent/Guardian Phone Number:</h5>
+                    {{ form.third_guardian_phone_number }}
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">What type of phone number?</h5>
+                    <p class="hint_text">(Home, Work, or Cellular?)</p>
+                    <ul class="horizontal">
+                        <li>{{ form.third_guardian_home_work_or_cell }}</li>
+                    </ul>
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">Emergency Contact Name:</h5>
+                    <p class="hint_text">(If parent/guardian cannot be reached)</p>
+                    {{ form.emergency_contact_name }}
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">Emergency Contact Phone Number:</h5>
+                    {{ form.emergency_contact_phone_number }}
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">What type of phone number?</h5>
+                    <p class="hint_text">(Home, Work, or Cellular?)</p>
+                    <ul class="horizontal">
+                        <li>{{ form.emergency_home_work_cell }}</li>
+                    </ul>
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">My child can be picked up by either guardian and/or emergency contact:</h5>
+                    {{ form.can_camper_be_picked_up_by_guardian_or_emergency_contact }}
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">If no, please list the name of the person NOT authorized to pick up your child:</h5>
+                    {{ form.any_unauthorized_persons_that_can_pick_up_camper }}
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">Please list the full name and phone number of any other adult you are authorizing to pick up/drop off your child:</h5>
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">Authorized Persons Full Name:</h5>
+                    {{ form.first_authorized_persons_name }}
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">Authorized Persons Phone Number:</h5>
+                    {{ form.first_authorized_persons_phone }}
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">Authorized Persons Full Name:</h5>
+                    {{ form.second_authorized_persons_name }}
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">Authorized Persons Phone Number:</h5>
+                    {{ form.second_authorized_persons_phone }}
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">Family Physician/NP/PA Name:</h5>
+                    {{ form.family_physician_NP_PA_name }}
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">Family Physician/NP/PA Phone Number:</h5>
+                    {{ form.family_physician_NP_PA_phone_number }}
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">Youth’s Mental Healthcare Provider Name:</h5>
+                    {{ form.mental_healthcare_provider_name }}
+                </div>
+                <div class="text_field">
+                    <h5 class="field_title">Mental Healthcare Provider Phone Number:</h5>
+                    {{ form.mental_healthcare_provider_phone_number }}
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <div class="save_submit_button_container">
+            <button class="save_button" value="Save">Save/Continue Later</button>
+            <button class="submit_button" type="submit">Submit This Section and Continue</button>
+        </div>
+
+    </form>
+</div>
+
+{% endblock %}

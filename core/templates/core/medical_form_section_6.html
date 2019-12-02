@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="main_content_wrapper">
+    <div class="rainbow"></div>
+    <form class="camper_form">
+        {% csrf_token %}
+        <div class="camper_form_title_container">
+            <h1>A Safer Place for Youth to Reach for Excellence</h1>
+            <h2>{{ camp.start_date.year }} Leadership Camp Confirmation Packet</h2>
+            <div class="section_current_out_of_total">
+              <h3>Page 6 of 11</h3>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <section id="section6" class="section">
+            <div class="section_header">
+                <h3>SECTION 6 - Authorizations</h3>
+            </div>
+            <div class="section_content">
+                <div class="text_field">
+                    <h5 class="field_title bold underline text-center">Consent for Medication Administration and to Give Over-The-Counter Medication</h5>
+                    <p class="hint_text">I request the authorized ASPYRE staff members to administer medication or supervise the camper in self-administration as prescribed by the camper’s physician. I certify that I have the legal authority to consent to medical treatment for the camper named above, including the administration of medication at the facility. Additionally, I authorize ASPYRE staff members to administer the following over the counter medications listed below to the camper at the request of the camper.</p>
+                    <p class="hint_text">I understand that the end of the authorized period I will be responsible for picking up any remaining medications, otherwise it will be discarded. I authorize camp personnel to communicate with the prescriber as allowed by HIPAA.</p>
+                    {{ form.guardian_authorized_over_counter_medications_choices }}
+                </div>
+                <div class="text_field">
+                    <p class="hint_text">{{ form.guardian_consent_to_give_over_the_counter_medications }} I Agree with the Statement above.</p>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="text_field">
+                    <h5 class="field_title bold underline text-center">Consent to Use Health Information and Consent for Treatment at ASPYRE</h5>
+                </div>
+                <div class="text_field">
+                    <h5 class="hint_text">To the best of my knowledge, the health information stated in the “ASPYRE Leadership Camp Health Form” is correct for my child. I give permission for the staff to treat my child for any minor medical injuries including but not limited to cuts, scrapes, insect bites, etc. In case of medical and/or mental health emergency, the camp will try to contact the person designated as the emergency contact on this form but in the event that the person cannot be contacted, I give permission to the physician selected by a ASPYRE Staff to hospitalize, secure proper treatment, order injection, anesthesia and/or surgery for the individual.</h5>
+                </div>
+                <div class="text_field">
+                    <p class="hint_text">{{ form.guardian_consent_to_health_information_and_treatment_at_ASPYRE }} I Agree with the Statment above.</p>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="text_field">
+                    <h5 class="field_title bold underline text-center">Freedom of Expression Consent</h5>
+                </div>
+                <div class="text_field">
+                    <p class="hint_text">I understand that my adolescent may be exposed to concepts or language in discussions at ASPYRE camp that our family does not personally endorse. I understand that the APRYRE staff will make every attempt to keep all camp materials age-appropriate, while recognizing that different cultures, families, and individuals may define this differently. I recognize that some written pieces, songs, or videos that demonstrate the lives of strong LGBTQI leaders in history may contain some strong language and that the staff may determine that there is benefit in introducing the material to campers. I agree to discuss with my child after camp any concepts or language in songs, etc. in terms of the values of our own family/culture.</p>
+                </div>
+                <div class="text_field">
+                    <p class="hint_text">{{ form.guardian_consent_to_freedom_of_expression_consent }} I Agree with the Statement above.</p>
+                </div>
+
+                <div class="divider"></div>
+                
+                <div class="text_field">
+                    <h5 class="field_title bold underline text-center">Photo Release</h5>
+                </div>
+                <div class="text_field">
+                    <p class="hint_text">We understand ASPYRE will be taking photographs and/or taking video footage of youth during ASPYRE camp activities. ASPYRE has permission to publish my/my camper’s photograph in ASPYRE publications and outreach materials. ASPYRE has permission to use video of the camper on the ASPYRE Instagram, or in other ASPYRE materials.</p>
+                </div>
+                <div class="text_field">
+                    <p class="hint_text">{{ form.guardian_or_18yr_old_consent_to_photo_release }} I Agree with the Statement above.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <div class="save_submit_button_container">
+            <button class="save_button" value="Save">Save/Continue Later</button>
+            <button class="submit_button" type="submit">Submit This Section and Continue</button>
+        </div>
+
+    </form>
+</div>
+
+{% endblock %}
