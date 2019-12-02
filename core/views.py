@@ -4,32 +4,8 @@ from core.forms import CamperRegistrationForm, CamperScholarshipForm, CamperMedi
 from core.models import User, Camper, Camp, MedicalInformation, Registration
 from django.core.mail import send_mail
 
-def medical_form_section_1(request):
-  return render(request, 'core/medical_form_section_1.html')
-def medical_form_section_2(request):
-  return render(request, 'core/medical_form_section_2.html')
-def medical_form_section_3(request):
-  return render(request, 'core/medical_form_section_3.html')
-def medical_form_section_4(request):
-  return render(request, 'core/medical_form_section_4.html')
-def medical_form_section_5(request):
-  return render(request, 'core/medical_form_section_5.html')
-def medical_form_section_6(request):
-  return render(request, 'core/medical_form_section_6.html')
-def medical_form_section_7(request):
-  return render(request, 'core/medical_form_section_7.html')
-def medical_form_section_8(request):
-  return render(request, 'core/medical_form_section_8.html')
-def medical_form_section_9(request):
-  return render(request, 'core/medical_form_section_9.html')
-def medical_form_section_10(request):
-  return render(request, 'core/medical_form_section_10.html')
-def medical_form_section_11(request):
-  return render(request, 'core/medical_form_section_11.html')
-
-
-def index(request):
-  return render(request, 'core/index.html')
+def login_page(request):
+  return render(request, 'core/login_page.html')
 
 @login_required
 def camper_registration(request):

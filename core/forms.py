@@ -2,7 +2,6 @@ from django import forms
 from core.models import User, Camper, Camp, MedicalInformation
 from django.forms import ModelForm
 
-
 class CamperRegistrationForm(forms.Form):
   ATTENDED_CHOICES = (
     ('Yes', 'Yes'),
