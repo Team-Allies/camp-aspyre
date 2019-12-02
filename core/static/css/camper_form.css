@@ -304,6 +304,10 @@ h6 {
   border-radius: 0.2rem;
 }
 
+.form_nav {
+  color: white;
+}
+
 
 /*|=====| Class for each section throughout the form (located in <camper_medical_form.html>)|=====|*/
 

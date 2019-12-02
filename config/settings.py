@@ -165,8 +165,8 @@ ACCOUNT_ACTIVATION_DAYS = 7
 # log in when they click on the activation link in their email.
 REGISTRATION_AUTO_LOGIN = True
 
-LOGIN_REDIRECT_URL = "camper_registration_form" 
-LOGOUT_REDIRECT_URL = "login_page"
+LOGIN_REDIRECT_URL = 'camper_registration_form'
+LOGOUT_REDIRECT_URL = 'login_page'
 
 EMAIL_HOST = 'in-v3.mailjet.com'
 EMAIL_PORT = 587
