@@ -4,8 +4,8 @@ from core.forms import CamperRegistrationForm, CamperScholarshipForm, CamperMedi
 from core.models import User, Camper, Camp, MedicalInformation, Registration
 from django.core.mail import send_mail
 
-def index(request):
-  return render(request, 'core/index.html')
+def login_page(request):
+  return render(request, 'core/login_page.html')
 
 @login_required
 def camper_registration(request):
@@ -186,7 +186,7 @@ def camper_medical_form(request):
       date_of_guardian_signed_for_the_entire_form = form.data.get("date_of_guardian_signed_for_the_entire_form")
       camper_signed_for_the_entire_form = form.data.get("camper_signed_for_the_entire_form")
       date_of_camper_signed_for_the_entire_form = form.data.get("date_of_camper_signed_for_the_entire_form")
-      camper = Camper.objects.create(
+      medicalinformation = MedicalInformation.objects.create(
         user=user,
         age_of_camper=age_of_camper,
         first_guardian_name=first_guardian_name,
@@ -291,10 +291,10 @@ def camper_medical_form(request):
         camper_signed_for_the_entire_form=camper_signed_for_the_entire_form,
         date_of_camper_signed_for_the_entire_form=date_of_camper_signed_for_the_entire_form,
       )
-      registration = Registration.objects.get(
+      registration = Registration.objects.create(
         user=user,
         camper=camper,
-        camp=camp
+        camp=camp,
       )
       return redirect(to='camper_medical_form_submitted')
   else:

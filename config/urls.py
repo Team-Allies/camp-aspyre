@@ -21,8 +21,8 @@ from core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name="index"),
     path('accounts/', include('registration.backends.simple.urls')),
+    path('', views.login_page, name="login_page"),
     path('', include("django.contrib.auth.urls")),
     path('ASPYRE-Registration/', views.camper_registration, name="camper_registration_form"),
     path('ASPYRE-Registration-submitted', views.camper_registration_form_submitted, name="camper_registration_form_submitted"),
