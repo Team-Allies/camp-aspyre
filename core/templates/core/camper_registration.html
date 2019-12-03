@@ -7,7 +7,7 @@
     <div class="main_content_wrapper">
         <div class="rainbow"></div>
         <form class="camper_form" method="POST">
-        {% csrf_token %}
+          {% csrf_token %}
             <div class="camper_form_title_container">
                 <h1>{{ camp.start_date.year }} Camp ASPYRE Registration</h1>
             </div>
@@ -15,6 +15,7 @@
             <div class="divider"></div>
             
             <div class="text_field">
+
                 <p class="hint_text"> Thank you for your interest in the {{camp.start_date|date:"Y"}} ASPYRE Leadership Camp located at Camp Weaver in Greensboro, NC on {{camp.start_date|date:"l"}}, {{camp.start_date|date:"F"}} {{camp.start_date|date:"dS"}}, {{camp.start_date|date:"Y"}} through {{camp.end_date|date:"l"}}, {{camp.end_date|date:"F"}} {{camp.end_date|date:"dS"}}, {{camp.end_date|date:"Y"}}. The camp is a leadership retreat for LGBTQ youth and allies ages 13-17, or 18 and still in high school. The camper will be creating an action plan for a change they want to see in their community and learning the skills they need to jump start their effort. They will also have the opportunity to network with other LGBTQ youth from across the state, make new friendships, and get inspired.</p>
 
                 <p class="hint_text"> Before you register your camper, please note, the camp will cover many sensitive topics that can potentially be triggering. We will attempt to sufficiently warn campers, however the camp is designed to prepare them to lead a movement in their community where they may have to face these topics. Parental permission for all attendees under 18 will be required for this overnight event.  If you have questions, please contact athomas@lgbtcenterofraleigh.com.  We look forward to having your camper join us for this great event sponsored by the LGBT Center of Raleigh.</p>
@@ -124,11 +125,6 @@
                 <button class="submit_button" type="submit">SUBMIT</button>
             </div>
         </form>
-
-        <div class="toDelete">
-            <a href="{% url 'index' %}"><button class="leftButton">‹ TO INDEX</button></a>
-            <a href="{% url 'camper_scholarship_form' %}"><button class="rightButton">TO SCHOLARSHIP FORM ›</button></a>
-        </div>
     </div>
 
 {% endblock %}
