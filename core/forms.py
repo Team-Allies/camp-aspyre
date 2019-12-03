@@ -61,6 +61,7 @@ class CamperMedicalForm(forms.Form):
 
 #|=====| Section 1 - BASIC CONTACT INFO |=====|#
 
+  legal_full_name_of_camper = forms.CharField(max_length=255)
   first_guardian_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   first_guardian_phone_number = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   FIRST_GUARDIAN_HOME_WORK_CELL = (
@@ -166,7 +167,7 @@ class CamperMedicalForm(forms.Form):
     ('Nut-free','Nut-free'),
     ('Gluten-free','Gluten-free'),
   )
-  camper_dietary_preference_choices = forms.ChoiceField(choices=DIETARY_PREFERENCE_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
+  camper_dietary_preference_choices = forms.ChoiceField(required=False, choices=DIETARY_PREFERENCE_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
   does_camper_have_any_food_allergies = forms.CharField(required=True, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   does_camper_have_any_drug_other_allergies = forms.CharField(required=True, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
 
@@ -204,7 +205,7 @@ class CamperMedicalForm(forms.Form):
     ('Wearing Medic Alert ID', 'Wearing Medic Alert ID'),
     ('other unlisted medical history', 'other unlisted medical history'),
   )
-  camper_physical_health_history_choices = forms.ChoiceField(choices=CAMPER_PHYSICAL_HEALTH_HISTORY_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
+  camper_physical_health_history_choices = forms.ChoiceField(choices=CAMPER_PHYSICAL_HEALTH_HISTORY_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}), required=False)
   explain_any_other_unlisted_medical_history = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   provide_explanation_of_any_checked_medical_history_items = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   does_camper_have_any_physical_activities_to_be_limited_or_restricted = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
@@ -248,7 +249,7 @@ class CamperMedicalForm(forms.Form):
     ('Any Physical Abuse', 'Any Physical Abuse'),
     ('Any Trouble Sleeping or Sleep Disorders', 'Any Trouble Sleeping or Sleep Disorders'),
   )
-  camper_mental_health_history_choices = forms.ChoiceField(choices=MENTAL_HEALTH_HISTORY_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
+  camper_mental_health_history_choices = forms.ChoiceField(choices=MENTAL_HEALTH_HISTORY_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}), required=False)
   any_other_unlisted_mental_illnesses = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   provide_explanation_for_any_checked_mental_illness_items = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   does_camper_have_any_triggers_to_be_aware_of = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'text_field_input'}))

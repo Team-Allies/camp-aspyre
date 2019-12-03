@@ -83,6 +83,7 @@ def camper_medical_form(request):
   camp=Camp.objects.get(pk=1)
   if request.method == 'POST':
     form = CamperMedicalForm(request.POST)
+    breakpoint()
     if form.is_valid():
       form_data = form.cleaned_data
       first_guardian_name = form.data.get("first_guardian_name")
@@ -186,7 +187,7 @@ def camper_medical_form(request):
       date_of_guardian_signed_for_the_entire_form = form.data.get("date_of_guardian_signed_for_the_entire_form")
       camper_signed_for_the_entire_form = form.data.get("camper_signed_for_the_entire_form")
       date_of_camper_signed_for_the_entire_form = form.data.get("date_of_camper_signed_for_the_entire_form")
-      camper = Camper.objects.create(
+      medicalinformation = MedicalInformation.objects.create(
         user=user,
         age_of_camper=age_of_camper,
         first_guardian_name=first_guardian_name,
@@ -291,10 +292,10 @@ def camper_medical_form(request):
         camper_signed_for_the_entire_form=camper_signed_for_the_entire_form,
         date_of_camper_signed_for_the_entire_form=date_of_camper_signed_for_the_entire_form,
       )
-      registration = Registration.objects.get(
+      registration = Registration.objects.create(
         user=user,
-        camper=camper,
-        camp=camp
+        medicalinformation=medicalinformation,
+        camp=camp,
       )
       return redirect(to='camper_medical_form_submitted')
   else:
