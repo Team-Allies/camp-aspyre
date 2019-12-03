@@ -183,10 +183,10 @@ def camper_medical_form(request):
       camper_consent_for_community_values_agreement = form.data.get("camper_consent_for_community_values_agreement")
       guardian_consent_for_waiver_to_participate = form.data.get("guardian_consent_for_waiver_to_participate")
       camper_consent_for_waiver_to_participate = form.data.get("camper_consent_for_waiver_to_participate")
-      guardian_signed_for_the_entire_form = form.data.get("guardian_signed_for_the_entire_form")
-      date_of_guardian_signed_for_the_entire_form = form.data.get("date_of_guardian_signed_for_the_entire_form")
-      camper_signed_for_the_entire_form = form.data.get("camper_signed_for_the_entire_form")
-      date_of_camper_signed_for_the_entire_form = form.data.get("date_of_camper_signed_for_the_entire_form")
+      # guardian_signed_for_the_entire_form = form.data.get("guardian_signed_for_the_entire_form")
+      # date_of_guardian_signed_for_the_entire_form = form.data.get("date_of_guardian_signed_for_the_entire_form")
+      # camper_signed_for_the_entire_form = form.data.get("camper_signed_for_the_entire_form")
+      # date_of_camper_signed_for_the_entire_form = form.data.get("date_of_camper_signed_for_the_entire_form")
       camper = Camper.objects.create(
         user=user,
         age_of_camper=age_of_camper,
@@ -287,10 +287,10 @@ def camper_medical_form(request):
         camper_consent_for_community_values_agreement=camper_consent_for_community_values_agreement,
         guardian_consent_for_waiver_to_participate=guardian_consent_for_waiver_to_participate,
         camper_consent_for_waiver_to_participate=camper_consent_for_waiver_to_participate,
-        guardian_signed_for_the_entire_form=guardian_signed_for_the_entire_form,
-        date_of_guardian_signed_for_the_entire_form=date_of_guardian_signed_for_the_entire_form,
-        camper_signed_for_the_entire_form=camper_signed_for_the_entire_form,
-        date_of_camper_signed_for_the_entire_form=date_of_camper_signed_for_the_entire_form,
+        # guardian_signed_for_the_entire_form=guardian_signed_for_the_entire_form,
+        # date_of_guardian_signed_for_the_entire_form=date_of_guardian_signed_for_the_entire_form,
+        # camper_signed_for_the_entire_form=camper_signed_for_the_entire_form,
+        # date_of_camper_signed_for_the_entire_form=date_of_camper_signed_for_the_entire_form,
       )
       registration = Registration.objects.get(
         user=user,

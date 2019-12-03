@@ -253,7 +253,7 @@ class MedicalInformation(models.Model):
         ('other_unlisted_medical_history', 'other_unlisted_medical_history'),
     ]
     camper_physical_health_history_choices = forms.MultipleChoiceField(choices=CAMPER_PHYSICAL_HEALTH_HISTORY_CHOICES, widget=forms.RadioSelect())
-    explain_any_other_unlisted_medical_history = models.CharField(max_length=255)
+    explain_any_other_unlisted_medical_history = models.CharField(blank=True, null=True, max_length=255)
     provide_explanation_of_any_checked_medical_history_items = models.CharField(max_length=255)
     any_physical_activities_to_be_limited_or_restricted = models.CharField(max_length=255)
     month_and_year_of_diphtheria_or_tetanus_immunization = models.CharField(max_length=255)
@@ -296,7 +296,7 @@ class MedicalInformation(models.Model):
         ('any_trouble_sleeping_or_sleep_disorders', 'any_trouble_sleeping_or_sleep_disorders'),
     ]
     camper_mental_health_history_choices = forms.MultipleChoiceField(choices=MENTAL_HEALTH_HISTORY_CHOICES, widget=forms.RadioSelect())
-    provide_explanation_for_any_checked_mental_illness_items = models.CharField(max_length=255)
+    provide_explanation_for_any_checked_mental_illness_items = models.CharField(blank=True, null=True, max_length=255)
     does_camper_have_any_triggers_to_be_aware_of = models.CharField(max_length=255)
     does_camper_have_positive_coping_skills_to_use = models.CharField(max_length=255)
 
@@ -322,10 +322,6 @@ class MedicalInformation(models.Model):
 #|=====| Section 7 - COMMUNITY VALUES AGREEMENT |=====|#
 
     guardian_consent_for_community_values_agreement = models.BooleanField()
-    camper_consent_for_community_values_agreement = models.BooleanField()
-
-    guardian_consent_for_community_values_agreement = models.BooleanField()
-    camper_consent_for_community_values_agreement = models.BooleanField()
 
 #|=====| Section 8 - PARENT/GUARDIAN AND PARTICIPANT RELEASE |=====|#
 

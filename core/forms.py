@@ -209,7 +209,7 @@ class CamperMedicalForm(forms.Form):
     ('other unlisted medical history', 'other unlisted medical history'),
   )
   camper_physical_health_history_choices = forms.MultipleChoiceField(choices=CAMPER_PHYSICAL_HEALTH_HISTORY_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
-  explain_any_other_unlisted_medical_history = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  explain_any_other_unlisted_medical_history = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   provide_explanation_of_any_checked_medical_history_items = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   does_camper_have_any_physical_activities_to_be_limited_or_restricted = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   month_and_year_of_diphtheria_or_tetanus_immunization = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
@@ -284,15 +284,14 @@ class CamperMedicalForm(forms.Form):
 #|=====| Section 7 - COMMUNITY VALUES AGREEMENT |=====|#
 
   guardian_consent_for_community_values_agreement = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
-  camper_consent_for_community_values_agreement = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
 
 #|=====| Section 8 - PARENT/GUARDIAN AND PARTICIPANT RELEASE |=====|#
 
   guardian_consent_for_waiver_to_participate = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
   camper_consent_for_waiver_to_participate = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))  
 
-  guardian_signed_for_the_entire_form = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
-  date_of_guardian_signed_for_the_entire_form = forms.DateField(widget = forms.DateInput(attrs={'type':'date', 'class':'date_field_input'}))
+  # guardian_signed_for_the_entire_form = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
+  # date_of_guardian_signed_for_the_entire_form = forms.DateField(widget = forms.DateInput(attrs={'type':'date', 'class':'date_field_input'}))
 
-  camper_signed_for_the_entire_form = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
-  date_of_camper_signed_for_the_entire_form = forms.DateField(widget = forms.DateInput(attrs={'type':'date', 'class':'date_field_input'}))
+  # camper_signed_for_the_entire_form = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
+  # date_of_camper_signed_for_the_entire_form = forms.DateField(widget = forms.DateInput(attrs={'type':'date', 'class':'date_field_input'}))
