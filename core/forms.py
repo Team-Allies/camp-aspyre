@@ -58,6 +58,10 @@ class CamperScholarshipForm(forms.Form):
 
 
 class CamperMedicalForm(forms.Form):
+  # class Meta:
+  #   model = MedicalInformation
+  #   fields = "__all__"
+
 
 #|=====| Section 1 - BASIC CONTACT INFO |=====|#
 
@@ -166,14 +170,14 @@ class CamperMedicalForm(forms.Form):
     ('Nut-free','Nut-free'),
     ('Gluten-free','Gluten-free'),
   )
-  camper_dietary_preference_choices = forms.ChoiceField(choices=DIETARY_PREFERENCE_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
+  camper_dietary_preference_choices = forms.MultipleChoiceField(choices=DIETARY_PREFERENCE_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
   does_camper_have_any_food_allergies = forms.CharField(required=True, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   does_camper_have_any_drug_other_allergies = forms.CharField(required=True, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
 
 #|=====| Section 4 - PHYSICAL HEALTH HISTORY/IMMUNIZATIONS |=====|#
 
   CAMPER_PHYSICAL_HEALTH_HISTORY_CHOICES = (
-    ('Recent Injury , Illness or Infectious Disease', 'Recent Injury , Illness or Infectious Disease'),
+    ('Recent Injury, Illness or Infectious Disease', 'Recent Injury, Illness or Infectious Disease'),
     ('Chronic or Recurring Illness', 'Chronic or Recurring Illness'),
     ('Asthma', 'Asthma'),
     ('Dysmenorrhea', 'Dysmenorrhea'),
@@ -204,7 +208,7 @@ class CamperMedicalForm(forms.Form):
     ('Wearing Medic Alert ID', 'Wearing Medic Alert ID'),
     ('other unlisted medical history', 'other unlisted medical history'),
   )
-  camper_physical_health_history_choices = forms.ChoiceField(choices=CAMPER_PHYSICAL_HEALTH_HISTORY_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
+  camper_physical_health_history_choices = forms.MultipleChoiceField(choices=CAMPER_PHYSICAL_HEALTH_HISTORY_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
   explain_any_other_unlisted_medical_history = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   provide_explanation_of_any_checked_medical_history_items = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   does_camper_have_any_physical_activities_to_be_limited_or_restricted = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
@@ -233,22 +237,22 @@ class CamperMedicalForm(forms.Form):
 #|=====| Section 5 - MENTAL HEALTH HISTORY |=====|#
 
   MENTAL_HEALTH_HISTORY_CHOICES = ( 
-    ('Any Eating Disorders', 'Any Eating Disorders'),
-    ('Add or Adhd', 'Add or Adhd'),
-    ('Any Audio Visual Hallucinations', 'Any Audio Visual Hallucinations'),
+    ('Eating Disorders', 'Eating Disorders'),
+    ('ADD or ADHD', 'ADD or ADHD'),
+    ('Audio Visual Hallucinations', 'Audio Visual Hallucinations'),
     ('PTSD', 'PTSD'),
     ('Gender Dysphoria', 'Gender Dysphoria'),
-    ('Any Significant Life Event that continues to affect camper', 'Any Significant Life Event that continues to affect camper'),
-    ('Any Sexual Assault or Sexual Violence', 'Any Sexual Assault or Sexual Violence'),
+    ('Significant Life Event that continues to affect camper', 'Significant Life Event that continues to affect camper'),
+    ('Sexual Assault or Sexual Violence', 'Sexual Assault or Sexual Violence'),
     ('Depression', 'Depression'),
     ('Obsessive Compulsive Disorder', 'Obsessive Compulsive Disorder'),
-    ('Any Panic Attacks', 'Any Panic Attacks'),
+    ('Panic Attacks', 'Panic Attacks'),
     ('Anxiety', 'Anxiety'),
-    ('Any Mental or Verbal Abuse', 'Any Mental or Verbal Abuse'),
-    ('Any Physical Abuse', 'Any Physical Abuse'),
-    ('Any Trouble Sleeping or Sleep Disorders', 'Any Trouble Sleeping or Sleep Disorders'),
+    ('Mental or Verbal Abuse', 'Mental or Verbal Abuse'),
+    ('Physical Abuse', 'Physical Abuse'),
+    ('Trouble Sleeping or Sleep Disorders', 'Trouble Sleeping or Sleep Disorders'),
   )
-  camper_mental_health_history_choices = forms.ChoiceField(choices=MENTAL_HEALTH_HISTORY_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
+  camper_mental_health_history_choices = forms.MultipleChoiceField(choices=MENTAL_HEALTH_HISTORY_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
   any_other_unlisted_mental_illnesses = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   provide_explanation_for_any_checked_mental_illness_items = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   does_camper_have_any_triggers_to_be_aware_of = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'text_field_input'}))
@@ -267,7 +271,7 @@ class CamperMedicalForm(forms.Form):
     ('I consent for all of the above', 'I consent for all of the above'),
     ('I do not want any over the counter medications to be given', 'I do not want any over the counter medications to be given'),
   )
-  guardian_authorized_over_counter_medications_choices = forms.ChoiceField(choices=AUTHORIZED_OVER_COUNTER_MEDICATIONS_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
+  guardian_authorized_over_counter_medications_choices = forms.MultipleChoiceField(choices=AUTHORIZED_OVER_COUNTER_MEDICATIONS_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
 
   guardian_consent_to_give_over_the_counter_medications = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
 

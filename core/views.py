@@ -83,6 +83,7 @@ def camper_medical_form(request):
   camp=Camp.objects.get(pk=1)
   if request.method == 'POST':
     form = CamperMedicalForm(request.POST)
+    breakpoint()
     if form.is_valid():
       form_data = form.cleaned_data
       first_guardian_name = form.data.get("first_guardian_name")
