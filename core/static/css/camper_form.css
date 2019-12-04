@@ -20,6 +20,12 @@ h6 {
   font-weight: 400;
 }
 
+body {
+  width: 100%;
+  height: 100%;
+  width: fit-content;
+}
+
 
 /*|=====| Class to apply to any text for bold |=====|*/
 
@@ -56,50 +62,24 @@ h6 {
 }
 
 
-/*======================| FAST-TRAVEL |====================*/
-
-
-/* Delete this later, Used for template travel during development */
-
-.toDelete {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  position: relative;
-  z-index: 2;
-}
-
-.toDelete .leftButton {
-  margin-left: 1rem;
-  margin-right: auto;
-}
-
-.toDelete .rightButton {
-  margin-left: auto;
-  margin-right: 1rem;
-}
-
-.toDelete button {
-  font-size: 1.5rem;
-  padding-top: 0.2rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  padding-bottom: 0.2rem;
-}
-
-
 /*======================| MAIN-CONTENT |====================*/
 
 
 /*|=====| Wrapper that consumes everything |=====|*/
 
 .main_content_wrapper {
+  background-color: white;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
   background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100%;
   padding-bottom: 1rem;
+  border-left: 15px solid #ff7d2c;
+  border-right: 15px solid #ff7d2c;
+  border-bottom: 15px solid #ff7d2c;
 }
 
 
@@ -457,4 +437,24 @@ h6 {
   margin-top: 0.58rem;
   margin-left: 1rem;
   margin-bottom: auto;
+}
+
+.submitted_image_container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  padding: 0rem;
+}
+
+.submitted_image {
+  border-radius: 2rem;
+  border: 5px solid #c0c0c0;
+}
+
+.scholarshipImage {
+  width: 600px;
+}
+
+.medicalFormImage {
+  width: 500px;
 }
