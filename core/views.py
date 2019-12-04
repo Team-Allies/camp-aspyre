@@ -275,6 +275,7 @@ def camper_medical_form(request):
           camper=camper,
           camp=camp
         )
+      )
       return redirect(to='camper_medical_form_submitted')
   else:
     form = CamperMedicalForm()
