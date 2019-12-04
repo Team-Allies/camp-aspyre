@@ -178,7 +178,7 @@ class CamperMedicalForm(forms.Form):
 #|=====| Section 4 - PHYSICAL HEALTH HISTORY/IMMUNIZATIONS |=====|#
 
   CAMPER_PHYSICAL_HEALTH_HISTORY_CHOICES = (
-    ('Recent Injury, Illness or Infectious Disease', 'Recent Injury, Illness or Infectious Disease'),
+    ('Recent Injury, Illness, or Infectious Disease', 'Recent Injury, Illness, or Infectious Disease'),
     ('Chronic or Recurring Illness', 'Chronic or Recurring Illness'),
     ('Asthma', 'Asthma'),
     ('Dysmenorrhea', 'Dysmenorrhea'),
@@ -190,7 +190,7 @@ class CamperMedicalForm(forms.Form):
     ('Hypertension', 'Hypertension'),
     ('Bleeding / Clotting Disorder', 'Bleeding / Clotting Disorder'),
     ('Diabetes', 'Diabetes'),
-    ('Mononucleosis ( in last 12 months )', 'Mononucleosis ( in last 12 months )'),
+    ('Mononucleosis (in the last 12 months)', 'Mononucleosis (in the last 12 months)'),
     ('Chicken pox', 'Chicken pox'),
     ('Measles', 'Measles'),
     ('German Measles', 'German Measles'),
@@ -207,7 +207,7 @@ class CamperMedicalForm(forms.Form):
     ('Wearing Glasses or Contacts', 'Wearing Glasses or Contacts'),
     ('Surgery or being Hospitalized', 'Surgery or being Hospitalized'),
     ('Wearing Medic Alert ID', 'Wearing Medic Alert ID'),
-    ('other unlisted medical history', 'other unlisted medical history'),
+    ('Other unlisted medical history', 'Other unlisted medical history'),
   )
   camper_physical_health_history_choices = forms.MultipleChoiceField(choices=CAMPER_PHYSICAL_HEALTH_HISTORY_CHOICES, required=False, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
   explain_any_other_unlisted_medical_history = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
@@ -240,19 +240,18 @@ class CamperMedicalForm(forms.Form):
   MENTAL_HEALTH_HISTORY_CHOICES = ( 
     ('Eating Disorders', 'Eating Disorders'),
     ('ADD or ADHD', 'ADD or ADHD'),
-    ('Audio Visual Hallucinations', 'Audio Visual Hallucinations'),
+    ('Audio and/or Visual Hallucinations', 'Audio and/or Visual Hallucinations'),
     ('PTSD', 'PTSD'),
     ('Gender Dysphoria', 'Gender Dysphoria'),
-    ('Significant Life Event that continues to affect camper', 'Significant Life Event that continues to affect camper'),
+    ('Significant Life Event that continues to affect the camper', 'Significant Life Event that continues to affect the camper'),
     ('Sexual Assault or Sexual Violence', 'Sexual Assault or Sexual Violence'),
     ('Depression', 'Depression'),
     ('Obsessive Compulsive Disorder', 'Obsessive Compulsive Disorder'),
     ('Panic Attacks', 'Panic Attacks'),
     ('Anxiety', 'Anxiety'),
-    ('Mental or Verbal Abuse', 'Mental or Verbal Abuse'),
+    ('Mental and/or Verbal Abuse', 'Mental and/or Verbal Abuse'),
     ('Physical Abuse', 'Physical Abuse'),
     ('Trouble Sleeping or Sleep Disorders', 'Trouble Sleeping or Sleep Disorders'),
-    ('Any other unlisted Mental Illness', 'Any other unlisted Mental Illness')
   )
   camper_mental_health_history_choices = forms.MultipleChoiceField(choices=MENTAL_HEALTH_HISTORY_CHOICES, required=False, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
   provide_explanation_for_any_checked_mental_illness_items = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
