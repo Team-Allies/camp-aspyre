@@ -15,19 +15,19 @@
             <div class="divider"></div>
             
             <div class="text_field">
-                <p class="hint_text"> Thank you for your interest in attending the {{camp.start_date|date:"Y"}} ASPYRE Leadership Camp located at Camp Weaver in Greensboro, NC on {{camp.start_date|date:"l"}}, {{camp.start_date|date:"F"}} {{camp.start_date|date:"dS"}}, {{camp.start_date|date:"Y"}} at [start_time] [AM_PM] through {{camp.end_date|date:"l"}}, {{camp.end_date|date:"F"}} {{camp.end_date|date:"dS"}}, {{camp.end_date|date:"Y"}} at [end_time] [AM_PM]. The camp is a leadership retreat for LGBTQ youth and allies ages 13-17, or 18 and still in high school. You will be creating an action plan for a change you want to see in your community and learning the skills you need to jump start your effort. You will also have the opportunity to network with other LGBTQ youth from across the state, make new friendships, and get inspired.</p>
+                <p class="hint_text"> Thank you for your interest in attending the {{camp.start_date|date:"Y"}} ASPYRE Leadership Camp located at Camp Weaver in Greensboro, NC on {{camp.start_date|date:"l"}}, {{camp.start_date|date:"F"}} {{camp.start_date|date:"dS"}}, {{camp.start_date|date:"Y"}} through {{camp.end_date|date:"l"}}, {{camp.end_date|date:"F"}} {{camp.end_date|date:"dS"}}, {{camp.end_date|date:"Y"}}. The camp is a leadership retreat for LGBTQ youth and allies ages 13-17, or 18 and still in high school. The camper will be creating an action plan for a change they want to see in their community and learning the skills they need to jump start their efforts. Campers will also have the opportunity to network with other LGBTQ youth from across the state, make new friendships, and get inspired.</p>
 
-                <p class="hint_text"> Before you register, please note, the camp will cover many sensitive topics that can potentially be triggering. We will attempt to sufficiently warn you, however the camp is designed to prepare you to lead a movement in your community where you may have to face these topics. Parental permission for all attendees under 18 will be required for this overnight event.  If you have questions, please contact <a href=''>athomas@lgbtcenterofraleigh.com.</a>  We look forward to having you join us for this great event sponsored by the LGBT Center of Raleigh.</p>
+                <p class="hint_text"> Before you register, please note, the camp will cover many sensitive topics that can potentially be triggering. We will attempt to sufficiently warn campers, however the camp is designed to prepare them to lead a movement in their community where they may have to face these topics. Parental permission for all attendees under 18 will be required for this overnight event.  If you have questions, please contact athomas@lgbtcenterofraleigh.com.  We look forward to having you join us for this great event sponsored by the LGBT Center of Raleigh!</p>
 
-                <p class="hint_text"> Please note that transportation must be provided to and from the camp as we are not able to provide that service this year. Once registered, you will be invited to the Facebook group specific to camp attendees. You are welcome to coordinate carpooling if desired. However, please keep in mind that the LGBT Center of Raleigh and the ASPYRE Leaders (youth or adult) are not responsible for coordinating, follow through of transportation or incidents occurring while carpooling.</p>
+                <p class="hint_text"> Please note that transportation must be provided to and from the camp as we are not able to provide that service. Once registered, the camper will be invited to the Facebook group made specifically for camp attendees. You are welcome to coordinate carpooling if desired. However, please keep in mind that the LGBT Center of Raleigh and the ASPYRE Leaders (youth or adult) are not responsible for coordinating, follow through of transportation, or incidents occurring while carpooling.</p>
             </div>
             <div class="text_field">
-                <h3 class="field_title">Have you previously attended ASPYRE?</h3>
-                <p class="hint_text">Note: We are limiting attendance to 50 and first time attendees will be given priority</p>
+                <h3 class="field_title">Has the camper previously attended ASPYRE?</h3>
+                <p class="hint_text">Note: We are limiting attendance to 50 and first time attendees will be given priority.</p>
                 {{ form.has_camper_previously_attended_ASPYRE }}
             </div>
             <div class="text_field">
-                <h3 class="field_title">Legal Full Name:</h3>
+                <h3 class="field_title">Legal Full Name of Camper:</h3>
                 {{ form.legal_full_name_of_camper }}
             </div>
             <div class="text_field">
@@ -42,7 +42,7 @@
             </div>
             <div class="text_field">
                 <h3 class="field_title">Date of Birth:</h3>
-                <p class="hint_text">Must be 13 to 17, or 18 and still in highschool at time of event</p>
+                <p class="hint_text">Must be 13 to 17, or 18 and still in highschool at time of the event</p>
                 {{ form.date_of_birth_of_camper }}
             </div>
             <div class="text_field">
@@ -64,12 +64,14 @@
                 {{ form.zip_code_of_camper }}
             </div>
             <div class="text_field">
-                <h3 class="field_title">Phone Number:</h3>
+                <h3 class="field_title">Parent/Guardian Phone Number:</h3>
                 <p class="hint_text">Must include area code (Example: 012-345-6789)</p>
+                <p class="hint_text">This can be the camper's phone number, if the camper is 18 years old.</p>
                 {{ form.phone_number_of_camper }}
             </div>
             <div class="text_field">
-                <h3 class="field_title">Email:</h3>
+                <h3 class="field_title">Parent/Guardian Email:</h3>
+                <p class="hint_text">This can be the camper's email, if the camper is 18 years old.</p>
                 {{ form.email_of_camper }}
             </div>
             <div class="text_field">
@@ -96,11 +98,11 @@
                 {{ form.does_camper_have_any_dietary_restrictions }}
             </div>
             <div class="text_field">
-                <h3 class="field_title">Does the participant have a disability?</h3>
+                <h3 class="field_title">Does the camper have a disability?</h3>
                 {{ form.does_the_camper_have_any_disabilities }}
             </div>
             <div class="text_field">
-                <h3 class="field_title">Please describe any additional accommodations that you may need while at the camp:</h3>
+                <h3 class="field_title">Please describe any accommodations that the camper may need while at the camp:</h3>
                 {{ form.any_additional_accommodations_needed }}
             </div>
             <div class="text_field">
@@ -113,7 +115,7 @@
             </div>
             <div class="text_field">
                 <h3 class="field_title">Sponsoring Organization:</h3>
-                <p class="hint_text">Only if they are paying the Registration Fee</p>
+                <p class="hint_text">List only if there is a sponsoring organization that will be paying for the camper.</p>
                 {{ form.does_the_camper_have_other_companies_paying }}
             </div>
             <div class="save_submit_button_container">
