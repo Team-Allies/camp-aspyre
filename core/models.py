@@ -60,10 +60,10 @@ class Camper(models.Model):
     how_did_the_camper_hear_about_the_camp = models.CharField(max_length=255)
     would_the_camper_like_to_be_added_facebook = models.CharField(max_length=255)
     what_does_the_camper_want_to_gain_from_the_camp = models.CharField(max_length=255)
-    does_camper_have_any_dietary_restrictions = models.CharField(max_length=255)
-    does_the_camper_have_any_disabilities = models.CharField(max_length=255, blank=True)
-    any_additional_accommodations_needed = models.CharField(max_length=255, blank=True)
-    does_the_camper_have_any_sponsoring_organizations = models.CharField(max_length=255, blank=True)
+    does_camper_have_any_dietary_restrictions = models.CharField(max_length=255, blank=True, null=True)
+    does_the_camper_have_any_disabilities = models.CharField(max_length=255, blank=True, null=True)
+    any_additional_accommodations_needed = models.CharField(max_length=255, blank=True, null=True)
+    does_the_camper_have_any_sponsoring_organizations = models.CharField(max_length=255, blank=True, null=True)
     TSHIRT_SIZE_CHOICES = [
         ('XS', 'XS'),
         ('S', 'S'),
@@ -75,7 +75,7 @@ class Camper(models.Model):
     ]
     tshirt_size = models.CharField(max_length=5, choices=TSHIRT_SIZE_CHOICES)
     has_the_camper_verified_that_sensitive_topics_will_be_covered = models.BooleanField()
-    does_the_camper_have_other_companies_paying = models.CharField(max_length=255, blank=True)
+    does_the_camper_have_other_companies_paying = models.CharField(max_length=255, blank=True, null=True)
     what_would_camper_change_in_school_or_community = models.CharField(max_length=255)
     what_activities_is_the_camper_involved_in = models.CharField(max_length=100, blank=True, null=True)
     if_scholarship_not_granted_can_they_pay_camp_cost = models.CharField(max_length=50, blank=True, null=True)
@@ -214,8 +214,8 @@ class MedicalInformation(models.Model):
         ('Nut-free','Nut-free'),
         ('Gluten-free','Gluten-free'),
     ]
-    camper_dietary_preference_choices = models.CharField(choices=DIETARY_PREFERENCE_CHOICES, max_length=255)
-    does_camper_have_any_food_allergies = models.BooleanField()
+    camper_dietary_preference_choices = models.CharField(choices=DIETARY_PREFERENCE_CHOICES, max_length=255, null=True, blank=True)
+    does_camper_have_any_food_allergies = models.CharField(max_length=255)
     does_camper_have_any_drug_other_allergies = models.CharField(max_length=255)
 
 #|=====| Section 4 - PHYSICAL HEALTHY/IMMUNIZATIONS |=====|#
@@ -252,7 +252,7 @@ class MedicalInformation(models.Model):
         ('wearing_medic_alert_id', 'wearing_medic_alert_id'),
         ('other_unlisted_medical_history', 'other_unlisted_medical_history'),
     ]
-    camper_physical_health_history_choices = models.CharField(choices=CAMPER_PHYSICAL_HEALTH_HISTORY_CHOICES, max_length=255)
+    camper_physical_health_history_choices = models.CharField(choices=CAMPER_PHYSICAL_HEALTH_HISTORY_CHOICES, max_length=255, blank=True, null=True)
     explain_any_other_unlisted_medical_history = models.CharField(blank=True, null=True, max_length=255)
     provide_explanation_of_any_checked_medical_history_items = models.CharField(max_length=255)
     any_physical_activities_to_be_limited_or_restricted = models.CharField(max_length=255)
@@ -294,8 +294,9 @@ class MedicalInformation(models.Model):
         ('any_mental_or_verbal_abuse', 'any_mental_or_verbal_abuse'),
         ('any_physical_abuse', 'any_physical_abuse'),
         ('any_trouble_sleeping_or_sleep_disorders', 'any_trouble_sleeping_or_sleep_disorders'),
+        ('any_other_unlisted_mental_illness', 'any_other_unlisted_mental_illness')
     ]
-    camper_mental_health_history_choices = models.CharField(choices=MENTAL_HEALTH_HISTORY_CHOICES, max_length=255)
+    camper_mental_health_history_choices = models.CharField(choices=MENTAL_HEALTH_HISTORY_CHOICES, max_length=255, null=True, blank=True)
     provide_explanation_for_any_checked_mental_illness_items = models.CharField(blank=True, null=True, max_length=255)
     does_camper_have_any_triggers_to_be_aware_of = models.CharField(max_length=255)
     does_camper_have_positive_coping_skills_to_use = models.CharField(max_length=255)
@@ -313,27 +314,26 @@ class MedicalInformation(models.Model):
         ('I_consent_for_all_of_the_above', 'I_consent_for_all_of_the_above'),
         ('I_do_not_want_any_over_the_counter_medications_to_be_given', 'I_do_not_want_any_over_the_counter_medications_to_be_given'),
     ]
-    guardian_authorized_over_counter_medications_choices = models.CharField(choices=AUTHORIZED_OVER_COUNTER_MEDICATIONS_CHOICES, max_length=255)
+    guardian_authorized_over_counter_medications_choices = models.CharField(choices=AUTHORIZED_OVER_COUNTER_MEDICATIONS_CHOICES, null=True, blank=True, max_length=255)
     guardian_consent_to_give_over_the_counter_medications = models.BooleanField()
-    guardian_consent_to_health_information_and_treatment_at_ASPYRE = models.BooleanField()
-    guardian_consent_to_freedom_of_expression_consent = models.BooleanField()
-    guardian_or_18yr_old_consent_to_photo_release = models.BooleanField(null=True)
+    # guardian_consent_to_health_information_and_treatment_at_ASPYRE = models.BooleanField()
+    # guardian_consent_to_freedom_of_expression_consent = models.BooleanField()
+    guardian_or_18yr_old_consent_to_photo_release = models.BooleanField(blank=True, null=True)
 
 #|=====| Section 7 - COMMUNITY VALUES AGREEMENT |=====|#
 
-    guardian_consent_for_community_values_agreement = models.BooleanField()
+    # guardian_consent_for_community_values_agreement = models.BooleanField()
 
 #|=====| Section 8 - PARENT/GUARDIAN AND PARTICIPANT RELEASE |=====|#
 
-    guardian_consent_for_waiver_to_participate = models.BooleanField()
+    # guardian_consent_for_waiver_to_participate = models.BooleanField()
 
     # guardian_signed_for_the_entire_form = models.BooleanField()
     # date_of_guardian_signed_for_the_entire_form = models.DateField(null=True)
     
     # camper_signed_for_the_entire_form = models.BooleanField()
     # date_of_camper_signed_for_the_entire_form = models.DateField(null=True)
-
     def __str__(self):
-        return self.legal_full_name_of_camper
+        return self.camper.legal_full_name_of_camper
 
 
