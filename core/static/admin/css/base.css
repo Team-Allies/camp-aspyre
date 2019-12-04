@@ -34,6 +34,7 @@ a.section:link,
 a.section:visited {
   color: #fff;
   text-decoration: none;
+  font-size: 0.8rem;
 }
 
 a.section:focus,
@@ -600,8 +601,11 @@ input[type=button][disabled].default {
   font-weight: 400;
   font-size: 13px;
   text-align: left;
-  background: #79aec8;
+  background: #ff7d2c;
   color: #fff;
+  border-radius: 0.4rem;
+  border-left: groove 7px #ff7d2c;
+  border-bottom: ridge 10px #ff7d2c;
 }
 
 .module caption,
@@ -936,6 +940,7 @@ table#change-history tbody th {
   color: #ffc;
   overflow: hidden;
   font-size: 10rem;
+  border-bottom: ridge 15px #ff7d2c;
 }
 
 #header a:link,
@@ -963,7 +968,7 @@ table#change-history tbody th {
 #branding h1,
 #branding h1 a:link,
 #branding h1 a:visited {
-  color: #f5dd5d;
+  color: white;
 }
 
 #branding h2 {
@@ -983,7 +988,7 @@ table#change-history tbody th {
   padding: 0;
   margin: 0 0 0 20px;
   font-weight: 300;
-  font-size: 11px;
+  font-size: 0.6rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   text-align: right;
