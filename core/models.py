@@ -120,7 +120,7 @@ class MedicalInformation(models.Model):
         ('Work', 'Work'), 
         ('Cell', 'Cell'),
     ]
-    first_guardian_home_work_or_cell = models.ChoiceField(choices=FIRST_GUARDIAN_HOME_WORK_CELL, widget=forms.RadioSelect())
+    first_guardian_home_work_or_cell = models.CharField(choices=FIRST_GUARDIAN_HOME_WORK_CELL, default=[], null=False, max_length=255)
     second_guardian_name = models.CharField(max_length=255)
     second_guardian_phone_number = models.CharField(max_length=255)
     SECOND_GUARDIAN_HOME_WORK_CELL = [
@@ -128,7 +128,7 @@ class MedicalInformation(models.Model):
         ('Work', 'Work'),
         ('Cell', 'Cell'),
     ]
-    second_guardian_home_work_or_cell = models.ChoiceField(choices=SECOND_GUARDIAN_HOME_WORK_CELL, widget=forms.RadioSelect()) 
+    second_guardian_home_work_or_cell = models.CharField(choices=SECOND_GUARDIAN_HOME_WORK_CELL, default=[], null=False, max_length=255) 
     third_guardian_name = models.CharField(max_length=255)
     third_guardian_phone_number = models.CharField(max_length=255)
     THIRD_GUARDIAN_HOME_WORK_CELL = [
@@ -136,7 +136,7 @@ class MedicalInformation(models.Model):
         ('Work', 'Work'),
         ('Cell', 'Cell'),
     ]
-    third_guardian_home_work_or_cell = models.ChoiceField(choices=THIRD_GUARDIAN_HOME_WORK_CELL, widget=forms.RadioSelect())
+    third_guardian_home_work_or_cell = models.CharField(choices=THIRD_GUARDIAN_HOME_WORK_CELL, default=[], null=False, max_length=255)
     emergency_contact_name = models.CharField(max_length=255)
     emergency_contact_phone_number = models.CharField(max_length=255)
     EMERGENCY_CONTACT_HOME_WORK_CELL = (
@@ -144,12 +144,12 @@ class MedicalInformation(models.Model):
         ('Work', 'Work'),
         ('Cell', 'Cell'),
     )
-    emergency_home_work_cell = models.ChoiceField(choices=EMERGENCY_CONTACT_HOME_WORK_CELL, widget=forms.RadioSelect())
+    emergency_home_work_cell = models.CharField(choices=EMERGENCY_CONTACT_HOME_WORK_CELL, default=[], null=False, max_length=255)
     CAN_BE_PICKED_UP_BY_GUARDIAN_OR_EMERGENCY_CONTACT = (
         ('Yes', 'Yes'),
         ('No', 'No'),
     )
-    can_camper_be_picked_up_by_guardian_or_emergency_contact = models.ChoiceField(choices=CAN_BE_PICKED_UP_BY_GUARDIAN_OR_EMERGENCY_CONTACT, widget=forms.RadioSelect())
+    can_camper_be_picked_up_by_guardian_or_emergency_contact = models.CharField(choices=CAN_BE_PICKED_UP_BY_GUARDIAN_OR_EMERGENCY_CONTACT, default=[], null=False, max_length=255)
     any_unauthorized_persons_that_can_pick_up_camper = models.CharField(max_length=255)
     first_authorized_persons_name = models.CharField(max_length=255)
     first_authorized_persons_phone = models.CharField(max_length=255)
@@ -162,7 +162,7 @@ class MedicalInformation(models.Model):
     
 #|=====| Section 2 - MEDICATIONS |=====|#
 
-    will_camper_take_medication_while_at_camp = models.BooleanField(widget=forms.RadioSelect())
+    will_camper_take_medication_while_at_camp = models.CharField(default=[], null=False, max_length=255)
     first_medication_name = models.CharField(max_length=255)
     first_medication_dose = models.CharField(max_length=255)
     first_medication_times = models.CharField(max_length=255)
@@ -214,7 +214,7 @@ class MedicalInformation(models.Model):
         ('Nut-free','Nut-free'),
         ('Gluten-free','Gluten-free'),
     ]
-    camper_dietary_preference_choices = models.MultipleChoiceField(choices=DIETARY_PREFERENCE_CHOICES, widget=forms.RadioSelect())
+    camper_dietary_preference_choices = models.CharField(choices=DIETARY_PREFERENCE_CHOICES, max_length=255)
     does_camper_have_any_food_allergies = models.BooleanField()
     does_camper_have_any_drug_other_allergies = models.CharField(max_length=255)
 
@@ -252,7 +252,7 @@ class MedicalInformation(models.Model):
         ('wearing_medic_alert_id', 'wearing_medic_alert_id'),
         ('other_unlisted_medical_history', 'other_unlisted_medical_history'),
     ]
-    camper_physical_health_history_choices = models.MultipleChoiceField(choices=CAMPER_PHYSICAL_HEALTH_HISTORY_CHOICES, widget=forms.RadioSelect())
+    camper_physical_health_history_choices = models.CharField(choices=CAMPER_PHYSICAL_HEALTH_HISTORY_CHOICES, max_length=255)
     explain_any_other_unlisted_medical_history = models.CharField(blank=True, null=True, max_length=255)
     provide_explanation_of_any_checked_medical_history_items = models.CharField(max_length=255)
     any_physical_activities_to_be_limited_or_restricted = models.CharField(max_length=255)
@@ -275,7 +275,7 @@ class MedicalInformation(models.Model):
       ('Yes, it was Positive', 'Yes, it was Positive'),
       ('No, it was Negative', 'No, it was Negative'),
     ]
-    was_tuberculin_test_positive_or_negative = models.ChoiceField(choices=TUBERCULIN_TEST_POSITIVE_OR_NEGATIVE, widget=forms.RadioSelect())
+    was_tuberculin_test_positive_or_negative = models.CharField(choices=TUBERCULIN_TEST_POSITIVE_OR_NEGATIVE, default=[], null=False, blank=False, max_length=255)
     any_other_unlisted_immunizations = models.CharField(max_length=255)
 
 #|=====| Section 5 - MENTAL HEALTH HISTORY |=====|#
@@ -295,7 +295,7 @@ class MedicalInformation(models.Model):
         ('any_physical_abuse', 'any_physical_abuse'),
         ('any_trouble_sleeping_or_sleep_disorders', 'any_trouble_sleeping_or_sleep_disorders'),
     ]
-    camper_mental_health_history_choices = models.MultipleChoiceField(choices=MENTAL_HEALTH_HISTORY_CHOICES, widget=forms.RadioSelect())
+    camper_mental_health_history_choices = models.CharField(choices=MENTAL_HEALTH_HISTORY_CHOICES, max_length=255)
     provide_explanation_for_any_checked_mental_illness_items = models.CharField(blank=True, null=True, max_length=255)
     does_camper_have_any_triggers_to_be_aware_of = models.CharField(max_length=255)
     does_camper_have_positive_coping_skills_to_use = models.CharField(max_length=255)
@@ -313,7 +313,7 @@ class MedicalInformation(models.Model):
         ('I_consent_for_all_of_the_above', 'I_consent_for_all_of_the_above'),
         ('I_do_not_want_any_over_the_counter_medications_to_be_given', 'I_do_not_want_any_over_the_counter_medications_to_be_given'),
     ]
-    guardian_authorized_over_counter_medications_choices = models.MultipleChoiceField(choices=AUTHORIZED_OVER_COUNTER_MEDICATIONS_CHOICES, widget=forms.RadioSelect())
+    guardian_authorized_over_counter_medications_choices = models.CharField(choices=AUTHORIZED_OVER_COUNTER_MEDICATIONS_CHOICES, max_length=255)
     guardian_consent_to_give_over_the_counter_medications = models.BooleanField()
     guardian_consent_to_health_information_and_treatment_at_ASPYRE = models.BooleanField()
     guardian_consent_to_freedom_of_expression_consent = models.BooleanField()
