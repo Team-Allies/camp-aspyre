@@ -39,6 +39,7 @@ class CamperRegistrationForm(forms.Form):
   tshirt_size = forms.ChoiceField(choices=TSHIRT_SIZE_CHOICES, widget=forms.RadioSelect(attrs={'class':'radio_field_input'}))
   has_the_camper_verified_that_sensitive_topics_will_be_covered = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
   does_the_camper_have_other_companies_paying = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  
 class CamperScholarshipForm(forms.Form):
   camper = forms.ModelChoiceField(queryset=Camper.objects.all())
   what_would_camper_change_in_school_or_community = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
@@ -58,6 +59,7 @@ class CamperScholarshipForm(forms.Form):
 
 
 class CamperMedicalForm(forms.Form):
+  camper = forms.ModelChoiceField(queryset=Camper.objects.all())
   # class Meta:
   #   model = MedicalInformation
   #   fields = "__all__"
@@ -254,7 +256,7 @@ class CamperMedicalForm(forms.Form):
   )
   camper_mental_health_history_choices = forms.MultipleChoiceField(choices=MENTAL_HEALTH_HISTORY_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
   any_other_unlisted_mental_illnesses = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  provide_explanation_for_any_checked_mental_illness_items = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  provide_explanation_for_any_checked_mental_illness_items = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   does_camper_have_any_triggers_to_be_aware_of = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'text_field_input'}))
   does_camper_have_positive_coping_skills_to_use = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
 
@@ -288,7 +290,6 @@ class CamperMedicalForm(forms.Form):
 #|=====| Section 8 - PARENT/GUARDIAN AND PARTICIPANT RELEASE |=====|#
 
   guardian_consent_for_waiver_to_participate = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
-  camper_consent_for_waiver_to_participate = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))  
 
   # guardian_signed_for_the_entire_form = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
   # date_of_guardian_signed_for_the_entire_form = forms.DateField(widget = forms.DateInput(attrs={'type':'date', 'class':'date_field_input'}))

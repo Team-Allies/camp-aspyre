@@ -81,11 +81,13 @@ def camper_registration_form_submitted(request):
 def camper_medical_form(request):
   user = request.user
   camp=Camp.objects.get(pk=1)
+
   if request.method == 'POST':
     form = CamperMedicalForm(request.POST)
-    breakpoint()
+    # breakpoint()
     if form.is_valid():
       form_data = form.cleaned_data
+      camper = form_data.get("camper")
       first_guardian_name = form.data.get("first_guardian_name")
       first_guardian_phone_number = form.data.get("first_guardian_phone_number")
       first_guardian_home_work_or_cell = form.data.get("first_guardian_home_work_or_cell")
@@ -187,9 +189,8 @@ def camper_medical_form(request):
       # date_of_guardian_signed_for_the_entire_form = form.data.get("date_of_guardian_signed_for_the_entire_form")
       # camper_signed_for_the_entire_form = form.data.get("camper_signed_for_the_entire_form")
       # date_of_camper_signed_for_the_entire_form = form.data.get("date_of_camper_signed_for_the_entire_form")
-      camper = Camper.objects.create(
-        user=user,
-        age_of_camper=age_of_camper,
+      medicalinformation = MedicalInformation.objects.create(
+        camper=camper,
         first_guardian_name=first_guardian_name,
         first_guardian_phone_number=first_guardian_phone_number,
         first_guardian_home_work_or_cell=first_guardian_home_work_or_cell,
@@ -286,7 +287,7 @@ def camper_medical_form(request):
         guardian_consent_for_community_values_agreement=guardian_consent_for_community_values_agreement,
         camper_consent_for_community_values_agreement=camper_consent_for_community_values_agreement,
         guardian_consent_for_waiver_to_participate=guardian_consent_for_waiver_to_participate,
-        camper_consent_for_waiver_to_participate=camper_consent_for_waiver_to_participate,
+        # camper_consent_for_waiver_to_participate=camper_consent_for_waiver_to_participate,
         # guardian_signed_for_the_entire_form=guardian_signed_for_the_entire_form,
         # date_of_guardian_signed_for_the_entire_form=date_of_guardian_signed_for_the_entire_form,
         # camper_signed_for_the_entire_form=camper_signed_for_the_entire_form,

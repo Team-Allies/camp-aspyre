@@ -325,7 +325,6 @@ class MedicalInformation(models.Model):
 
 #|=====| Section 8 - PARENT/GUARDIAN AND PARTICIPANT RELEASE |=====|#
 
-    camper_consent_for_waiver_to_participate = models.BooleanField()
     guardian_consent_for_waiver_to_participate = models.BooleanField()
 
     # guardian_signed_for_the_entire_form = models.BooleanField()
