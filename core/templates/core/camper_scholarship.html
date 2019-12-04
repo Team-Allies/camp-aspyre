@@ -9,7 +9,7 @@
     {% csrf_token %}
     <div class="divider"></div>
     <div class="camper_form_title_container">
-      <h1>ASPYRE {{ camnp.start_date.year }} Scholarship Request Form</h1>
+      <h1>ASPYRE {{ camp.start_date.year }} Scholarship Request Form</h1>
     </div>
     <div class="divider"></div>
     <div>
@@ -42,9 +42,5 @@
       <button class="submit_button" type="submit">SUBMIT</button>
     </div>
   </form>
-  <div class="toDelete">
-      <a href="{% url 'camper_registration_form' %}"><button class="leftButton">‹ TO REGISTRATION FORM</button></a>
-      <a href="{% url 'camper_medical_form' %}"><button class="rightButton">TO MEDICAL FORM ›</button></a>
-  </div>
 </div>
 {% endblock %} 

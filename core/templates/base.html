@@ -15,16 +15,20 @@
 
 <body>
     {% if not user.is_authenticated %}
+      {% csrf_token %}
         <header id="top_of_page" class="login_header_ifLoggedOut">
             <div class="aspyre_logo_container_ifLoggedOut">
-                <img class="aspyre_logo_ifLoggedOut" src="{% static 'assets/ASPYRE_main_logo.png' %}">
+                <div class="logo_image_wrapper">
+                  <img class="aspyre_logo_ifLoggedOut" src="{% static 'assets/ASPYRE_main_logo.png' %}">
+                </div>
+                <div class="group_image_wrapper">
+                  <img class="aspyre_students_image_ifLoggedOut" src="{% static 'assets/ASPYRE_student_group_image.jpg' %}">
+                </div>
             </div>
         </header>
         <div class="login_container_ifLoggedOut">
             <div class="login_title_container_ifLoggedOut">
-                <h1>Please login</h1>
-            </div>
-            <div class="link_container_ifLoggedOut">
+                <h1>Please Login or Register</h1>
                 <a href="{% url 'auth_login' %}">Login/Register</a>
             </div>
         </div>
@@ -35,10 +39,10 @@
             </div>
             <div class="login_container_ifLoggedIn">
                 <div class="login_title_ifLoggedIn">
-                    <h1>Welcome {{ request.user.first_name }}!</h1>
+                    <h1>Welcome {{ request.user }}!</h1>
                 </div>
                 <div class="link_ifLoggedIn">
-                    <a class="home_link" href="{% url 'index' %}">Home</a>|<a class="logout_link" href="{% url 'auth_logout' %}">Logout</a>
+                    <a class="logout_link" href="{% url 'auth_logout' %}">Logout</a>
             </div>
         </header>
     {% endif %}

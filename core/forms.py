@@ -2,7 +2,6 @@ from django import forms
 from core.models import User, Camper, Camp, MedicalInformation
 from django.forms import ModelForm
 
-
 class CamperRegistrationForm(forms.Form):
   ATTENDED_CHOICES = (
     ('Yes', 'Yes'),
@@ -23,7 +22,7 @@ class CamperRegistrationForm(forms.Form):
   how_did_the_camper_hear_about_the_camp = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   would_the_camper_like_to_be_added_facebook = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   what_does_the_camper_want_to_gain_from_the_camp = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  does_camper_have_any_dietary_restrictions = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  does_camper_have_any_dietary_restrictions = forms.CharField(max_length=255, required=False, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   does_the_camper_have_any_disabilities = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   any_additional_accommodations_needed = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   does_the_camper_have_any_sponsoring_organizations = forms.CharField(max_length=255, required=False, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
@@ -39,6 +38,7 @@ class CamperRegistrationForm(forms.Form):
   tshirt_size = forms.ChoiceField(choices=TSHIRT_SIZE_CHOICES, widget=forms.RadioSelect(attrs={'class':'radio_field_input'}))
   has_the_camper_verified_that_sensitive_topics_will_be_covered = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
   does_the_camper_have_other_companies_paying = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  
 class CamperScholarshipForm(forms.Form):
   camper = forms.ModelChoiceField(queryset=Camper.objects.all())
   what_would_camper_change_in_school_or_community = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
@@ -58,6 +58,11 @@ class CamperScholarshipForm(forms.Form):
 
 
 class CamperMedicalForm(forms.Form):
+  camper = forms.ModelChoiceField(queryset=Camper.objects.all())
+  # class Meta:
+  #   model = MedicalInformation
+  #   fields = "__all__"
+
 
 #|=====| Section 1 - BASIC CONTACT INFO |=====|#
 
@@ -166,7 +171,7 @@ class CamperMedicalForm(forms.Form):
     ('Nut-free','Nut-free'),
     ('Gluten-free','Gluten-free'),
   )
-  camper_dietary_preference_choices = forms.ChoiceField(choices=DIETARY_PREFERENCE_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
+  camper_dietary_preference_choices = forms.MultipleChoiceField(choices=DIETARY_PREFERENCE_CHOICES, required=False, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
   does_camper_have_any_food_allergies = forms.CharField(required=True, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   does_camper_have_any_drug_other_allergies = forms.CharField(required=True, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
 
@@ -204,10 +209,10 @@ class CamperMedicalForm(forms.Form):
     ('Wearing Medic Alert ID', 'Wearing Medic Alert ID'),
     ('Other unlisted medical history', 'Other unlisted medical history'),
   )
-  camper_physical_health_history_choices = forms.ChoiceField(choices=CAMPER_PHYSICAL_HEALTH_HISTORY_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
-  explain_any_other_unlisted_medical_history = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  camper_physical_health_history_choices = forms.MultipleChoiceField(choices=CAMPER_PHYSICAL_HEALTH_HISTORY_CHOICES, required=False, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
+  explain_any_other_unlisted_medical_history = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   provide_explanation_of_any_checked_medical_history_items = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  does_camper_have_any_physical_activities_to_be_limited_or_restricted = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  any_physical_activities_to_be_limited_or_restricted = forms.CharField(required=True, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   month_and_year_of_diphtheria_or_tetanus_immunization = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   month_and_year_of_tetanus_booster_immunization = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   month_and_year_of_polio_immunization = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
@@ -248,9 +253,8 @@ class CamperMedicalForm(forms.Form):
     ('Physical Abuse', 'Physical Abuse'),
     ('Trouble Sleeping or Sleep Disorders', 'Trouble Sleeping or Sleep Disorders'),
   )
-  camper_mental_health_history_choices = forms.ChoiceField(choices=MENTAL_HEALTH_HISTORY_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
-  any_other_unlisted_mental_illnesses = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  provide_explanation_for_any_checked_mental_illness_items = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  camper_mental_health_history_choices = forms.MultipleChoiceField(choices=MENTAL_HEALTH_HISTORY_CHOICES, required=False, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
+  provide_explanation_for_any_checked_mental_illness_items = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   does_camper_have_any_triggers_to_be_aware_of = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'text_field_input'}))
   does_camper_have_positive_coping_skills_to_use = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
 
@@ -267,28 +271,12 @@ class CamperMedicalForm(forms.Form):
     ('I consent for all of the above', 'I consent for all of the above'),
     ('I do not want any over the counter medications to be given', 'I do not want any over the counter medications to be given'),
   )
-  guardian_authorized_over_counter_medications_choices = forms.ChoiceField(choices=AUTHORIZED_OVER_COUNTER_MEDICATIONS_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
+  guardian_authorized_over_counter_medications_choices = forms.MultipleChoiceField(choices=AUTHORIZED_OVER_COUNTER_MEDICATIONS_CHOICES, required=False, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
 
   guardian_consent_to_give_over_the_counter_medications = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
 
-  guardian_consent_to_health_information_and_treatment_at_ASPYRE = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
-  
-  guardian_consent_to_freedom_of_expression_consent = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
-
-  guardian_or_18yr_old_consent_to_photo_release = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
+  guardian_or_18yr_old_consent_to_photo_release = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
 
 #|=====| Section 7 - COMMUNITY VALUES AGREEMENT |=====|#
 
-  guardian_consent_for_community_values_agreement = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
-  camper_consent_for_community_values_agreement = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
-
 #|=====| Section 8 - PARENT/GUARDIAN AND PARTICIPANT RELEASE |=====|#
-
-  guardian_consent_for_waiver_to_participate = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
-  camper_consent_for_waiver_to_participate = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))  
-
-  guardian_signed_for_the_entire_form = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
-  date_of_guardian_signed_for_the_entire_form = forms.DateField(widget = forms.DateInput(attrs={'type':'date', 'class':'date_field_input'}))
-
-  camper_signed_for_the_entire_form = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
-  date_of_camper_signed_for_the_entire_form = forms.DateField(widget = forms.DateInput(attrs={'type':'date', 'class':'date_field_input'}))
