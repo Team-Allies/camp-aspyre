@@ -1,7 +1,15 @@
 {% extends "admin/base.html" %}
 {% load static %}
 
+{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
 {% block branding %}
-<h1 id="site-name"><a href="{% url 'admin:index' %}">ASPYRE Camp Administration</a></h1>
+
+  <div class="admin_dashboard_header">
+    <img id="admin_logo" src="{% static 'assets/ASPYRE_main_logo.png' %}">
+    <h1 id="site-name"><a id="admin_header_title" href="{% url 'admin:index' %}">Camp Administration</a></h1>
+  </div>
+
 {% endblock %}
 
+{% block nav-global %}{% endblock %}

@@ -1,7 +1,3 @@
-/*
-    DJANGO Admin styles
-*/
-
 @import url(fonts.css);
 body {
   margin: 0;
@@ -936,9 +932,10 @@ table#change-history tbody th {
   justify-content: space-between;
   align-items: center;
   padding: 10px 40px;
-  background: #417690;
+  background: #ff7d2c;
   color: #ffc;
   overflow: hidden;
+  font-size: 10rem;
 }
 
 #header a:link,
@@ -960,7 +957,7 @@ table#change-history tbody th {
   margin: 0 20px 0 0;
   font-weight: 300;
   font-size: 24px;
-  color: #f5dd5d;
+  color: white;
 }
 
 #branding h1,
@@ -1096,6 +1093,20 @@ table#change-history tbody th {
   padding: 10px 20px;
 }
 
-#site-name {
-  font-size: 5rem;
+.admin_dashboard_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.admin_dashboard_header #site-name {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-left: 0.8rem;
+  margin-right: auto;
+  margin-bottom: auto;
+}
+
+#admin_logo {
+  width: 230px;
 }
