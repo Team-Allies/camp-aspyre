@@ -67,8 +67,8 @@ def camper_registration(request):
         camper=camper,
         camp=camp
       )
-      redirect(to='camper_registration_form_submitted')
-      return send_mail('Test Email', f'This is an automated email saying that a new registration was submitted for {legal_full_name_of_camper}', 'jjporter921@gmail.com', [f'{email_of_camper}'])
+      send_mail('Test Email', f'This is an automated email saying that a new registration was submitted for {legal_full_name_of_camper}', 'jjporter921@gmail.com', [f'{email_of_camper}'],fail_silently=True)
+      return redirect(to='camper_registration_form_submitted')
   else:
     form = CamperRegistrationForm()
   return render(request, 'core/camper_registration.html', {'form': form, 'camp': camp})
