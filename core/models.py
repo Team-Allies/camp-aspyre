@@ -58,7 +58,7 @@ class Camper(models.Model):
     email_of_camper = models.CharField(max_length=255)
     name_of_school = models.CharField(max_length=255)
     how_did_the_camper_hear_about_the_camp = models.CharField(max_length=255)
-    would_the_camper_like_to_be_added_facebook = models.CharField(max_length=255)
+    # would_the_camper_like_to_be_added_facebook = models.CharField(max_length=255)
     what_does_the_camper_want_to_gain_from_the_camp = models.CharField(max_length=255)
     does_camper_have_any_dietary_restrictions = models.CharField(max_length=255, blank=True, null=True)
     does_the_camper_have_any_disabilities = models.CharField(max_length=255, blank=True, null=True)
