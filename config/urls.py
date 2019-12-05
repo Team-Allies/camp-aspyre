@@ -27,9 +27,9 @@ urlpatterns = [
     path('registration/', views.camper_registration, name="camper_registration_form"),
     path('registration-submitted', views.camper_registration_form_submitted, name="camper_registration_form_submitted"),
     path('scholarship-form/', views.camper_scholarship_form, name="camper_scholarship_form"),
-    path('ASPYRE-Scholarship-submitted/', views.camper_scholarship_submitted, name="camper_scholarship_form_submitted"),
-    path('ASPYRE-Medical-Form/', views.camper_medical_form, name="camper_medical_form"),
-    path('ASPYRE-MedicalForm-submitted', views.camper_medical_form_submitted, name="camper_medical_form_submitted"),
+    path('scholarship-submitted/', views.camper_scholarship_submitted, name="camper_scholarship_form_submitted"),
+    path('medical-form/', views.camper_medical_form, name="camper_medical_form"),
+    path('medical-form-submitted', views.camper_medical_form_submitted, name="camper_medical_form_submitted"),
 ]
 
 if settings.DEBUG:

@@ -28,7 +28,7 @@ def camper_registration(request):
       email_of_camper = form_data.get("email_of_camper")
       name_of_school = form_data.get("name_of_school")
       how_did_the_camper_hear_about_the_camp = form_data.get("how_did_the_camper_hear_about_the_camp")
-      would_the_camper_like_to_be_added_facebook = form_data.get("would_the_camper_like_to_be_added_facebook")
+      # would_the_camper_like_to_be_added_facebook = form_data.get("would_the_camper_like_to_be_added_facebook")
       what_does_the_camper_want_to_gain_from_the_camp = form_data.get("what_does_the_camper_want_to_gain_from_the_camp")
       does_camper_have_any_dietary_restrictions = form_data.get("does_camper_have_any_dietary_restrictions")
       does_the_camper_have_any_disabilities = form_data.get("does_the_camper_have_any_disabilities")
@@ -51,7 +51,7 @@ def camper_registration(request):
         email_of_camper=email_of_camper,
         name_of_school=name_of_school,
         how_did_the_camper_hear_about_the_camp=how_did_the_camper_hear_about_the_camp,
-        would_the_camper_like_to_be_added_facebook=would_the_camper_like_to_be_added_facebook,
+        # would_the_camper_like_to_be_added_facebook=would_the_camper_like_to_be_added_facebook,
         what_does_the_camper_want_to_gain_from_the_camp=what_does_the_camper_want_to_gain_from_the_camp,
         does_camper_have_any_dietary_restrictions=does_camper_have_any_dietary_restrictions,
         does_the_camper_have_any_disabilities=does_the_camper_have_any_disabilities,
