@@ -268,7 +268,7 @@ def camper_medical_form(request):
           camp=camp
         )
       )
-      return redirect(to='camper_medical_form_submitted')
+      return redirect(to='https://www.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=ed99d214-b263-4915-9280-caaf633038fa&env=na1&acct=4c18ff37-11e1-42e5-b6b3-14616bd87c7d&v=2')
   else:
     form = CamperMedicalForm()
   return render(request, 'core/camper_medical_form.html', {'form': form, 'camp': camp})

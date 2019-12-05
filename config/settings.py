@@ -20,7 +20,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY', 'tac%fxds*4km*xp168c*y)$^r*73z=2y26@$2_o2$9x2kl()@b')
+SECRET_KEY = os.getenv('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 in_production = bool(os.getenv('PRODUCTION'))
@@ -171,5 +172,6 @@ LOGOUT_REDIRECT_URL = 'login_page'
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'apikey'
-EMAIL_HOST_PASSWORD = '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'
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
+
