@@ -24,7 +24,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'tac%fxds*4km*xp168c*y)$^r*73z=2y26@$2_o2$9
 
 # SECURITY WARNING: don't run with debug turned on in production!
 in_production = bool(os.getenv('PRODUCTION'))
-DEBUG = True
+DEBUG = not in_production
 
 
 ALLOWED_HOSTS = ['*']
@@ -168,8 +168,8 @@ REGISTRATION_AUTO_LOGIN = True
 LOGIN_REDIRECT_URL = 'camper_registration_form'
 LOGOUT_REDIRECT_URL = 'login_page'
 
-EMAIL_HOST = 'in-v3.mailjet.com'
+EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = '1d7e9ea5fcef2cce7d213d9c01adde0b'
-EMAIL_HOST_PASSWORD = '0cbe627d8250d2cae0ee0de06c2ef460'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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'
 EMAIL_USE_TLS = True
