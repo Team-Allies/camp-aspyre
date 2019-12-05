@@ -82,14 +82,6 @@ class CamperMedicalForm(forms.Form):
       ('Cell', 'Cell'),
   )
   second_guardian_home_work_or_cell = forms.ChoiceField(choices=SECOND_GUARDIAN_HOME_WORK_CELL, widget=forms.RadioSelect(attrs={'class':'radio_field_input'}))
-  third_guardian_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  third_guardian_phone_number = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  THIRD_GUARDIAN_HOME_WORK_CELL = (
-      ('Home', 'Home'),
-      ('Work', 'Work'),
-      ('Cell', 'Cell'),
-  )
-  third_guardian_home_work_or_cell = forms.ChoiceField(choices=THIRD_GUARDIAN_HOME_WORK_CELL, widget=forms.RadioSelect(attrs={'class':'radio_field_input'}))
   emergency_contact_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   emergency_contact_phone_number = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   EMERGENCY_CONTACT_HOME_WORK_CELL = (
@@ -212,7 +204,7 @@ class CamperMedicalForm(forms.Form):
   camper_physical_health_history_choices = forms.MultipleChoiceField(choices=CAMPER_PHYSICAL_HEALTH_HISTORY_CHOICES, required=False, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
   explain_any_other_unlisted_medical_history = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   provide_explanation_of_any_checked_medical_history_items = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  any_physical_activities_to_be_limited_or_restricted = forms.CharField(required=True, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  any_physical_activities_to_be_limited_or_restricted = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   month_and_year_of_diphtheria_or_tetanus_immunization = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   month_and_year_of_tetanus_booster_immunization = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   month_and_year_of_polio_immunization = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
@@ -272,8 +264,6 @@ class CamperMedicalForm(forms.Form):
     ('I do not want any over the counter medications to be given', 'I do not want any over the counter medications to be given'),
   )
   guardian_authorized_over_counter_medications_choices = forms.MultipleChoiceField(choices=AUTHORIZED_OVER_COUNTER_MEDICATIONS_CHOICES, required=False, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
-
-  guardian_consent_to_give_over_the_counter_medications = forms.BooleanField(required=True, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
 
   guardian_or_18yr_old_consent_to_photo_release = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
 

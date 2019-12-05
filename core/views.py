@@ -94,9 +94,6 @@ def camper_medical_form(request):
       second_guardian_name = form_data.get("second_guardian_name")
       second_guardian_phone_number = form_data.get("second_guardian_phone_number")
       second_guardian_home_work_or_cell = form_data.get("second_guardian_home_work_or_cell")
-      third_guardian_name = form_data.get("third_guardian_name")
-      third_guardian_phone_number = form_data.get("third_guardian_phone_number")
-      third_guardian_home_work_or_cell = form_data.get("third_guardian_home_work_or_cell")
       emergency_contact_name = form_data.get("emergency_contact_name")
       emergency_contact_phone_number = form_data.get("emergency_contact_phone_number")
       emergency_home_work_cell = form_data.get("emergency_home_work_cell")
@@ -176,7 +173,6 @@ def camper_medical_form(request):
       does_camper_have_any_triggers_to_be_aware_of = form_data.get("does_camper_have_any_triggers_to_be_aware_of")
       does_camper_have_positive_coping_skills_to_use = form_data.get("does_camper_have_positive_coping_skills_to_use")
       guardian_authorized_over_counter_medications_choices = form_data.get("guardian_authorized_over_counter_medications_choices")
-      guardian_consent_to_give_over_the_counter_medications = form_data.get("guardian_consent_to_give_over_the_counter_medications")
       guardian_or_18yr_old_consent_to_photo_release = form_data.get("guardian_or_18yr_old_consent_to_photo_release")
       medicalinformation = MedicalInformation.objects.create(
         camper=camper,
@@ -186,9 +182,6 @@ def camper_medical_form(request):
         second_guardian_name=second_guardian_name,
         second_guardian_phone_number=second_guardian_phone_number,
         second_guardian_home_work_or_cell=second_guardian_home_work_or_cell,
-        third_guardian_name=third_guardian_name,
-        third_guardian_phone_number=third_guardian_phone_number,
-        third_guardian_home_work_or_cell=third_guardian_home_work_or_cell,
         emergency_contact_name=emergency_contact_name,
         emergency_contact_phone_number=emergency_contact_phone_number,
         emergency_home_work_cell=emergency_home_work_cell,
@@ -268,7 +261,6 @@ def camper_medical_form(request):
         does_camper_have_any_triggers_to_be_aware_of=does_camper_have_any_triggers_to_be_aware_of,
         does_camper_have_positive_coping_skills_to_use=does_camper_have_positive_coping_skills_to_use,
         guardian_authorized_over_counter_medications_choices=guardian_authorized_over_counter_medications_choices,
-        guardian_consent_to_give_over_the_counter_medications=guardian_consent_to_give_over_the_counter_medications,
         guardian_or_18yr_old_consent_to_photo_release=guardian_or_18yr_old_consent_to_photo_release,
         registration = Registration.objects.get(
           user=user,

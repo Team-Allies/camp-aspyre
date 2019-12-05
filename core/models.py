@@ -129,14 +129,6 @@ class MedicalInformation(models.Model):
         ('Cell', 'Cell'),
     ]
     second_guardian_home_work_or_cell = models.CharField(choices=SECOND_GUARDIAN_HOME_WORK_CELL, default=[], null=False, max_length=255) 
-    third_guardian_name = models.CharField(max_length=255)
-    third_guardian_phone_number = models.CharField(max_length=255)
-    THIRD_GUARDIAN_HOME_WORK_CELL = [
-        ('Home', 'Home'),
-        ('Work', 'Work'),
-        ('Cell', 'Cell'),
-    ]
-    third_guardian_home_work_or_cell = models.CharField(choices=THIRD_GUARDIAN_HOME_WORK_CELL, default=[], null=False, max_length=255)
     emergency_contact_name = models.CharField(max_length=255)
     emergency_contact_phone_number = models.CharField(max_length=255)
     EMERGENCY_CONTACT_HOME_WORK_CELL = (
@@ -255,7 +247,7 @@ class MedicalInformation(models.Model):
     camper_physical_health_history_choices = models.CharField(choices=CAMPER_PHYSICAL_HEALTH_HISTORY_CHOICES, max_length=255, blank=True, null=True)
     explain_any_other_unlisted_medical_history = models.CharField(blank=True, null=True, max_length=255)
     provide_explanation_of_any_checked_medical_history_items = models.CharField(max_length=255)
-    any_physical_activities_to_be_limited_or_restricted = models.CharField(max_length=255)
+    any_physical_activities_to_be_limited_or_restricted = models.CharField(max_length=255, blank=True, null=True)
     month_and_year_of_diphtheria_or_tetanus_immunization = models.CharField(max_length=255)
     month_and_year_of_tetanus_booster_immunization = models.CharField(max_length=255)
     month_and_year_of_polio_immunization = models.CharField(max_length=255)
@@ -315,7 +307,6 @@ class MedicalInformation(models.Model):
         ('I_do_not_want_any_over_the_counter_medications_to_be_given', 'I_do_not_want_any_over_the_counter_medications_to_be_given'),
     ]
     guardian_authorized_over_counter_medications_choices = models.CharField(choices=AUTHORIZED_OVER_COUNTER_MEDICATIONS_CHOICES, null=True, blank=True, max_length=255)
-    guardian_consent_to_give_over_the_counter_medications = models.BooleanField()
     # guardian_consent_to_health_information_and_treatment_at_ASPYRE = models.BooleanField()
     # guardian_consent_to_freedom_of_expression_consent = models.BooleanField()
     guardian_or_18yr_old_consent_to_photo_release = models.BooleanField(blank=True, null=True)
