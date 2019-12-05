@@ -20,12 +20,12 @@ class CamperRegistrationForm(forms.Form):
   email_of_camper = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   name_of_school = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   how_did_the_camper_hear_about_the_camp = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  would_the_camper_like_to_be_added_facebook = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  # would_the_camper_like_to_be_added_facebook = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   what_does_the_camper_want_to_gain_from_the_camp = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   does_camper_have_any_dietary_restrictions = forms.CharField(max_length=255, required=False, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   does_the_camper_have_any_disabilities = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   any_additional_accommodations_needed = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  does_the_camper_have_any_sponsoring_organizations = forms.CharField(max_length=255, required=False, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  does_the_camper_have_any_sponsoring_organizations = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   TSHIRT_SIZE_CHOICES = (
       ('XS', 'XS'),
       ('S', 'S'),

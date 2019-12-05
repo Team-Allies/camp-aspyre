@@ -30,6 +30,7 @@ urlpatterns = [
     path('scholarship-submitted/', views.camper_scholarship_submitted, name="camper_scholarship_form_submitted"),
     path('medical/', views.camper_medical_form, name="camper_medical_form"),
     path('medical-submitted/', views.camper_medical_form_submitted, name="camper_medical_form_submitted"),
+
 ]
 
 if settings.DEBUG:
