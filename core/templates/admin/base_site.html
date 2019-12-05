@@ -1,0 +1,14 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+
+  <div class="admin_dashboard_header">
+    <h1 id="site-name"><a id="admin_header_title" href="{% url 'admin:index' %}">Camp Administration</a></h1>
+  </div>
+
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
