@@ -4,8 +4,8 @@ from core.forms import CamperRegistrationForm, CamperScholarshipForm, CamperMedi
 from core.models import User, Camper, Camp, MedicalInformation, Registration
 from django.core.mail import send_mail
 
-def login_page(request):
-  return render(request, 'core/login_page.html')
+# def login_page(request):
+#   return render(request, 'core/login_page.html')
 
 @login_required
 def camper_registration(request):
