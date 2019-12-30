@@ -167,7 +167,7 @@ ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
 
 LOGIN_REDIRECT_URL = 'camper_registration_form'
-LOGOUT_REDIRECT_URL = 'login_page'
+LOGOUT_REDIRECT_URL = 'camper_registration_form'
 
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_PORT = 587

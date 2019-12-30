@@ -22,9 +22,9 @@ from core import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.simple.urls')),
-    path('', views.login_page, name="login_page"),
+    # path('', views.login_page, name="login_page"),
     path('', include("django.contrib.auth.urls")),
-    path('registration/', views.camper_registration, name="camper_registration_form"),
+    path('', views.camper_registration, name="camper_registration_form"),
     path('registration-submitted/', views.camper_registration_form_submitted, name="camper_registration_form_submitted"),
     path('scholarship/', views.camper_scholarship_form, name="camper_scholarship_form"),
     path('scholarship-submitted/', views.camper_scholarship_submitted, name="camper_scholarship_form_submitted"),
