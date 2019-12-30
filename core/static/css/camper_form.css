@@ -458,3 +458,8 @@ body {
 .medicalFormImage {
   width: 500px;
 }
+
+.login_form {
+  margin-top: 0.5rem;
+  margin-left: 3rem;
+}
