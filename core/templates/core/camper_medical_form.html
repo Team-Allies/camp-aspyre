@@ -1,28 +1,25 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 
 <div class="main_content_wrapper">
-    <div class="rainbow"></div>
-    <form class="camper_form">
-        {% csrf_token %}
-        <div class="camper_form_title_container">
-            <h1>Camp ASPYRE</h1>
-            <h2>{{ camp.start_date.year }} Camp Confirmation Packet</h2>
-        </div>
-        <div class="text_field">
-            <h3 class="field_title">Camper</h3>
-            {{ form.camper }}
-          </div>
-        <ol class="table_of_contents">
-            <li><a href="#section1">Basic Contact Information</a></li>
-            <li><a href="#section2">Medication</a></li>
-            <li><a href="#section3">Dietary Preferences/Allergies</a></li>
-            <li><a href="#section4">Physical Health History/Immunizations</a></li>
-            <li><a href="#section5">Mental Health History</a></li>
-            <li><a href="#section6">Authorizations</a></li>
-            <!-- <li><a href="#section7">COMMUNITY VALUES AGREEMENT</a></li>
+  <div class="rainbow"></div>
+  <form class="camper_form">
+    {% csrf_token %}
+    <div class="camper_form_title_container">
+      <h1>Camp ASPYRE</h1>
+      <h2>{{ camp.start_date.year }} Camp Confirmation Packet</h2>
+    </div>
+    <div class="text_field">
+      <h3 class="field_title">Camper</h3>
+      {{ form.camper }}
+    </div>
+    <ol class="table_of_contents">
+      <li><a href="#section1">Basic Contact Information</a></li>
+      <li><a href="#section2">Medication</a></li>
+      <li><a href="#section3">Dietary Preferences/Allergies</a></li>
+      <li><a href="#section4">Physical Health History/Immunizations</a></li>
+      <li><a href="#section5">Mental Health History</a></li>
+      <li><a href="#section6">Authorizations</a></li>
+      <!-- <li><a href="#section7">COMMUNITY VALUES AGREEMENT</a></li>
             <li><a href="#section8">PARENT/GUARDIAN AND PARTICIPANT RELEASE</a></li>
             <li><a href="#section9">ITEMS TO BRING</a></li>
                 <ul class="ul">
@@ -36,475 +33,477 @@
                 <ul class="ul">
                     <li>Bring along as back up for your GPS.</li>
                 </ul> -->
-        </ol>
+    </ol>
 
-        <div class="divider"></div>
+    <div class="divider"></div>
 
-        <section id="section1" class="section">
-            <div class="section_header">
-                <h3>Section 1 - Basic Contact Info</h3>
-                <p><a class="form_nav" href="#top_of_page">Jump to Top</a></p>
-            </div>
-            <div class="section_content">
-                <div class="text_field">
-                    <h5 class="field_title">Primary Parent/Guardian Name:</h5>
-                    {{ form.first_guardian_name }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Primary Parent/Guardian Phone Number:</h5>
-                    {{ form.first_guardian_phone_number }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">What type of phone number is this?</h5>
-                    <p class="hint_text">(Home, Work, or Cell?)</p>
-                    <ul class="horizontal">
-                        <li>{{ form.first_guardian_home_work_or_cell }}</li>
-                    </ul>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Secondary Parent/Guardian Name:</h5>
-                    {{ form.second_guardian_name }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Secondary Parent/Guardian Phone Number:</h5>
-                    {{form.second_guardian_phone_number }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">What type of phone number is this?</h5>
-                    <p class="hint_text">(Home, Work, or Cell?)</p>
-                    <ul class="horizontal">
-                        <li>{{ form.second_guardian_home_work_or_cell }}</li>
-                    </ul>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Emergency Contact Name:</h5>
-                    <p class="hint_text">(If parent/guardian cannot be reached)</p>
-                    {{ form.emergency_contact_name }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Emergency Contact Phone Number:</h5>
-                    {{ form.emergency_contact_phone_number }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">What type of phone number is this?</h5>
-                    <p class="hint_text">(Home, Work, or Cell?)</p>
-                    <ul class="horizontal">
-                        <li>{{ form.emergency_home_work_cell }}</li>
-                    </ul>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">The camper can be picked up by either guardian and/or emergency contact:</h5>
-                    {{ form.can_camper_be_picked_up_by_guardian_or_emergency_contact }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">If not, please list the name of the person NOT authorized to pick up the camper:</h5>
-                    {{ form.any_unauthorized_persons_that_can_pick_up_camper }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Please list the information for any other adult you are authorizing to pick up/drop off your camper:</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Authorized Person's Full Name:</h5>
-                    {{ form.first_authorized_persons_name }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Authorized Person's Phone Number:</h5>
-                    {{ form.first_authorized_persons_phone }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Second Authorized Person's Full Name:</h5>
-                    {{ form.second_authorized_persons_name }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Second Authorized Person's Phone Number:</h5>
-                    {{ form.second_authorized_persons_phone }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Family Physician/NP/PA Name:</h5>
-                    {{ form.family_physician_NP_PA_name }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Family Physician/NP/PA Phone Number:</h5>
-                    {{ form.family_physician_NP_PA_phone_number }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Camper’s Mental Healthcare Provider Name:</h5>
-                    {{ form.mental_healthcare_provider_name }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Mental Healthcare Provider Phone Number:</h5>
-                    {{ form.mental_healthcare_provider_phone_number }}
-                </div>
-            </div>
-        </section>
+    <section id="section1" class="section">
+      <div class="section_header">
+        <h3>Section 1 - Basic Contact Info</h3>
+        <p><a class="form_nav" href="#top_of_page">Jump to Top</a></p>
+      </div>
+      <div class="section_content">
+        <div class="text_field">
+          <h5 class="field_title">Primary Parent/Guardian Name:</h5>
+          {{ form.first_guardian_name }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Primary Parent/Guardian Phone Number:</h5>
+          {{ form.first_guardian_phone_number }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">What type of phone number is this?</h5>
+          <p class="hint_text">(Home, Work, or Cell?)</p>
+          <ul class="horizontal">
+            <li>{{ form.first_guardian_home_work_or_cell }}</li>
+          </ul>
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Secondary Parent/Guardian Name:</h5>
+          {{ form.second_guardian_name }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Secondary Parent/Guardian Phone Number:</h5>
+          {{form.second_guardian_phone_number }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">What type of phone number is this?</h5>
+          <p class="hint_text">(Home, Work, or Cell?)</p>
+          <ul class="horizontal">
+            <li>{{ form.second_guardian_home_work_or_cell }}</li>
+          </ul>
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Emergency Contact Name:</h5>
+          <p class="hint_text">(If parent/guardian cannot be reached)</p>
+          {{ form.emergency_contact_name }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Emergency Contact Phone Number:</h5>
+          {{ form.emergency_contact_phone_number }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">What type of phone number is this?</h5>
+          <p class="hint_text">(Home, Work, or Cell?)</p>
+          <ul class="horizontal">
+            <li>{{ form.emergency_home_work_cell }}</li>
+          </ul>
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">The camper can be picked up by either guardian and/or emergency contact:</h5>
+          {{ form.can_camper_be_picked_up_by_guardian_or_emergency_contact }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">If not, please list the name of the person NOT authorized to pick up the camper:</h5>
+          {{ form.any_unauthorized_persons_that_can_pick_up_camper }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Please list the information for any other adult you are authorizing to pick up/drop off your camper:</h5>
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Authorized Person's Full Name:</h5>
+          {{ form.first_authorized_persons_name }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Authorized Person's Phone Number:</h5>
+          {{ form.first_authorized_persons_phone }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Second Authorized Person's Full Name:</h5>
+          {{ form.second_authorized_persons_name }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Second Authorized Person's Phone Number:</h5>
+          {{ form.second_authorized_persons_phone }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Family Physician/NP/PA Name:</h5>
+          {{ form.family_physician_NP_PA_name }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Family Physician/NP/PA Phone Number:</h5>
+          {{ form.family_physician_NP_PA_phone_number }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Camper’s Mental Healthcare Provider Name:</h5>
+          {{ form.mental_healthcare_provider_name }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Mental Healthcare Provider Phone Number:</h5>
+          {{ form.mental_healthcare_provider_phone_number }}
+        </div>
+      </div>
+    </section>
 
-        <div class="divider"></div>
+    <div class="divider"></div>
 
-        <section id="section2" class="section">
-            <div class="section_header">
-                <h3>SECTION 2 - Medications</h3>
-                <p><a class="form_nav" href="#top_of_page">Jump to Top</a></p>
-            </div>
-            <div class="section_content">
-                <div class="text_field">
-                    <h5 class="field_title">Will the camper be taking medications while at camp?</h5>
-                    {{ form.will_camper_take_medication_while_at_camp }}
-                </div>
-                <div class="text_field">
-                <p class="hint_text">Please list all prescription and non-prescription medications, or provide a copy of the camper’s medication list. When you check-in at camp, please provide all medications in their original packaging that identifies the prescribing 
-                    Physician (if prescription drug), the name of the medication, the dosage, and the frequency of administration. Please have medication in a ziplock bag labeled with the camper’s first and last name along with their date of birth. Medications will be turned over to our volunteer Nurse onsite during registration.</p>
-                    <h5 class="field_title">Medication:</h5>
-                    {{ form.first_medication_name }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Dose:</h5>
-                    {{ form.first_medication_dose }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Take at what times:</h5>
-                    {{ form.first_medication_times }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Reason for Taking:</h5>
-                    {{ form.first_medication_reason_for_taking }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Prescriber's Name:</h5>
-                    {{ form.first_medication_prescriber_name }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Prescriber's Phone Number:</h5>
-                    {{ form.first_medication_prescriber_phone_number }}
-                </div>
-
-                <div class="divider"></div>
-
-                <div class="text_field">
-                    <h5 class="field_title">Medication:</h5>
-                    {{ form.second_medication_name }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Dose:</h5>
-                    {{ form.second_medication_dose }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Take at what times:</h5>
-                    {{ form.second_medication_times }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Reason for Taking:</h5>
-                    {{ form.second_medication_reason_for_taking }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Prescriber's Name:</h5>
-                    {{ form.second_medication_prescriber_name }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Prescriber's Phone Number:</h5>
-                    {{ form.second_medication_prescriber_phone_number }}
-                </div>
-
-                <div class="divider"></div>
-
-                <div class="text_field">
-                    <h5 class="field_title">Medication:</h5>
-                    {{ form.third_medication_name }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Dose:</h5>
-                    {{ form.third_medication_dose }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Take at what times:</h5>
-                    {{ form.third_medication_times }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Reason for Taking:</h5>
-                    {{ form.third_medication_reason_for_taking }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Prescriber's Name:</h5>
-                    {{ form.third_medication_prescriber_name }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Prescriber's Phone Number:</h5>
-                    {{ form.third_medication_prescriber_phone_number }}
-                </div>
-
-                <div class="divider"></div>
-
-                <div class="text_field">
-                    <h5 class="field_title">Medication:</h5>
-                    {{ form.fourth_medication_name }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Dose:</h5>
-                    {{ form.fourth_medication_dose }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Take at what times:</h5>
-                    {{ form.fourth_medication_times }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Reason for Taking:</h5>
-                    {{ form.fourth_medication_reason_for_taking }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Prescriber's Name:</h5>
-                    {{ form.fourth_medication_prescriber_name }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Prescriber's Phone Number:</h5>
-                    {{ form.fourth_medication_prescriber_phone_number }}
-                </div>
-
-                <div class="divider"></div>
-
-                <div class="text_field">
-                    <h5 class="field_title">Medication:</h5>
-                    {{ form.fifth_medication_name }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Dose:</h5>
-                    {{ form.fifth_medication_dose }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Take at what times:</h5>
-                    {{ form.fifth_medication_times }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Reason for Taking:</h5>
-                    {{ form.fifth_medication_reason_for_taking }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Prescriber's Name:</h5>
-                    {{ form.fifth_medication_prescriber_name }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Prescriber's Phone Number:</h5>
-                    {{ form.fifth_medication_prescriber_phone_number }}
-                </div>
-                
-                <div class="divider"></div>
-
-                <div class="text_field">
-                    <h5 class="field_title">Medication:</h5>
-                    {{ form.sixth_medication_name }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Dose:</h5>
-                    {{ form.sixth_medication_dose }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Take at what times:</h5>
-                    {{ form.sixth_medication_times }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Reason for Taking:</h5>
-                    {{ form.sixth_medication_reason_for_taking }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Prescriber's Name:</h5>
-                    {{ form.sixth_medication_prescriber_name }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Prescriber's Phone Number:</h5>
-                    {{ form.sixth_medication_prescriber_phone_number }}
-                </div>
-            </div>
-        </section>
-
-        <div class="divider"></div>
-
-        <section id="section3" class="section">
-            <div class="section_header">
-                <h3>SECTION 3 - Dietary Preferences/Allergies</h3>
-                <p><a class="form_nav" href="#top_of_page">Jump to Top</a></p>
-            </div>
-            <div class="section_content">
-                <div class="text_field">
-                    <h5 class="field_title">Dietary Preferences:</h5>
-                    {{ form.camper_dietary_preference_choices }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Food Allergies:</h5>
-                    <p class="hint_text">(Please specify and list reactions.)</p>
-                    {{ form.does_camper_have_any_food_allergies }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Known Drug Allergies/Other Allergies:</h5>
-                    <p class="hint_text">(Please specify and list reactions.)</p>
-                    {{ form.does_camper_have_any_drug_other_allergies }}
-                </div>
-            </div>
-        </section>
-
-        <div class="divider"></div>
-
-        <section id="section4" class="section">
-            <div class="section_header">
-                <h3>SECTION 4 - Physical Health History/Immunizations</h3>
-                <p><a class="form_nav" href="#top_of_page">Jump to Top</a></p>
-            </div>
-            <div class="section_content">
-                <div class="text_field">
-                    <p class="hint_text">Does the camper have a history of, or is prone to any of the following? (Please check all that apply).</p>
-                    {{ form.camper_physical_health_history_choices }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Please provide explanation for any checked items:</h5>
-                    {{ form.provide_explanation_of_any_checked_medical_history_items }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Physical activities that will need to be limited or restricted while at camp:</h5>
-                    {{ form.any_physical_activities_to_be_limited_or_restricted }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Please record the month and year of immunizations for the following entries, or email a copy of the camper’s immunization records.</h5>
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Diphtheria, Tetanus, Pertussis:</h5>
-                    <p class="hint_text">(DTaP or TdaP)</p>
-                    {{ form.month_and_year_of_diphtheria_or_tetanus_immunization }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Tetanus Booster:</h5>
-                    <p class="hint_text">(dT or TdaP)</p>
-                    {{ form.month_and_year_of_tetanus_booster_immunization }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Polio:</h5>
-                    <p class="hint_text">(IPV)</p>
-                    {{ form.month_and_year_of_polio_immunization }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Rotavirus:</h5>
-                    <p class="hint_text">(RV)</p>
-                    {{ form.month_and_year_of_rotavirus_immunization }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Mumps, Measles, Rubella:</h5>
-                    <p class="hint_text">(MMR)</p>
-                    {{ form.month_and_year_of_mumps_measles_or_rubella_immunization }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Hepatitis A:</h5>
-                    <p class="hint_text">(Hep. A)</p>
-                    {{ form.month_and_year_of_hepatitis_a_immunization }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Hepatitis B:</h5>
-                    <p class="hint_text">(Hep. B)</p>
-                    {{ form.month_and_year_of_hepatitis_b_immunization }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Varicella:</h5>
-                    <p class="hint_text">(Chicken Pox)</p>
-                    {{ form.month_and_year_of_varicella_immunization }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Duration of any Chicken Pox:</h5>
-                    {{ form.month_and_year_of_duration_of_chicken_pox }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Haemophilus Influenzae B:</h5>
-                    <p class="hint_text">(Hib)</p>
-                    {{ form.month_and_year_of_haemophilus_influenza_b_immunization }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Seasonal Flu Vaccine:</h5>
-                    {{ form.month_and_year_of_seasonal_flu_vaccine_immunization }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Pneumococcal Vaccine:</h5>
-                    <p class="hint_text">(PCV13)</p>
-                    {{ form.month_and_year_of_pneumococcal_vaccine_immunization }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Human Papillomavirus:</h5>
-                    <p class="hint_text">(HPV)</p>
-                    {{ form.month_and_year_of_human_papillomavirus_immunization }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Meningococcal Meningitis:</h5>
-                    {{ form.month_and_year_of_meningococcal_meningitis_immunization }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Tuberculin Test given:</h5>
-                    <p class="hint_text">(Most recent)</p>
-                    {{ form.month_and_year_of_tuberculin_test }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Was the Tuberculin Test Positive or Negative?</h5>
-                    {{ form.was_tuberculin_test_positive_or_negative }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Other:</h5>
-                    {{ form.any_other_unlisted_immunizations }}
-                </div>
-            </div>
-        </section>
-
-        <div class="divider"></div>
-
-        <section id="section5" class="section">
-            <div class="section_header">
-                <h3>SECTION 5 - Mental Health History</h3>
-                <p><a class="form_nav" href="#top_of_page">Jump to Top</a></p>
-            </div>
-            <div class="section_content">
-                <div class="text_field">
-                    <h5 class="field_title">Has the camper had a history of any of the following:</h5>
-                    <p class="hint_text">(Please check all that apply.)</p>
-                    {{ form.camper_mental_health_history_choices }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Please provide explanation for any checked items:</h5>
-                    {{ form.provide_explanation_for_any_checked_mental_illness_items }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Please list any triggers we should be aware of:</h5>
-                    {{ form.does_camper_have_any_triggers_to_be_aware_of }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title">Please list any positive coping skills the camper may use:</h5>
-                    {{ form.does_camper_have_positive_coping_skills_to_use }}
-                </div>
-            </div>
-        </section>
-
-        <div class="divider"></div>
-
-        <section id="section6" class="section">
-            <div class="section_header">
-                <h3>SECTION 6 - Authorizations</h3>
-                <p><a class="form_nav" href="#top_of_page">Jump to Top</a></p>
-            </div>
-            <div class="section_content">
-                <div class="text_field">
-                    <h5 class="field_title bold underline text-center">Consent for Medication Administration and to Give Over-The-Counter Medication</h5>
-                    <p class="hint_text">I request the authorized ASPYRE staff members to administer medication or supervise the camper in self-administration as prescribed by the camper’s physician. I certify that I have the legal authority to consent to medical treatment for the camper, including the administration of medication at the facility. Additionally, I authorize ASPYRE staff members to administer the following over the counter medications listed below to the camper at the request of the camper.</p>
-                    <p class="hint_text">I understand that the end of the authorized period I will be responsible for picking up any remaining medications, otherwise the medications will be discarded. I authorize camp personnel to communicate with the prescriber as allowed by HIPAA.</p>
-                    {{ form.guardian_authorized_over_counter_medications_choices }}
-                </div>
-                <div class="text_field">
-                    <h5 class="field_title bold underline text-center">Photo Release</h5>
-                </div>
-                <div class="text_field">
-                    <p class="hint_text">We understand ASPYRE will be taking photographs and/or taking video footage of youth during ASPYRE camp activities. ASPYRE has permission to publish my/my camper’s photograph in ASPYRE publications and outreach materials. ASPYRE has permission to use video of the camper on the ASPYRE Instagram, or in other ASPYRE materials.</p>
-                </div>
-                <div class="text_field">
-                    <p class="hint_text">{{ form.guardian_or_18yr_old_consent_to_photo_release }} I agree with the statement above.</p>
-                </div>
-            </div>
-        </section>
-        <div class="divider"></div>
-        <div class="save_submit_button_container">
-            <button class="save_button" value="Save">Save/Continue Later</button>
-            <button class="submit_button" formmethod="POST" type="submit">SUBMIT</button>
+    <section id="section2" class="section">
+      <div class="section_header">
+        <h3>SECTION 2 - Medications</h3>
+        <p><a class="form_nav" href="#top_of_page">Jump to Top</a></p>
+      </div>
+      <div class="section_content">
+        <div class="text_field">
+          <h5 class="field_title">Will the camper be taking medications while at camp?</h5>
+          {{ form.will_camper_take_medication_while_at_camp }}
+        </div>
+        <div class="text_field">
+          <p class="hint_text">Please list all prescription and non-prescription medications, or provide a copy of the camper’s medication list. When you check-in at camp, please provide all medications in their original packaging that identifies the prescribing Physician
+            (if prescription drug), the name of the medication, the dosage, and the frequency of administration. Please have medication in a ziplock bag labeled with the camper’s first and last name along with their date of birth. Medications will be
+            turned over to our volunteer Nurse onsite during registration.</p>
+          <h5 class="field_title">Medication:</h5>
+          {{ form.first_medication_name }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Dose:</h5>
+          {{ form.first_medication_dose }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Take at what times:</h5>
+          {{ form.first_medication_times }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Reason for Taking:</h5>
+          {{ form.first_medication_reason_for_taking }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Prescriber's Name:</h5>
+          {{ form.first_medication_prescriber_name }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Prescriber's Phone Number:</h5>
+          {{ form.first_medication_prescriber_phone_number }}
         </div>
 
-    </form>
+        <div class="divider"></div>
+
+        <div class="text_field">
+          <h5 class="field_title">Medication:</h5>
+          {{ form.second_medication_name }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Dose:</h5>
+          {{ form.second_medication_dose }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Take at what times:</h5>
+          {{ form.second_medication_times }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Reason for Taking:</h5>
+          {{ form.second_medication_reason_for_taking }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Prescriber's Name:</h5>
+          {{ form.second_medication_prescriber_name }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Prescriber's Phone Number:</h5>
+          {{ form.second_medication_prescriber_phone_number }}
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="text_field">
+          <h5 class="field_title">Medication:</h5>
+          {{ form.third_medication_name }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Dose:</h5>
+          {{ form.third_medication_dose }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Take at what times:</h5>
+          {{ form.third_medication_times }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Reason for Taking:</h5>
+          {{ form.third_medication_reason_for_taking }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Prescriber's Name:</h5>
+          {{ form.third_medication_prescriber_name }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Prescriber's Phone Number:</h5>
+          {{ form.third_medication_prescriber_phone_number }}
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="text_field">
+          <h5 class="field_title">Medication:</h5>
+          {{ form.fourth_medication_name }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Dose:</h5>
+          {{ form.fourth_medication_dose }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Take at what times:</h5>
+          {{ form.fourth_medication_times }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Reason for Taking:</h5>
+          {{ form.fourth_medication_reason_for_taking }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Prescriber's Name:</h5>
+          {{ form.fourth_medication_prescriber_name }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Prescriber's Phone Number:</h5>
+          {{ form.fourth_medication_prescriber_phone_number }}
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="text_field">
+          <h5 class="field_title">Medication:</h5>
+          {{ form.fifth_medication_name }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Dose:</h5>
+          {{ form.fifth_medication_dose }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Take at what times:</h5>
+          {{ form.fifth_medication_times }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Reason for Taking:</h5>
+          {{ form.fifth_medication_reason_for_taking }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Prescriber's Name:</h5>
+          {{ form.fifth_medication_prescriber_name }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Prescriber's Phone Number:</h5>
+          {{ form.fifth_medication_prescriber_phone_number }}
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="text_field">
+          <h5 class="field_title">Medication:</h5>
+          {{ form.sixth_medication_name }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Dose:</h5>
+          {{ form.sixth_medication_dose }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Take at what times:</h5>
+          {{ form.sixth_medication_times }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Reason for Taking:</h5>
+          {{ form.sixth_medication_reason_for_taking }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Prescriber's Name:</h5>
+          {{ form.sixth_medication_prescriber_name }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Prescriber's Phone Number:</h5>
+          {{ form.sixth_medication_prescriber_phone_number }}
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="section3" class="section">
+      <div class="section_header">
+        <h3>SECTION 3 - Dietary Preferences/Allergies</h3>
+        <p><a class="form_nav" href="#top_of_page">Jump to Top</a></p>
+      </div>
+      <div class="section_content">
+        <div class="text_field">
+          <h5 class="field_title">Dietary Preferences:</h5>
+          {{ form.camper_dietary_preference_choices }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Food Allergies:</h5>
+          <p class="hint_text">(Please specify and list reactions.)</p>
+          {{ form.does_camper_have_any_food_allergies }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Known Drug Allergies/Other Allergies:</h5>
+          <p class="hint_text">(Please specify and list reactions.)</p>
+          {{ form.does_camper_have_any_drug_other_allergies }}
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="section4" class="section">
+      <div class="section_header">
+        <h3>SECTION 4 - Physical Health History/Immunizations</h3>
+        <p><a class="form_nav" href="#top_of_page">Jump to Top</a></p>
+      </div>
+      <div class="section_content">
+        <div class="text_field">
+          <p class="hint_text">Does the camper have a history of, or is prone to any of the following? (Please check all that apply).</p>
+          {{ form.camper_physical_health_history_choices }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Please provide explanation for any checked items:</h5>
+          {{ form.provide_explanation_of_any_checked_medical_history_items }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Physical activities that will need to be limited or restricted while at camp:</h5>
+          {{ form.any_physical_activities_to_be_limited_or_restricted }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Please record the month and year of immunizations for the following entries, or email a copy of the camper’s immunization records.</h5>
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Diphtheria, Tetanus, Pertussis:</h5>
+          <p class="hint_text">(DTaP or TdaP)</p>
+          {{ form.month_and_year_of_diphtheria_or_tetanus_immunization }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Tetanus Booster:</h5>
+          <p class="hint_text">(dT or TdaP)</p>
+          {{ form.month_and_year_of_tetanus_booster_immunization }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Polio:</h5>
+          <p class="hint_text">(IPV)</p>
+          {{ form.month_and_year_of_polio_immunization }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Rotavirus:</h5>
+          <p class="hint_text">(RV)</p>
+          {{ form.month_and_year_of_rotavirus_immunization }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Mumps, Measles, Rubella:</h5>
+          <p class="hint_text">(MMR)</p>
+          {{ form.month_and_year_of_mumps_measles_or_rubella_immunization }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Hepatitis A:</h5>
+          <p class="hint_text">(Hep. A)</p>
+          {{ form.month_and_year_of_hepatitis_a_immunization }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Hepatitis B:</h5>
+          <p class="hint_text">(Hep. B)</p>
+          {{ form.month_and_year_of_hepatitis_b_immunization }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Varicella:</h5>
+          <p class="hint_text">(Chicken Pox)</p>
+          {{ form.month_and_year_of_varicella_immunization }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Duration of any Chicken Pox:</h5>
+          {{ form.month_and_year_of_duration_of_chicken_pox }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Haemophilus Influenzae B:</h5>
+          <p class="hint_text">(Hib)</p>
+          {{ form.month_and_year_of_haemophilus_influenza_b_immunization }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Seasonal Flu Vaccine:</h5>
+          {{ form.month_and_year_of_seasonal_flu_vaccine_immunization }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Pneumococcal Vaccine:</h5>
+          <p class="hint_text">(PCV13)</p>
+          {{ form.month_and_year_of_pneumococcal_vaccine_immunization }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Human Papillomavirus:</h5>
+          <p class="hint_text">(HPV)</p>
+          {{ form.month_and_year_of_human_papillomavirus_immunization }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Meningococcal Meningitis:</h5>
+          {{ form.month_and_year_of_meningococcal_meningitis_immunization }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Tuberculin Test given:</h5>
+          <p class="hint_text">(Most recent)</p>
+          {{ form.month_and_year_of_tuberculin_test }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Was the Tuberculin Test Positive or Negative?</h5>
+          {{ form.was_tuberculin_test_positive_or_negative }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Other:</h5>
+          {{ form.any_other_unlisted_immunizations }}
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="section5" class="section">
+      <div class="section_header">
+        <h3>SECTION 5 - Mental Health History</h3>
+        <p><a class="form_nav" href="#top_of_page">Jump to Top</a></p>
+      </div>
+      <div class="section_content">
+        <div class="text_field">
+          <h5 class="field_title">Has the camper had a history of any of the following:</h5>
+          <p class="hint_text">(Please check all that apply.)</p>
+          {{ form.camper_mental_health_history_choices }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Please provide explanation for any checked items:</h5>
+          {{ form.provide_explanation_for_any_checked_mental_illness_items }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Please list any triggers we should be aware of:</h5>
+          {{ form.does_camper_have_any_triggers_to_be_aware_of }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title">Please list any positive coping skills the camper may use:</h5>
+          {{ form.does_camper_have_positive_coping_skills_to_use }}
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="section6" class="section">
+      <div class="section_header">
+        <h3>SECTION 6 - Authorizations</h3>
+        <p><a class="form_nav" href="#top_of_page">Jump to Top</a></p>
+      </div>
+      <div class="section_content">
+        <div class="text_field">
+          <h5 class="field_title bold underline text-center">Consent for Medication Administration and to Give Over-The-Counter Medication</h5>
+          <p class="hint_text">I request the authorized ASPYRE staff members to administer medication or supervise the camper in self-administration as prescribed by the camper’s physician. I certify that I have the legal authority to consent to medical treatment for the
+            camper, including the administration of medication at the facility. Additionally, I authorize ASPYRE staff members to administer the following over the counter medications listed below to the camper at the request of the camper.</p>
+          <p class="hint_text">I understand that the end of the authorized period I will be responsible for picking up any remaining medications, otherwise the medications will be discarded. I authorize camp personnel to communicate with the prescriber as allowed by HIPAA.</p>
+          {{ form.guardian_authorized_over_counter_medications_choices }}
+        </div>
+        <div class="text_field">
+          <h5 class="field_title bold underline text-center">Photo Release</h5>
+        </div>
+        <div class="text_field">
+          <p class="hint_text">We understand ASPYRE will be taking photographs and/or taking video footage of youth during ASPYRE camp activities. ASPYRE has permission to publish my/my camper’s photograph in ASPYRE publications and outreach materials. ASPYRE has permission
+            to use video of the camper on the ASPYRE Instagram, or in other ASPYRE materials.</p>
+        </div>
+        <div class="text_field">
+          <p class="hint_text">{{ form.guardian_or_18yr_old_consent_to_photo_release }} I agree with the statement above.</p>
+        </div>
+      </div>
+    </section>
+    <div class="divider"></div>
+    <div class="save_submit_button_container">
+      <button class="submit_button" formmethod="POST" type="submit">SUBMIT</button>
+    </div>
+
+  </form>
 </div>
 
 {% endblock %}
