@@ -6,7 +6,7 @@
 {% block content %}
 <form class="login_form" method="post" action="">
     {% csrf_token %}
-    {{ form. }}
+    {{ form.as_p }}
     <input type="submit" value="{% trans 'Log in' %}" />
     <input type="hidden" name="next" value="{{ next }}" />
 </form>
