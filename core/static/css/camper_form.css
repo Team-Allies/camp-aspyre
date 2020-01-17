@@ -26,6 +26,31 @@ body {
   width: fit-content;
 }
 
+button {
+  padding-top: 0.5rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  padding-bottom: 0.5rem;
+  font-size: 1.2rem;
+  border-radius: 0.2rem;
+  color: white;
+  background-color: #3974e9;
+  border-top: 1px solid #204ba1;
+  border-left: 3px solid #204ba1;
+  border-right: 1.7px solid #204ba1;
+  border-bottom: 5px solid #204ba1;
+  text-shadow: -3px 3px 5px rgba(0, 0, 0, 0.692);
+}
+
+button:active {
+  transform: scale(0.9);
+  background-color: #2b57ad;
+}
+
+button:focus {
+  outline: none;
+}
+
 
 /*|=====| Class to apply to any text for bold |=====|*/
 
@@ -357,7 +382,7 @@ body {
 .save_submit_button_container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-right: 1rem;
 }
 
@@ -365,34 +390,7 @@ body {
 /*|=====| Styling for submit button at the bottom of the form |=====|*/
 
 .submit_button {
-  background-color: #3974e9;
-  color: white;
-  border: 2px solid #0d204b;
-  font-size: 1.3rem;
-  margin-top: 2rem;
-  margin-left: 1rem;
-  padding-top: 0.2rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  padding-bottom: 0.2rem;
-  border-radius: 0.5rem;
-}
-
-
-/*|=====| Styling for save button at the bottom of the form |=====|*/
-
-.save_button {
-  background-color: #3974e9;
-  color: white;
-  border: 2px solid #0d204b;
-  font-size: 1.3rem;
-  margin-top: 2rem;
-  margin-left: 1rem;
-  padding-top: 0.2rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  padding-bottom: 0.2rem;
-  border-radius: 0.5rem;
+  margin: 1rem;
 }
 
 .fancy_divider_container {
@@ -457,4 +455,15 @@ body {
 
 .medicalFormImage {
   width: 500px;
+}
+
+.login_form {
+  margin-top: 0.5rem;
+  margin-left: 3rem;
+}
+
+.scholarship_button_container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }
