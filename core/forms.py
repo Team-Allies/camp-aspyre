@@ -24,7 +24,7 @@ class CamperRegistrationForm(forms.Form):
   what_does_the_camper_want_to_gain_from_the_camp = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   does_camper_have_any_dietary_restrictions = forms.CharField(max_length=255, required=False, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   does_the_camper_have_any_disabilities = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  any_additional_accommodations_needed = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  any_additional_accommodations_needed = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   does_the_camper_have_any_sponsoring_organizations = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   TSHIRT_SIZE_CHOICES = (
       ('XS', 'XS'),
@@ -74,32 +74,32 @@ class CamperMedicalForm(forms.Form):
       ('Cell', 'Cell'),
   )
   first_guardian_home_work_or_cell = forms.ChoiceField(choices=FIRST_GUARDIAN_HOME_WORK_CELL, widget=forms.RadioSelect(attrs={'class':'radio_field_input'}))
-  second_guardian_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  second_guardian_phone_number = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  second_guardian_name = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  second_guardian_phone_number = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   SECOND_GUARDIAN_HOME_WORK_CELL = (
       ('Home', 'Home'),
       ('Work', 'Work'),
       ('Cell', 'Cell'),
   )
-  second_guardian_home_work_or_cell = forms.ChoiceField(choices=SECOND_GUARDIAN_HOME_WORK_CELL, widget=forms.RadioSelect(attrs={'class':'radio_field_input'}))
-  emergency_contact_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  emergency_contact_phone_number = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  second_guardian_home_work_or_cell = forms.ChoiceField(required=False, choices=SECOND_GUARDIAN_HOME_WORK_CELL, widget=forms.RadioSelect(attrs={'class':'radio_field_input'}))
+  emergency_contact_name = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  emergency_contact_phone_number = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   EMERGENCY_CONTACT_HOME_WORK_CELL = (
       ('Home', 'Home'),
       ('Work', 'Work'),
       ('Cell', 'Cell'),
   )
-  emergency_home_work_cell = forms.ChoiceField(choices=EMERGENCY_CONTACT_HOME_WORK_CELL, widget=forms.RadioSelect(attrs={'class':'radio_field_input'}))
+  emergency_home_work_cell = forms.ChoiceField(required=True, choices=EMERGENCY_CONTACT_HOME_WORK_CELL, widget=forms.RadioSelect(attrs={'class':'radio_field_input'}))
   CAN_BE_PICKED_UP_BY_GUARDIAN_OR_EMERGENCY_CONTACT = (
       ('Yes', 'Yes'),
       ('No', 'No'),
   )
   can_camper_be_picked_up_by_guardian_or_emergency_contact = forms.ChoiceField(choices=CAN_BE_PICKED_UP_BY_GUARDIAN_OR_EMERGENCY_CONTACT, widget=forms.RadioSelect(attrs={'class':'radio_field_input'}))
-  any_unauthorized_persons_that_can_pick_up_camper = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  any_unauthorized_persons_that_can_pick_up_camper = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   first_authorized_persons_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   first_authorized_persons_phone = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  second_authorized_persons_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  second_authorized_persons_phone = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  second_authorized_persons_name = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  second_authorized_persons_phone = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   family_physician_NP_PA_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   family_physician_NP_PA_phone_number = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   mental_healthcare_provider_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
@@ -113,47 +113,47 @@ class CamperMedicalForm(forms.Form):
   )
   will_camper_take_medication_while_at_camp = forms.ChoiceField(choices=TAKING_MEDICATION_WHILE_AT_CAMP_YES_OR_NO, widget=forms.RadioSelect(attrs={'class':'radio_field_input'}))
   
-  first_medication_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  first_medication_dose = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  first_medication_times = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  first_medication_reason_for_taking = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  first_medication_prescriber_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  first_medication_prescriber_phone_number = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  first_medication_name = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  first_medication_dose = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  first_medication_times = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  first_medication_reason_for_taking = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  first_medication_prescriber_name = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  first_medication_prescriber_phone_number = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   
-  second_medication_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  second_medication_dose = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  second_medication_times = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  second_medication_reason_for_taking = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  second_medication_prescriber_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  second_medication_prescriber_phone_number = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  second_medication_name = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  second_medication_dose = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  second_medication_times = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  second_medication_reason_for_taking = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  second_medication_prescriber_name = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  second_medication_prescriber_phone_number = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   
-  third_medication_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  third_medication_dose = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  third_medication_times = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  third_medication_reason_for_taking = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  third_medication_prescriber_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  third_medication_prescriber_phone_number = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  third_medication_name = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  third_medication_dose = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  third_medication_times = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  third_medication_reason_for_taking = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  third_medication_prescriber_name = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  third_medication_prescriber_phone_number = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   
-  fourth_medication_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  fourth_medication_dose = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  fourth_medication_times = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  fourth_medication_reason_for_taking = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  fourth_medication_prescriber_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  fourth_medication_prescriber_phone_number = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  fourth_medication_name = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  fourth_medication_dose = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  fourth_medication_times = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  fourth_medication_reason_for_taking = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  fourth_medication_prescriber_name = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  fourth_medication_prescriber_phone_number = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
 
-  fifth_medication_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  fifth_medication_dose = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  fifth_medication_times = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  fifth_medication_reason_for_taking = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  fifth_medication_prescriber_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  fifth_medication_prescriber_phone_number = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  fifth_medication_name = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  fifth_medication_dose = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  fifth_medication_times = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  fifth_medication_reason_for_taking = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  fifth_medication_prescriber_name = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  fifth_medication_prescriber_phone_number = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
 
-  sixth_medication_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  sixth_medication_dose = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  sixth_medication_times = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  sixth_medication_reason_for_taking = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  sixth_medication_prescriber_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
-  sixth_medication_prescriber_phone_number = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  sixth_medication_name = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  sixth_medication_dose = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  sixth_medication_times = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  sixth_medication_reason_for_taking = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  sixth_medication_prescriber_name = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
+  sixth_medication_prescriber_phone_number = forms.CharField(required=False, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
 
 #|=====| Section 3 - DIETARY PREFERENCES/ALLERGIES |=====|#
   DIETARY_PREFERENCE_CHOICES = (
@@ -164,8 +164,8 @@ class CamperMedicalForm(forms.Form):
     ('Gluten-free','Gluten-free'),
   )
   camper_dietary_preference_choices = forms.MultipleChoiceField(choices=DIETARY_PREFERENCE_CHOICES, required=False, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
-  does_camper_have_any_food_allergies = forms.CharField(required=True, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  does_camper_have_any_drug_other_allergies = forms.CharField(required=True, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  does_camper_have_any_food_allergies = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  does_camper_have_any_drug_other_allergies = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
 
 #|=====| Section 4 - PHYSICAL HEALTH HISTORY/IMMUNIZATIONS |=====|#
 
@@ -203,7 +203,7 @@ class CamperMedicalForm(forms.Form):
   )
   camper_physical_health_history_choices = forms.MultipleChoiceField(choices=CAMPER_PHYSICAL_HEALTH_HISTORY_CHOICES, required=False, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
   explain_any_other_unlisted_medical_history = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  provide_explanation_of_any_checked_medical_history_items = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  provide_explanation_of_any_checked_medical_history_items = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   any_physical_activities_to_be_limited_or_restricted = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
   month_and_year_of_diphtheria_or_tetanus_immunization = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
   month_and_year_of_tetanus_booster_immunization = forms.CharField(required=True, max_length=255, widget=forms.TextInput(attrs={'class':'text_field_input'}))
@@ -225,7 +225,7 @@ class CamperMedicalForm(forms.Form):
     ('Negative', 'Negative'),
   )
   was_tuberculin_test_positive_or_negative = forms.ChoiceField(required=True, choices=TUBERCULIN_TEST_POSITIVE_OR_NEGATIVE, widget=forms.RadioSelect(attrs={'class':'radio_field_input'}))
-  any_other_unlisted_immunizations = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  any_other_unlisted_immunizations = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
 
 #|=====| Section 5 - MENTAL HEALTH HISTORY |=====|#
 
@@ -247,8 +247,8 @@ class CamperMedicalForm(forms.Form):
   )
   camper_mental_health_history_choices = forms.MultipleChoiceField(choices=MENTAL_HEALTH_HISTORY_CHOICES, required=False, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
   provide_explanation_for_any_checked_mental_illness_items = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
-  does_camper_have_any_triggers_to_be_aware_of = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'text_field_input'}))
-  does_camper_have_positive_coping_skills_to_use = forms.CharField(max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
+  does_camper_have_any_triggers_to_be_aware_of = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'text_field_input'}))
+  does_camper_have_positive_coping_skills_to_use = forms.CharField(required=False, max_length=255, widget=forms.Textarea(attrs={'class':'textarea_field_input'}))
 
 #|=====| Section 6 - AUTHORIZATIONS |=====|#
   
@@ -263,7 +263,7 @@ class CamperMedicalForm(forms.Form):
     ('I consent for all of the above', 'I consent for all of the above'),
     ('I do not want any over the counter medications to be given', 'I do not want any over the counter medications to be given'),
   )
-  guardian_authorized_over_counter_medications_choices = forms.MultipleChoiceField(choices=AUTHORIZED_OVER_COUNTER_MEDICATIONS_CHOICES, required=False, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
+  guardian_authorized_over_counter_medications_choices = forms.MultipleChoiceField(choices=AUTHORIZED_OVER_COUNTER_MEDICATIONS_CHOICES, required=True, widget=forms.CheckboxSelectMultiple(attrs={'class':'radio_field_input'}))
 
   guardian_or_18yr_old_consent_to_photo_release = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={'class':'boolean_field_input'}))
 
