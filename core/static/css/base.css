@@ -5,9 +5,7 @@
 }
 
 body {
-  width: 100%;
   height: 100%;
-  width: fit-content;
 }
 
 
@@ -17,7 +15,8 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  width: 100%;
+  min-width: fit-content;
+  width: 100vw;
   height: auto;
   background-color: #0090db;
   padding-bottom: 0rem;
@@ -35,21 +34,21 @@ body {
 }
 
 .logo_image_wrapper_ifLoggedOut {
-  margin-top: 4.2rem;
+  margin-top: 2rem;
   margin-bottom: auto;
 }
 
 .group_image_wrapper_ifLoggedOut {
-  margin-left: 1rem;
-  width: 900px;
+  margin-left: 10rem;
+  width: auto;
 }
 
 .aspyre_logo_ifLoggedOut {
-  width: 100%;
+  width: 400px;
 }
 
 .aspyre_students_image_ifLoggedOut {
-  width: 100%;
+  width: 500px;
   border-radius: 200rem;
 }
 
@@ -63,7 +62,6 @@ body {
 .login_title_container_ifLoggedOut {
   text-align: center;
   font-size: 1.5rem;
-  width: 40rem;
   margin-left: 20%;
   margin-right: auto;
 }
@@ -71,7 +69,6 @@ body {
 .link_container_ifLoggedOut {
   text-align: center;
   font-size: 1.3rem;
-  width: 25rem;
   margin-left: 30%;
   margin-right: auto;
 }
